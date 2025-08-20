@@ -36,8 +36,12 @@
         .nav-link, .nav-indicator {
             transition: all 0.2s ease-in-out;
         }
-        /* Group hover effect for publications */
-        .publication-card:hover .publication-title {
+        /* Group hover effect for publications and cards */
+        .group-hover-effect:hover {
+            border-color: #7dd3fc; /* border-sky-200 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .group-hover-effect:hover .group-hover-effect-title {
             color: #0ea5e9; /* text-sky-500 */
         }
     </style>
@@ -48,10 +52,12 @@
     <div id="tsparticles"></div>
 
     <!-- Main container for two-column layout -->
-    <div class="max-w-screen-xl mx-auto md:flex">
+    <div class="max-w-screen-xl mx-auto md:flex group/spotlight">
+        <!-- Spotlight Effect Div -->
+        <div id="spotlight" class="pointer-events-none fixed inset-0 z-30 transition duration-300" style="background: radial-gradient(600px circle at 0px 0px, rgba(14, 165, 233, 0.1), transparent 80%);"></div>
 
         <!-- Left-side Fixed Panel -->
-        <header class="md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between">
+        <header class="md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between z-40">
             <div>
                 <!-- Profile Info -->
                 <div class="text-center md:text-left">
@@ -91,7 +97,7 @@
         </header>
 
         <!-- Right-side Scrollable Content -->
-        <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12">
+        <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 z-10">
             <div class="max-w-3xl">
                 <!-- About Me Section -->
                 <section id="about" class="mb-24 scroll-mt-24">
@@ -108,16 +114,16 @@
                 <section id="research" class="mb-24 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Research Interests</h2>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200">
-                             <h3 class="text-lg font-bold mb-2 text-slate-900">Metaphor & Sarcasm Detection</h3>
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                             <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Metaphor & Sarcasm Detection</h3>
                             <p class="text-slate-600">Developing multi-modal models that leverage textual and acoustic cues to improve the detection of non-literal language.</p>
                         </div>
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200">
-                            <h3 class="text-lg font-bold mb-2 text-slate-900">Low-Resource Language Understanding</h3>
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                            <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Low-Resource Language Understanding</h3>
                             <p class="text-slate-600">Utilizing transfer learning and few-shot techniques to build effective NLP models for languages with limited data.</p>
                         </div>
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200">
-                            <h3 class="text-lg font-bold mb-2 text-slate-900">Explainable AI (XAI) for NLP</h3>
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                            <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Explainable AI (XAI) for NLP</h3>
                             <p class="text-slate-600">Investigating methods to make large language models more transparent and interpretable.</p>
                         </div>
                     </div>
@@ -127,19 +133,19 @@
                 <section id="publications" class="mb-24 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Selected Publications</h2>
                     <div class="space-y-4">
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all publication-card">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
                             <p class="font-semibold text-slate-500 text-sm mb-1">ACL 2024</p>
-                            <h3 class="font-bold text-lg text-slate-900 publication-title transition-colors">"Hearing the Irony: An Acoustic-Textual Approach to Sarcasm"</h3>
+                            <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Hearing the Irony: An Acoustic-Textual Approach to Sarcasm"</h3>
                             <p class="text-slate-600 text-sm"><strong>Jane Doe</strong>, John Smith, and Alan Turing</p>
                         </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all publication-card">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
                             <p class="font-semibold text-slate-500 text-sm mb-1">EMNLP 2023</p>
-                            <h3 class="font-bold text-lg text-slate-900 publication-title transition-colors">"Few-Shot Learning for Underrepresented Languages"</h3>
+                            <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Few-Shot Learning for Underrepresented Languages"</h3>
                             <p class="text-slate-600 text-sm">John Smith, <strong>Jane Doe</strong>, and Alan Turing</p>
                         </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 hover:shadow-lg hover:border-sky-300 transition-all publication-card">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
                             <p class="font-semibold text-slate-500 text-sm mb-1">NeurIPS 2022</p>
-                            <h3 class="font-bold text-lg text-slate-900 publication-title transition-colors">"Probing the Black Box: Interpretability in Transformer Models"</h3>
+                            <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Probing the Black Box: Interpretability in Transformer Models"</h3>
                             <p class="text-slate-600 text-sm"><strong>Jane Doe</strong>, and Alan Turing</p>
                         </a>
                     </div>
@@ -165,6 +171,13 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     
     <script>
+        // Spotlight effect
+        const spotlight = document.getElementById('spotlight');
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            spotlight.style.background = `radial-gradient(600px circle at ${clientX}px ${clientY}px, rgba(14, 165, 233, 0.1), transparent 80%)`;
+        });
+
         // Scroll-spy for navigation
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('#desktop-nav a');
