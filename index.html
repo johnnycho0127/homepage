@@ -66,7 +66,7 @@
             <div class="relative z-10 flex flex-col justify-between h-full">
                 <div>
                     <!-- Profile Info -->
-                    <div>
+                    <div class="text-center">
                         <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
                          <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Yeonhee (Johnny) Cho</h1>
                         <p class="text-lg text-slate-300 mt-3">PhD Candidate in Information Science</p>
@@ -76,17 +76,17 @@
                     </div>
 
                     <!-- Navigation -->
-                    <nav class="hidden md:block mt-16">
+                    <nav class="hidden md:block mt-16 text-center">
                         <ul class="space-y-6" id="desktop-nav">
-                            <li><a href="#research-vision" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> RESEARCH VISION</a></li>
-                            <li><a href="#teaching" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> TEACHING</a></li>
-                            <li><a href="#publications" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> PUBLICATIONS</a></li>
+                            <li><a href="#research-vision" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group justify-center"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> RESEARCH VISION</a></li>
+                            <li><a href="#teaching" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group justify-center"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> TEACHING</a></li>
+                            <li><a href="#publications" class="nav-link text-slate-400 hover:text-slate-50 font-bold flex items-center group justify-center"><span class="nav-indicator w-8 h-px bg-slate-600 mr-4 group-hover:bg-slate-50"></span> PUBLICATIONS</a></li>
                         </ul>
                     </nav>
                 </div>
                 
                 <!-- Socials & CV -->
-                <div class="mt-8 md:mt-0">
+                <div class="mt-8 md:mt-0 text-center">
                      <div class="flex justify-center space-x-5 mb-6">
                         <a href="#" class="text-slate-400 hover:text-teal-400 transition-colors" aria-label="Google Scholar">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
@@ -161,26 +161,43 @@
                         <button class="filter-tag bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm" data-filter="hci">HCI</button>
                     </div>
                     <div class="space-y-4">
-                        <a href="#" class="block p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="esports">
+                        <div class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="esports">
                             <p class="font-semibold text-slate-500 text-sm mb-1">CHI PLAY 2024</p>
                             <h3 class="font-bold text-lg text-slate-900 card-title transition-colors">You Are Tilted!: Leveraging Tabletop Gaming to Manage Tilt and Strengthen Team Dynamics in Esports</h3>
-                            <p class="text-slate-600 text-sm"><strong>Y. Cho</strong>, M. Newman, C. Pitt, J. C. Yip, & J. H. Lee</p>
-                        </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="misinformation">
+                            <p class="text-slate-600 text-sm mb-4"><strong>Y. Cho</strong>, M. Newman, C. Pitt, J. C. Yip, & J. H. Lee</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm bg-teal-100 text-teal-800 font-semibold px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">Paper</a>
+                                <a href="#" class="text-sm bg-gray-200 text-gray-800 font-semibold px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">Video</a>
+                                <a href="#" class="text-sm bg-gray-200 text-gray-800 font-semibold px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">PPT</a>
+                                <a href="#" class="text-sm bg-gray-200 text-gray-800 font-semibold px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">DOI</a>
+                            </div>
+                        </div>
+                        <div class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="misinformation">
                             <p class="font-semibold text-slate-500 text-sm mb-1">Journal of Librarianship and Information Science 2023</p>
                             <h3 class="font-bold text-lg text-slate-900 card-title transition-colors">The Use of an Escape Room as an Immersive Learning Environment for Building Resilience to Misinformation</h3>
-                            <p class="text-slate-600 text-sm"><strong>Y. Cho</strong>, C. Coward, J. Lackner, T. W. Windleharth & J. Lee</p>
-                        </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="hci">
+                            <p class="text-slate-600 text-sm mb-4"><strong>Y. Cho</strong>, C. Coward, J. Lackner, T. W. Windleharth & J. Lee</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm bg-teal-100 text-teal-800 font-semibold px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">Paper</a>
+                                <a href="#" class="text-sm bg-gray-200 text-gray-800 font-semibold px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">DOI</a>
+                            </div>
+                        </div>
+                        <div class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="hci">
                             <p class="font-semibold text-slate-500 text-sm mb-1">Behaviour & Information Technology 2023</p>
                             <h3 class="font-bold text-lg text-slate-900 card-title transition-colors">Conducting online participatory design from the United States with children in South Korea with a focus on cultural awareness</h3>
-                            <p class="text-slate-600 text-sm">K. J. Lee, S. Na, H.C. Wang, H. Park, M. Jo, <strong>Y. Cho</strong>, Y. Jung, G. Park, J. H. Lee & J. Yip</p>
-                        </a>
-                         <a href="#" class="block p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="vr-ar">
+                            <p class="text-slate-600 text-sm mb-4">K. J. Lee, S. Na, H.C. Wang, H. Park, M. Jo, <strong>Y. Cho</strong>, Y. Jung, G. Park, J. H. Lee & J. Yip</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm bg-teal-100 text-teal-800 font-semibold px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">Paper</a>
+                                <a href="#" class="text-sm bg-gray-200 text-gray-800 font-semibold px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">DOI</a>
+                            </div>
+                        </div>
+                         <div class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-category="vr-ar">
                             <p class="font-semibold text-slate-500 text-sm mb-1">iLRN 2022</p>
                             <h3 class="font-bold text-lg text-slate-900 card-title transition-colors">Research Based on Affective Filter Theory: Is Social VR an Effective Tool for Learning a Second Language?</h3>
-                            <p class="text-slate-600 text-sm"><strong>Y. Cho</strong>, H. N. Hsu, Z. Zheng, E. E. Trinh, H. Jang, & Y. Cheng</p>
-                        </a>
+                            <p class="text-slate-600 text-sm mb-4"><strong>Y. Cho</strong>, H. N. Hsu, Z. Zheng, E. E. Trinh, H. Jang, & Y. Cheng</p>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-sm bg-teal-100 text-teal-800 font-semibold px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">Paper</a>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 
