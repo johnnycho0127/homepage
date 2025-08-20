@@ -44,6 +44,16 @@
         .group-hover-effect:hover .group-hover-effect-title {
             color: #0ea5e9; /* text-sky-500 */
         }
+        /* Styles for the new scroll animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -114,15 +124,15 @@
                 <section id="research" class="mb-24 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Research Interests</h2>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                              <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Metaphor & Sarcasm Detection</h3>
                             <p class="text-slate-600">Developing multi-modal models that leverage textual and acoustic cues to improve the detection of non-literal language.</p>
                         </div>
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                             <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Low-Resource Language Understanding</h3>
                             <p class="text-slate-600">Utilizing transfer learning and few-shot techniques to build effective NLP models for languages with limited data.</p>
                         </div>
-                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect">
+                        <div class="bg-white/60 backdrop-blur-sm p-6 rounded-lg border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                             <h3 class="text-lg font-bold mb-2 text-slate-900 transition-colors group-hover-effect-title">Explainable AI (XAI) for NLP</h3>
                             <p class="text-slate-600">Investigating methods to make large language models more transparent and interpretable.</p>
                         </div>
@@ -133,17 +143,17 @@
                 <section id="publications" class="mb-24 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Selected Publications</h2>
                     <div class="space-y-4">
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                             <p class="font-semibold text-slate-500 text-sm mb-1">ACL 2024</p>
                             <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Hearing the Irony: An Acoustic-Textual Approach to Sarcasm"</h3>
                             <p class="text-slate-600 text-sm"><strong>Jane Doe</strong>, John Smith, and Alan Turing</p>
                         </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                             <p class="font-semibold text-slate-500 text-sm mb-1">EMNLP 2023</p>
                             <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Few-Shot Learning for Underrepresented Languages"</h3>
                             <p class="text-slate-600 text-sm">John Smith, <strong>Jane Doe</strong>, and Alan Turing</p>
                         </a>
-                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect">
+                        <a href="#" class="block p-6 rounded-lg bg-white/60 backdrop-blur-sm border border-slate-200 transition-all group-hover-effect animate-on-scroll">
                             <p class="font-semibold text-slate-500 text-sm mb-1">NeurIPS 2022</p>
                             <h3 class="font-bold text-lg text-slate-900 transition-colors group-hover-effect-title">"Probing the Black Box: Interpretability in Transformer Models"</h3>
                             <p class="text-slate-600 text-sm"><strong>Jane Doe</strong>, and Alan Turing</p>
@@ -198,6 +208,26 @@
                 }
             });
         });
+
+        // Animate on scroll for cards
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add a staggered delay
+                    entry.target.style.transitionDelay = `${index * 100}ms`;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Optional: stop observing once visible
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
 
         // tsParticles initialization
         window.addEventListener('load', () => {
