@@ -67,7 +67,7 @@
                 <div>
                     <!-- Top Navigation -->
                     <div class="mb-8">
-                        <a href="https://johnnycho.info" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md">Home</a>
+                        <a href="#" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md">Home</a>
                         <a href="https://johnnycho.info/project.html" target="_blank" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md ml-2">Projects</a>
                     </div>
 
@@ -342,12 +342,86 @@
 
       </div>
     </div>
+                   <footer class="text-center text-slate-500 text-sm py-8">
+                    &copy; 2025 Yeonhee (Johnny) Cho.
+                </footer>
+            </div>
+        </main>
 
-    <!-- View all -->
-    <div class="text-center">
-      <a href="https://johnnycho0127.wixsite.com/johnny" target="_blank" class="inline-block bg-slate-200 text-slate-800 font-bold text-lg py-3 px-8 rounded-lg hover:bg-slate-900 hover:text-white transition-all shadow-md">View All Projects</a>
-    </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    
+    <script>
+        // Scroll-spy for navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('#desktop-nav a.nav-link'); // More specific selector
 
-  </div>
-</section>
+        window.addEventListener('scroll', () => {
+            let current = 'about'; // Default to 'about'
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) { // Adjust offset
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+
+        // Publication filter
+        const filterTags = document.querySelectorAll('#publications .filter-tag');
+        const publications = document.querySelectorAll('#publications .card-hover');
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const filter = tag.dataset.filter;
+
+                // Update active tag
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+
+                // Filter publications
+                publications.forEach(pub => {
+                    if (filter === 'all' || pub.dataset.category === filter) {
+                        pub.style.display = 'block';
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // tsParticles Neural Network Initialization
+        window.addEventListener('load', () => {
+            tsParticles.load("tsparticles-header", {
+                fpsLimit: 60,
+                fullScreen: { enable: false }, // This confines the effect
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#94a3b8" }, // slate-400
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 2, random: { enable: true, minimumValue: 1 } },
+                    links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
+                    move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
+                },
+                interactivity: {
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                    modes: { 
+                        repulse: { distance: 100 },
+                        push: { particles_nb: 4 } 
+                    }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
+</body>
+</html>
 
