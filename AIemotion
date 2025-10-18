@@ -1,0 +1,127 @@
+<head>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto p-6 md:p-8 lg:p-12">
+
+        <!-- Project Intro -->
+        <section id="intro" class="mb-12 md:mb-16">
+            <div class="grid md:grid-cols-5 gap-8 items-center">
+                <div class="md:col-span-3">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">The Feel-Better Sticker</h2>
+                    <p class="text-lg leading-relaxed text-slate-700 mb-6">
+                        This project explores how AI can support children’s emotional reflection and empathy through playful, creative tools. Children ages 6–12 designed digital “feel-better” stickers using their own stories and emotions, blending AI image generation and tangible making.
+                    </p>
+                    <a href="https://feel-better-sticker.replit.app/" target="_blank" class="inline-block bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-all shadow-md">View Live Demo</a>
+                </div>
+                <div class="md:col-span-2">
+                    <img src="https://placehold.co/600x400/14b8a6/white?text=Project+Image" alt="AI Emotional Sticker Project Mockup" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Goals -->
+        <section id="goals" class="mb-12 md:mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">1. Research Goal</h3>
+            <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
+                <li>To explore how AI tools can facilitate children’s emotional self-expression and peer empathy.</li>
+                <li>To investigate how playful, tangible creation (stickers, drawings) supports emotional understanding.</li>
+                <li>To give children agency in co-creating with AI and reflecting on how technology interprets feelings.</li>
+            </ul>
+        </section>
+
+        <!-- Design Process -->
+        <section id="process" class="mb-12 md:mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">2. Design Process</h3>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Self)</h4>
+                    <p class="text-lg text-slate-700 mb-4">Children created stickers about their own emotional experiences through a guided workflow:</p>
+                    <ol class="list-decimal list-outside space-y-3 pl-5 text-lg text-slate-700 bg-slate-100 p-6 rounded-lg">
+                        <li><strong>Draw a feeling story:</strong> Illustrate a real emotional moment (sad, angry, scared, worried, lonely).</li>
+                        <li><strong>Share with AI:</strong> Upload the drawing and emotion description into a web-based AI tool.</li>
+                        <li><strong>Generate comforting sticker & message:</strong> AI produced a visual sticker and a short supportive message.</li>
+                        <li><strong>Regenerate & refine (optional):</strong> Children could adjust the image or message.</li>
+                        <li><strong>Print & personalize:</strong> Final stickers were printed and decorated for sharing or keeping.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Peer)</h4>
+                    <p class="text-lg text-slate-700">To foster empathy, children also created stickers for each other. Each child listened to a peer’s story and generated a sticker and message for that friend. They then compared their designs (self vs. peer) and discussed differences, sparking reflection on empathy and perspective-taking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Overview -->
+        <section id="tech" class="mb-12 md:mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">3. Technical Overview</h3>
+            <div class="bg-gray-800 text-slate-200 p-6 rounded-lg shadow-lg">
+                <p class="text-lg mb-4">The AI sticker tool was a web-based prototype built on Replit using React/Node.js. It interacted with several OpenAI and Google AI models via APIs.</p>
+                <ol class="list-decimal list-outside space-y-4 pl-5 text-base">
+                    <li><strong>Input Upload:</strong> A child participant uploaded a picture of their activity sheet, selected an emotion, and wrote a text description.</li>
+                    <li><strong>Initial Content Generation:</strong>
+                        <ul class="list-disc list-outside pl-5 mt-2 space-y-2">
+                            <li><strong>ChatGPT 4o:</strong> Generated a supportive message, an emotion description, and an image prompt.</li>
+                            <li><strong>DALL·E 3:</strong> Generated the sticker from the image prompt.</li>
+                            <li><strong>Safety Checks:</strong> OpenAI’s moderation models were used throughout.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Display:</strong> The app displayed the generated sticker, message, and emotion description.</li>
+                    <li><strong>Regeneration (Optional):</strong> The child could provide additional instructions to refine the output.
+                        <ul class="list-disc list-outside pl-5 mt-2 space-y-2">
+                            <li><strong>Message:</strong> Regenerated using ChatGPT 4o with the original input plus new instructions.</li>
+                            <li><strong>Sticker:</strong> Users could create a new sticker (DALL·E 3) or modify the existing one (Gemini 2.0 Flash).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Display Regenerated Content:</strong> The app updated to show the new sticker and/or message.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Findings -->
+        <section id="findings" class="mb-12 md:mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">4. Findings</h3>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-bold text-teal-600 mb-2">Ownership & Joy</h4>
+                    <p class="text-slate-700">Children expressed pride in making something uniquely theirs, often asking, “Can we make another one!?”</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-bold text-teal-600 mb-2">Creativity as Coping</h4>
+                    <p class="text-slate-700">Humor and playful AI mistakes helped reframe emotional discomfort into a fun, creative activity.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-bold text-teal-600 mb-2">Agency Through Design</h4>
+                    <p class="text-slate-700">Kids customized stickers with favorite elements, showing AI as a partner in creativity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Insights -->
+        <section id="insights" class="mb-12 md:mb-16">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">5. Research Insights</h3>
+             <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
+                <li><strong>Playful Emotional Learning:</strong> AI can act as a mirror and mediator of feelings, turning introspection into a game.</li>
+                <li><strong>Empathy through Co-creation:</strong> The act of making something for a peer deepened emotional understanding and connection.</li>
+                <li><strong>The Campfire Effect:</strong> Group sharing fostered a sense of emotional safety and curiosity, creating a space where children reflected together.</li>
+            </ul>
+        </section>
+
+        <!-- Reflection -->
+        <section id="reflection" class="mb-12 md:mb-16">
+             <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">6. My Role & Reflection</h3>
+             <div class="bg-slate-100 border-l-4 border-teal-500 p-6 rounded-r-lg">
+                <p class="text-lg italic text-slate-800 leading-relaxed">
+                    "As the lead researcher, I co-designed the AI tool and study activities, facilitated children’s sessions, and analyzed how technology mediates emotional meaning-making. This work informs my ongoing research on AI-supported emotional learning and child-centered digital well-being."
+                </p>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-800 text-slate-400 text-center py-6">
+        <p>&copy; 2025 Yeonhee (Johnny) Cho.</p>
+    </footer>
+
+</body>
+</html>
