@@ -108,8 +108,10 @@
                 </div>
             </div>
         </header>
+
+
         <section id="projects" class="mb-16 scroll-mt-24">
-  <!-- Header and Search -->
+  <!-- Header + Search -->
   <div class="flex items-center justify-between gap-3 flex-wrap mb-6">
     <h2 class="text-sm font-bold tracking-widest text-slate-500 uppercase">Projects</h2>
     <input
@@ -124,199 +126,158 @@
 
   <div class="border-l-2 border-slate-200 pl-6 space-y-16">
 
-    <!-- ==================== THEME 1 ==================== -->
+    <!-- ========== THEME 1: SEL & WELL-BEING ========== -->
     <div id="sel-wellbeing">
       <div class="flex items-baseline gap-3 mb-2">
         <h3 class="text-xl font-bold text-slate-900">Social-Emotional Learning & Youth Well-Being</h3>
         <span class="text-[11px] px-2 py-1 rounded-full bg-pink-100 text-pink-700 font-semibold">SEL</span>
       </div>
-      <p class="text-slate-600 mb-6">
-        Designing playful, reflective tools that help children and teens recognize, express, and regulate emotions.
-      </p>
+      <p class="text-slate-600 mb-6">Designing creative, reflective tools that help youth express and regulate emotions.</p>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <!-- AI Emotional Sticker -->
+
+        <!-- AI-Emotional Sticker -->
         <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="AI,SEL,Youth" data-theme="Social-Emotional Learning and Youth Well-Being">
-          <img src="feel.png" alt="AI Emotional Sticker"
-               class="w-full h-40 object-cover rounded-lg mb-4"
-               onerror="this.src='https://placehold.co/640x360/e2e8f0/475569?text=AI-Emotional+Sticker'">
+                 data-tags="AI,SEL,Youth,Emotion" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="feel.png" alt="AI-Emotional Sticker" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">AI-Emotional Sticker</h4>
-          <p class="text-slate-600 text-sm mb-3">Co-creating stickers with AI to support emotional reflection and empathy.</p>
+          <p class="text-slate-600 text-sm mb-3">Children co-create emotional stickers with AI to reflect on feelings and empathy.</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">AI</span>
-            <span class="text-xs bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold">SEL</span>
-            <span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold">Youth</span>
+            <span class="chip bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold" data-term="AI">AI</span>
+            <span class="chip bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold" data-term="SEL">SEL</span>
+            <span class="chip bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold" data-term="Youth">Youth</span>
           </div>
-          <a href="https://feel-better-sticker.replit.app/"
-             class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Demo</a>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://feel-better-sticker.replit.app/" class="bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Demo</a>
+            <a href="https://johnnycho0127.wixsite.com/johnny/copy-of-verse" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Project Site</a>
+            <a href="https://doi.org/10.xxxx/xxxx" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">Publication</a>
+          </div>
         </article>
 
-        <!-- Esports -->
+        <!-- Esports Wellbeing -->
         <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="Games,SEL,Teens" data-theme="Social-Emotional Learning and Youth Well-Being">
-          <img src="esports.png" alt="Esports Digital Wellbeing"
-               class="w-full h-40 object-cover rounded-lg mb-4"
-               onerror="this.src='https://placehold.co/640x360/fef3c7/92400e?text=Esports+Well-Being'">
+                 data-tags="Games,SEL,Teens,Empathy" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="esports.png" alt="Esports Well-Being" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">Esports Digital Mental Well-Being</h4>
-          <p class="text-slate-600 text-sm mb-3">Tabletop game to build emotional resilience and peer empathy with teen players.</p>
+          <p class="text-slate-600 text-sm mb-3">Tabletop roleplay game fostering empathy, resilience, and reflection among teen gamers.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold" data-term="Games">Games</span>
+            <span class="chip bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold" data-term="SEL">SEL</span>
+            <span class="chip bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold" data-term="Teens">Teens</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://chi2025.acm.org" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">Under Review (CHI PLAY)</a>
+          </div>
         </article>
 
-        <!-- Misinformation -->
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all md:col-span-2"
-                 data-tags="Media Literacy,SEL,Games" data-theme="Social-Emotional Learning and Youth Well-Being">
-          <img src="misinformation.png" alt="Misinformation Learning"
-               class="w-full h-40 object-cover rounded-lg mb-4"
-               onerror="this.src='https://placehold.co/1200x360/ffe4e6/9f1239?text=Misinformation+Learning'">
+        <!-- Misinformation Learning -->
+        <article class="project-card md:col-span-2 p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="Media Literacy,SEL,Games,Misinformation" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="misinformation.png" alt="Misinformation Learning" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">Misinformation Learning (Teen SEL + Media Literacy)</h4>
-          <p class="text-slate-600 text-sm mb-3">Game-based activities with SEL-focused debriefs to promote responsible decision-making.</p>
+          <p class="text-slate-600 text-sm mb-3">SEL-based game learning modules teaching empathy and responsible decision-making.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip bg-red-100 text-red-800 px-3 py-1 rounded-full font-semibold" data-term="Media Literacy">Media Literacy</span>
+            <span class="chip bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold" data-term="SEL">SEL</span>
+            <span class="chip bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold" data-term="Games">Games</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://opalsugar.github.io/misinfowb/" class="bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Website</a>
+            <a href="https://lokisloop.org/online-escape-room-games/" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Play Game</a>
+            <a href="https://ssrc.org/data-fluencies/" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">Grant: SSRC 2024</a>
+          </div>
         </article>
       </div>
     </div>
 
-    <!-- ==================== THEME 2 ==================== -->
+    <!-- ========== THEME 2: HCI & XR ========== -->
     <div id="hci-xr-ai">
       <div class="flex items-baseline gap-3 mb-2">
         <h3 class="text-xl font-bold text-slate-900">Human–Computer Interaction with Emerging Technologies (VR/AR/AI)</h3>
         <span class="text-[11px] px-2 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">XR & AI</span>
       </div>
-      <p class="text-slate-600 mb-6">Exploring how immersive and intelligent systems can transform learning, empathy, and human experience.</p>
+      <p class="text-slate-600 mb-6">How immersive and intelligent systems shape learning, empathy, and experience.</p>
 
       <div class="grid md:grid-cols-2 gap-6">
         <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
                  data-tags="VR,Learning,Empathy" data-theme="HCI with Emerging Technologies">
           <img src="socialvr.png" alt="Social VR" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">Social VR for Language Learning</h4>
-          <p class="text-slate-600 text-sm mb-3">Embodied presence for collaborative communication and empathy.</p>
+          <p class="text-slate-600 text-sm mb-3">Embodied collaboration for language learning and cultural empathy.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="chip bg-violet-100 text-violet-800 px-3 py-1 rounded-full font-semibold" data-term="VR">VR</span>
+            <span class="chip bg-lime-100 text-lime-800 px-3 py-1 rounded-full font-semibold" data-term="Learning">Learning</span>
+          </div>
+          <a href="https://ieeexplore.ieee.org/document/9815924" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">IEEE Publication</a>
         </article>
 
         <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="VR,Health,Biofeedback" data-theme="HCI with Emerging Technologies">
-          <img src="gazevr.png" alt="Gaze VR" class="w-full h-40 object-cover rounded-lg mb-4">
+                 data-tags="Biofeedback,Health,VR" data-theme="HCI with Emerging Technologies">
+          <img src="gazevr.png" alt="Gaze/Breath VR" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">Gaze-Based / Breath VR</h4>
-          <p class="text-slate-600 text-sm mb-3">Biofeedback and gaze for mindfulness and health support.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="VR,Memory,Cognition" data-theme="HCI with Emerging Technologies">
-          <img src="vrll.png" alt="VR Memory" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Virtual Reality & Memory Retention</h4>
-          <p class="text-slate-600 text-sm mb-3">Comparing VR vs desktop for recall and motivation.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="VR,UX,Youth" data-theme="HCI with Emerging Technologies">
-          <img src="kidsvr.png" alt="Kids VR" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Kids VR (Child-Centered UX)</h4>
-          <p class="text-slate-600 text-sm mb-3">Designing accessible VR viewers and experiences for children.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="AR,Visualization,Play" data-theme="HCI with Emerging Technologies">
-          <img src="arvis.png" alt="AR-VIS" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">AR-VIS</h4>
-          <p class="text-slate-600 text-sm mb-3">Making invisible phenomena visible with AR visualization.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="AI,Mobile,Learning" data-theme="HCI with Emerging Technologies">
-          <img src="mobile.png" alt="Mobile AI App" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Mobile App (AI Recommendation)</h4>
-          <p class="text-slate-600 text-sm mb-3">Using machine learning for adaptive and creative learning.</p>
+          <p class="text-slate-600 text-sm mb-3">Using gaze and breathing for mindfulness and biofeedback in immersive VR.</p>
         </article>
       </div>
     </div>
 
-    <!-- ==================== THEME 3 ==================== -->
+    <!-- ========== THEME 3: DIGITAL ETHICS ========== -->
     <div id="digital-ethics-info">
       <div class="flex items-baseline gap-3 mb-2">
         <h3 class="text-xl font-bold text-slate-900">Digital Behaviors, Ethics & Information Literacy</h3>
         <span class="text-[11px] px-2 py-1 rounded-full bg-sky-100 text-sky-700 font-semibold">Ethics & MIL</span>
       </div>
-      <p class="text-slate-600 mb-6">
-        Investigating how people engage with information and media—and how design can foster ethical, reflective use.
-      </p>
+      <p class="text-slate-600 mb-6">Exploring how people engage with information and how design can promote ethical, reflective use.</p>
 
       <div class="grid md:grid-cols-2 gap-6">
         <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="Media Literacy,Games" data-theme="Digital Ethics and Information Literacy">
-          <img src="misinformation.png" alt="Media Literacy Game" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Media Literacy: Escape Room Games</h4>
-          <p class="text-slate-600 text-sm mb-3">Interactive misinformation puzzles for critical evaluation.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="AR,Ethics" data-theme="Digital Ethics and Information Literacy">
+                 data-tags="AR,Ethics,Games" data-theme="Digital Ethics and Information Literacy">
           <img src="pokemon.png" alt="Pokémon Ethics" class="w-full h-40 object-cover rounded-lg mb-4">
           <h4 class="font-bold text-lg text-slate-900 mb-1">Pokémon GO: AR Ethical Issues</h4>
-          <p class="text-slate-600 text-sm mb-3">Place, safety, and social implications of location-based AR play.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="Data Literacy,Teaching" data-theme="Digital Ethics and Information Literacy">
-          <img src="datasci.png" alt="Data Science Course" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Data Science Course (R Studio)</h4>
-          <p class="text-slate-600 text-sm mb-3">Cultivating critical data and computational literacy.</p>
-        </article>
-
-        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
-                 data-tags="Health,Ethics,Mobile" data-theme="Digital Ethics and Information Literacy">
-          <img src="phr.png" alt="Personal Health Record" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 mb-1">Personal Health Record (PHR)</h4>
-          <p class="text-slate-600 text-sm mb-3">Exploring personal data management and health information ethics.</p>
+          <p class="text-slate-600 text-sm mb-3">Examining ethical, spatial, and social concerns of augmented reality play.</p>
+          <a href="https://dl.digra.org/index.php/dl/article/view/1902" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">DiGRA Publication</a>
         </article>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ==================== SEARCH SCRIPT ==================== -->
+<!-- ========== SEARCH + CLICKABLE TAG SCRIPT ========== -->
 <script>
 (function () {
   const input = document.getElementById('projectSearch');
   const countEl = document.getElementById('searchCount');
   const cards = Array.from(document.querySelectorAll('article.project-card'));
-
   const index = cards.map(card => {
-    const title = card.querySelector('h4')?.textContent || '';
-    const tags = (card.dataset.tags || '').replace(/,/g, ' ');
-    const theme = card.dataset.theme || '';
-    const body = card.textContent || '';
-    const haystack = [title, tags, theme, body].join(' ').toLowerCase();
-    return { card, haystack };
+    const text = card.textContent.toLowerCase();
+    return { card, text };
   });
 
   function filter(query) {
     const q = query.toLowerCase().trim();
     const tokens = q.split(/\s+/).filter(Boolean);
     let visible = 0;
-
-    index.forEach(({ card, haystack }) => {
-      const match = tokens.every(t => haystack.includes(t));
+    index.forEach(({ card, text }) => {
+      const match = tokens.every(t => text.includes(t));
       card.classList.toggle('hidden', tokens.length && !match);
       if (!tokens.length || match) visible++;
     });
-
-    countEl.textContent = q
-      ? `${visible} result${visible === 1 ? '' : 's'} for “${query}”`
-      : '';
-
-    let empty = document.getElementById('noResults');
-    if (!empty) {
-      empty = document.createElement('div');
-      empty.id = 'noResults';
-      empty.className = 'hidden mt-8 text-center text-slate-500';
-      empty.textContent = 'No matching projects.';
-      document.querySelector('#projects').appendChild(empty);
-    }
-    empty.classList.toggle('hidden', visible !== 0);
+    countEl.textContent = q ? `${visible} result${visible === 1 ? '' : 's'} for “${query}”` : '';
   }
 
   let t;
   input?.addEventListener('input', () => {
     clearTimeout(t);
-    t = setTimeout(() => filter(input.value), 150);
+    t = setTimeout(() => filter(input.value), 120);
+  });
+
+  document.addEventListener('click', e => {
+    const chip = e.target.closest('.chip[data-term]');
+    if (!chip) return;
+    const term = chip.dataset.term;
+    input.value = term;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 })();
 </script>
+
