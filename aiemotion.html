@@ -109,154 +109,233 @@
             </div>
         </header>
 
+<div class="max-w-screen-xl mx-auto md:flex">
 
-<!-- ==================== PROJECT DETAIL: AI EMOTIONAL STICKER ==================== -->
-<section id="ai-emotional-sticker" class="mb-16 scroll-mt-24">
-  <div class="flex items-center justify-between mb-4">
-    <h2 class="text-sm font-bold tracking-widest text-slate-500 uppercase">Project</h2>
-    <a href="#projects" class="text-sm text-teal-600 hover:text-teal-700 font-semibold">← Back to Projects</a>
-  </div>
+  <!-- LEFT: Project Content -->
+  <main class="md:w-2/3 lg:w-3/4 p-6 md:p-8 lg:p-12 bg-slate-50 md:order-1">
 
-  <div class="p-6 rounded-lg bg-white border border-slate-200">
-    <!-- Title + hero -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900">AI-Emotional Sticker</h3>
-      <div class="flex flex-wrap gap-2">
-        <span class="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full">AI</span>
-        <span class="text-xs bg-pink-100 text-pink-800 font-semibold px-3 py-1 rounded-full">SEL</span>
-        <span class="text-xs bg-sky-100 text-sky-800 font-semibold px-3 py-1 rounded-full">Youth</span>
-        <span class="text-xs bg-cyan-100 text-cyan-800 font-semibold px-3 py-1 rounded-full">HCI</span>
+    <!-- Project Intro -->
+    <section id="intro" class="mb-12 md:mb-16">
+      <div class="grid md:grid-cols-5 gap-8 items-center">
+        <div class="md:col-span-3">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">The Feel-Better Sticker</h2>
+          <p class="text-lg leading-relaxed text-slate-700 mb-6">
+            This project explores how AI can support children’s emotional reflection and empathy through playful, creative tools. Children ages 6–12 designed digital “feel-better” stickers using their own stories and emotions, blending AI image generation and tangible making.
+          </p>
+          <!-- SAME TAB: no target="_blank" -->
+          <a href="https://feel-better-sticker.replit.app/"
+             class="inline-block bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-all shadow-md">
+            View Live Demo
+          </a>
+        </div>
+        <div class="md:col-span-2">
+          <img src="https://placehold.co/600x400/14b8a6/white?text=Project+Image"
+               alt="AI Emotional Sticker Project Mockup"
+               class="rounded-lg shadow-xl w-full h-auto">
+        </div>
       </div>
-    </div>
+    </section>
 
-    <p class="text-slate-700 mt-4">
-      The Feel-Better Sticker project explores how AI can support children’s emotional reflection and empathy through playful, creative tools. Children ages 6–12 designed digital “feel-better” stickers using their own stories and emotions, blending AI image generation and tangible making. This work is part of the <em>Emotions at Play</em> research series on AI and Social-Emotional Learning (SEL).
-    </p>
-
-    <!-- Live demo: same tab (or embed) -->
-    <div class="mt-6 flex flex-wrap gap-3">
-      <!-- Same-tab open -->
-      <a href="https://feel-better-sticker.replit.app/" class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 transition-all shadow-md">Open Live Demo</a>
-
-      <!-- Optional EMBED (comment out if you prefer only link) -->
-      <!--
-      <button id="toggle-embed" class="inline-block bg-slate-200 text-slate-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-slate-300 transition-all">Show Embedded Demo</button>
-      -->
-    </div>
-
-    <!-- Optional: Embedded iframe preview -->
-    <!--
-    <div id="embed-wrap" class="mt-4 hidden">
-      <div class="aspect-[16/10] w-full rounded-lg overflow-hidden border border-slate-200">
-        <iframe
-          src="https://feel-better-sticker.replit.app/"
-          class="w-full h-full"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-          sandbox="allow-same-origin allow-scripts allow-forms"
-          title="AI-Emotional Sticker Demo">
-        </iframe>
-      </div>
-      <p class="text-xs text-slate-500 mt-2">Note: Embedded previews may be limited by host policies. If it doesn’t load, use the “Open Live Demo” button.</p>
-    </div>
-    -->
-
-    <!-- 1. Research Goal -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">1. Research Goal</h4>
-      <ul class="list-disc list-inside text-slate-700 mt-2 space-y-1">
-        <li>Explore how AI tools can facilitate children’s emotional self-expression and peer empathy.</li>
-        <li>Investigate how playful, tangible creation (stickers, drawings) supports emotional understanding.</li>
-        <li>Give children agency in co-creating with AI and reflecting on how technology interprets feelings.</li>
+    <!-- Research Goals -->
+    <section id="goals" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">1. Research Goal</h3>
+      <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
+        <li>To explore how AI tools can facilitate children’s emotional self-expression and peer empathy.</li>
+        <li>To investigate how playful, tangible creation (stickers, drawings) supports emotional understanding.</li>
+        <li>To give children agency in co-creating with AI and reflecting on how technology interprets feelings.</li>
       </ul>
-      <!-- Screenshot -->
-      <figure class="mt-4">
-        <img src="screenshots/sticker-hero.png" alt="AI Emotional Sticker screenshot" class="rounded-lg border border-slate-200 w-full object-cover">
-        <figcaption class="text-xs text-slate-500 mt-1">Example output of the AI-Emotional Sticker tool.</figcaption>
-      </figure>
-    </div>
+    </section>
 
-    <!-- 2. Design Process -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">2. Design Process</h4>
-      <div class="grid md:grid-cols-2 gap-6 mt-3">
-        <!-- Self path -->
-        <div class="p-4 rounded-lg border border-slate-200">
-          <h5 class="font-semibold text-slate-800">Feel-Better Sticker (Self)</h5>
-          <ol class="list-decimal list-inside text-slate-700 mt-2 space-y-1">
-            <li>Draw a feeling story (sad, angry, scared, worried, lonely).</li>
-            <li>Upload the drawing + description to the web tool.</li>
-            <li>AI generates a sticker and supportive message.</li>
-            <li>Regenerate/refine (optional); then print & personalize.</li>
+    <!-- Design Process -->
+    <section id="process" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">2. Design Process</h3>
+      <div class="space-y-8">
+        <div>
+          <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Self)</h4>
+          <p class="text-lg text-slate-700 mb-4">Children created stickers about their own emotional experiences through a guided workflow:</p>
+          <ol class="list-decimal list-outside space-y-3 pl-5 text-lg text-slate-700 bg-slate-100 p-6 rounded-lg">
+            <li><strong>Draw a feeling story:</strong> Illustrate a real emotional moment (sad, angry, scared, worried, lonely).</li>
+            <li><strong>Share with AI:</strong> Upload the drawing and emotion description into a web-based AI tool.</li>
+            <li><strong>Generate sticker & message:</strong> AI produced a visual sticker and a short supportive message.</li>
+            <li><strong>Regenerate & refine (optional):</strong> Children could adjust the image or message.</li>
+            <li><strong>Print & personalize:</strong> Final stickers were printed and decorated for sharing or keeping.</li>
           </ol>
-          <img src="screenshots/process-self.png" alt="Self process screenshot" class="rounded-lg border border-slate-200 mt-3">
         </div>
-        <!-- Peer path -->
-        <div class="p-4 rounded-lg border border-slate-200">
-          <h5 class="font-semibold text-slate-800">Feel-Better Sticker (Peer)</h5>
-          <ol class="list-decimal list-inside text-slate-700 mt-2 space-y-1">
-            <li>Listen to a peer’s story, generate a sticker + message for them.</li>
-            <li>Compare self vs. peer designs; discuss empathy & perspectives.</li>
-          </ol>
-          <img src="screenshots/process-peer.png" alt="Peer process screenshot" class="rounded-lg border border-slate-200 mt-3">
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Technical Overview -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">3. Technical Overview</h4>
-      <p class="text-slate-700 mt-2">
-        Web-based prototype (React/Node.js on Replit). Children upload drawings + emotion text; the app generates a supportive message and a sticker image with AI, with repeated safety checks.
-      </p>
-      <div class="grid md:grid-cols-2 gap-6 mt-3">
-        <div class="p-4 rounded-lg border border-slate-200">
-          <h5 class="font-semibold text-slate-800">Pipeline</h5>
-          <ul class="list-disc list-inside text-slate-700 mt-2 space-y-1">
-            <li><strong>Input:</strong> photo of activity sheet, selected emotion, text description.</li>
-            <li><strong>Message:</strong> generated by an LLM based on the child’s inputs.</li>
-            <li><strong>Image:</strong> sticker created from the model’s prompt via a text-to-image model.</li>
-            <li><strong>Safety:</strong> automated checks at multiple steps.</li>
-          </ul>
-        </div>
-        <div class="p-4 rounded-lg border border-slate-200">
-          <h5 class="font-semibold text-slate-800">Regeneration</h5>
-          <p class="text-slate-700 mt-2">
-            Children may add extra instructions to regenerate the sticker and/or message; the system updates the prompt and re-renders accordingly.
+        <div>
+          <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Peer)</h4>
+          <p class="text-lg text-slate-700">
+            To foster empathy, children also created stickers for each other. Each child listened to a peer’s story and generated a sticker and message for that friend. They then compared their designs (self vs. peer) and discussed differences, sparking reflection on empathy and perspective-taking.
           </p>
         </div>
       </div>
-      <img src="screenshots/tech-overview.png" alt="Technical overview screenshot" class="rounded-lg border border-slate-200 mt-4">
-    </div>
+    </section>
 
-    <!-- 4. Findings -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">4. Findings</h4>
-      <ul class="list-disc list-inside text-slate-700 mt-2 space-y-1">
-        <li><strong>Ownership & joy:</strong> Kids took pride—“I like this one! Can we make another one?!”</li>
-        <li><strong>Creativity as coping:</strong> Humor/play reframed discomfort.</li>
-        <li><strong>Agency through design:</strong> AI as a partner (e.g., “I wanted a ton of dogs on it”).</li>
+    <!-- Technical Overview -->
+    <section id="tech" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">3. Technical Overview</h3>
+      <div class="bg-gray-800 text-slate-200 p-6 rounded-lg shadow-lg">
+        <p class="text-lg mb-4">The AI sticker tool was a web-based prototype built on Replit using React/Node.js. It interacted with several AI models via APIs.</p>
+        <ol class="list-decimal list-outside space-y-4 pl-5 text-base">
+          <li><strong>Input Upload:</strong> Child uploads activity-sheet photo, selects emotion, adds a brief description.</li>
+          <li><strong>Initial Content Generation:</strong>
+            <ul class="list-disc list-outside pl-5 mt-2 space-y-2">
+              <li><strong>LLM:</strong> Generates a supportive message, emotion description, and an image prompt.</li>
+              <li><strong>Image model:</strong> Produces the sticker from the prompt.</li>
+              <li><strong>Safety checks:</strong> Automated moderation at multiple steps.</li>
+            </ul>
+          </li>
+          <li><strong>Display:</strong> Shows sticker, message, and emotion description.</li>
+          <li><strong>Regeneration (Optional):</strong> Child can add instructions to refine the output.</li>
+          <li><strong>Display Regenerated Content:</strong> Page updates with the new sticker/message.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section id="findings" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">4. Findings</h3>
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="text-xl font-bold text-teal-600 mb-2">Ownership & Joy</h4>
+          <p class="text-slate-700">Children expressed pride in making something uniquely theirs, often asking, “Can we make another one!?”</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="text-xl font-bold text-teal-600 mb-2">Creativity as Coping</h4>
+          <p class="text-slate-700">Humor and playful AI mistakes helped reframe emotional discomfort into a fun, creative activity.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h4 class="text-xl font-bold text-teal-600 mb-2">Agency Through Design</h4>
+          <p class="text-slate-700">Kids customized stickers with favorite elements, showing AI as a partner in creativity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Insights -->
+    <section id="insights" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">5. Research Insights</h3>
+      <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
+        <li><strong>Playful Emotional Learning:</strong> AI can act as a mirror and mediator of feelings.</li>
+        <li><strong>Empathy through Co-creation:</strong> Making for peers deepened understanding.</li>
+        <li><strong>The Campfire Effect:</strong> Group sharing fostered emotional safety and curiosity.</li>
       </ul>
-      <img src="screenshots/findings.png" alt="Findings screenshot" class="rounded-lg border border-slate-200 mt-3">
-    </div>
+    </section>
 
-    <!-- 5. Research Insights -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">5. Research Insights</h4>
-      <ul class="list-disc list-inside text-slate-700 mt-2 space-y-1">
-        <li><strong>Playful emotional learning:</strong> AI as mirror and mediator of feelings.</li>
-        <li><strong>Empathy through co-creation:</strong> Making for peers deepened understanding.</li>
-        <li><strong>“Campfire effect”:</strong> Group sharing fostered safety and curiosity.</li>
-      </ul>
-      <img src="screenshots/insights.png" alt="Research insights screenshot" class="rounded-lg border border-slate-200 mt-3">
-    </div>
+    <!-- Reflection -->
+    <section id="reflection" class="mb-12 md:mb-16">
+      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">6. My Role & Reflection</h3>
+      <div class="bg-slate-100 border-l-4 border-teal-500 p-6 rounded-r-lg">
+        <p class="text-lg italic text-slate-800 leading-relaxed">
+          "As the lead researcher, I co-designed the AI tool and study activities, facilitated children’s sessions, and analyzed how technology mediates emotional meaning-making. This work informs my ongoing research on AI-supported emotional learning and child-centered digital well-being."
+        </p>
+      </div>
+    </section>
 
-    <!-- 6. Reflection -->
-    <div class="mt-10">
-      <h4 class="text-lg font-bold text-slate-900">6. Reflection</h4>
-      <blockquote class="border-l-4 border-teal-500 pl-4 text-slate-700 mt-2">
-        “As the lead researcher, I co-designed the AI tool and study activities, facilitated children’s sessions, and analyzed how technology mediates emotional meaning-making. This work informs my ongoing research on AI-supported emotional learning and child-centered digital well-being.”
-      </blockquote>
+    <!-- Footer (kept inside left for clarity) -->
+    <footer class="text-slate-500 text-sm py-8">
+      &copy; 2025 Yeonhee (Johnny) Cho.
+    </footer>
+  </main>
+
+  <!-- RIGHT: Sticky Navigation Panel (same as your site) -->
+  <aside class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 text-center relative overflow-hidden md:order-2">
+    <!-- Particles background -->
+    <div id="tsparticles-header"></div>
+
+    <div class="relative z-10 flex flex-col justify-between h-full">
+      <!-- Top Navigation -->
+      <div>
+        <div class="mb-8">
+          <a href="index.html" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md">Home</a>
+          <a href="#projects" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md ml-2">Projects</a>
+        </div>
+
+        <!-- Profile Info -->
+        <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover"
+             src="test.png"
+             alt="Profile picture of Yeonhee (Johnny) Cho"
+             onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Yeonhee Cho</h1>
+        <p class="text-2xl text-slate-300 mt-2">'<b>Johnny</b>'</p>
+        <p class="text-lg text-slate-300 mt-2">Ph.D. Candidate @ iSchool, UW</p>
+        <p class="text-slate-400 mt-3">He/His/Him</p>
+        <p class="text-slate-400">yhcho@uw.edu</p>
+
+        <!-- Local nav for this project page -->
+        <nav class="hidden md:block mt-10">
+          <ul class="space-y-3" id="desktop-nav">
+            <li><a href="#intro" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Overview</a></li>
+            <li><a href="#goals" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Goals</a></li>
+            <li><a href="#process" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Process</a></li>
+            <li><a href="#tech" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Technical</a></li>
+            <li><a href="#findings" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Findings</a></li>
+            <li><a href="#insights" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Insights</a></li>
+            <li><a href="#reflection" class="nav-link text-slate-400 hover:text-slate-50 font-bold">Reflection</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Social Row -->
+      <div class="mt-8 md:mt-0 text-center">
+        <div class="flex justify-center space-x-4 mb-6">
+          <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=7aUGgO4AAAAJ" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://ischool.uw.edu/people/phd/profile/yhcho" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </aside>
+</div>
+
+<!-- Particles + scroll spy scripts (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+  // Sticky panel particles (optional, same as your main site)
+  window.addEventListener('load', () => {
+    if (window.tsParticles) {
+      tsParticles.load("tsparticles-header", {
+        fpsLimit: 60,
+        fullScreen: { enable: false },
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#94a3b8" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 2, random: { enable: true, minimumValue: 1 } },
+          links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+          modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+      });
+    }
+  });
+
+  // Scroll-spy to highlight right-side nav
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (window.pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
