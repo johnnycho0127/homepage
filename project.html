@@ -108,317 +108,215 @@
                 </div>
             </div>
         </header>
-        
-<!-- ==================== PROJECTS ==================== -->
-    <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50">
-    <!-- THEME 1: EDUCATIONAL TECHNOLOGY -->
-    <div>
-      <h3 class="text-xl font-bold text-slate-900 mb-2">Educational Technology</h3>
+        <section id="projects" class="mb-16 scroll-mt-24">
+  <!-- Header and Search -->
+  <div class="flex items-center justify-between gap-3 flex-wrap mb-6">
+    <h2 class="text-sm font-bold tracking-widest text-slate-500 uppercase">Projects</h2>
+    <input
+      id="projectSearch"
+      type="search"
+      placeholder="Search by keyword, tag, or theme (e.g., VR, SEL, ethics)"
+      class="w-full sm:w-80 bg-white/90 text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent shadow-sm"
+      autocomplete="off"
+    />
+  </div>
+  <p id="searchCount" class="text-xs text-slate-500 mb-8"></p>
+
+  <div class="border-l-2 border-slate-200 pl-6 space-y-16">
+
+    <!-- ==================== THEME 1 ==================== -->
+    <div id="sel-wellbeing">
+      <div class="flex items-baseline gap-3 mb-2">
+        <h3 class="text-xl font-bold text-slate-900">Social-Emotional Learning & Youth Well-Being</h3>
+        <span class="text-[11px] px-2 py-1 rounded-full bg-pink-100 text-pink-700 font-semibold">SEL</span>
+      </div>
       <p class="text-slate-600 mb-6">
-        Designing and evaluating technologies that help young people learn, reflect, and collaborate—spanning AI-supported reflection, game-based learning, and immersive environments.
+        Designing playful, reflective tools that help children and teens recognize, express, and regulate emotions.
       </p>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- AI-Emotional Sticker -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="AI,SEL,Youth,HCI">
-          <img src="feel.png" alt="AI-Emotional Sticker" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">AI-Emotional Sticker</h4>
-          <p class="text-slate-600 text-sm mb-3">AI-assisted reflection tool co-designed with children.</p>
-          <div class="text-xs text-slate-500 mb-3">2024–25 • CHI (under review)</div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- AI Emotional Sticker -->
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="AI,SEL,Youth" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="feel.png" alt="AI Emotional Sticker"
+               class="w-full h-40 object-cover rounded-lg mb-4"
+               onerror="this.src='https://placehold.co/640x360/e2e8f0/475569?text=AI-Emotional+Sticker'">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">AI-Emotional Sticker</h4>
+          <p class="text-slate-600 text-sm mb-3">Co-creating stickers with AI to support emotional reflection and empathy.</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">AI</span>
-            <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded-full font-semibold">SEL</span>
+            <span class="text-xs bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold">SEL</span>
             <span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold">Youth</span>
           </div>
-          <a href="https://feel-better-sticker.replit.app/" target="_blank" class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 transition-all shadow-md">Demo</a>
-          <a href="https://johnnycho0127.wixsite.com/johnny/copy-of-verse" target="_blank" class="inline-block bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg ml-2 hover:bg-gray-300">Project Site</a>
+          <a href="https://feel-better-sticker.replit.app/"
+             class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Demo</a>
         </article>
 
-        <!-- Mobile AI Literacy -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="AI,Literacy,Mobile">
-          <img src="mobile.png" alt="Mobile AI Literacy" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Mobile AI Literacy</h4>
-          <p class="text-slate-600 text-sm mb-3">Lightweight mobile prototypes exploring AI literacy with teens.</p>
-          <div class="text-xs text-slate-500 mb-3">2023–24 • Prototype</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">AI</span>
-            <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-semibold">Literacy</span>
-            <span class="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold">Mobile</span>
-          </div>
+        <!-- Esports -->
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="Games,SEL,Teens" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="esports.png" alt="Esports Digital Wellbeing"
+               class="w-full h-40 object-cover rounded-lg mb-4"
+               onerror="this.src='https://placehold.co/640x360/fef3c7/92400e?text=Esports+Well-Being'">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Esports Digital Mental Well-Being</h4>
+          <p class="text-slate-600 text-sm mb-3">Tabletop game to build emotional resilience and peer empathy with teen players.</p>
         </article>
 
-        <!-- Social VR -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="VR,Learning,Empathy">
-          <img src="socialvr.png" alt="Social VR for Learning" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Social Virtual Reality</h4>
-          <p class="text-slate-600 text-sm mb-3">Collaborative learning & empathy building in social VR.</p>
-          <div class="text-xs text-slate-500 mb-3">2021–24 • IEEE / Journal papers</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-violet-100 text-violet-800 px-3 py-1 rounded-full font-semibold">VR</span>
-            <span class="text-xs bg-lime-100 text-lime-800 px-3 py-1 rounded-full font-semibold">Learning</span>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full font-semibold">HCI</span>
-          </div>
+        <!-- Misinformation -->
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all md:col-span-2"
+                 data-tags="Media Literacy,SEL,Games" data-theme="Social-Emotional Learning and Youth Well-Being">
+          <img src="misinformation.png" alt="Misinformation Learning"
+               class="w-full h-40 object-cover rounded-lg mb-4"
+               onerror="this.src='https://placehold.co/1200x360/ffe4e6/9f1239?text=Misinformation+Learning'">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Misinformation Learning (Teen SEL + Media Literacy)</h4>
+          <p class="text-slate-600 text-sm mb-3">Game-based activities with SEL-focused debriefs to promote responsible decision-making.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- ==================== THEME 2 ==================== -->
+    <div id="hci-xr-ai">
+      <div class="flex items-baseline gap-3 mb-2">
+        <h3 class="text-xl font-bold text-slate-900">Human–Computer Interaction with Emerging Technologies (VR/AR/AI)</h3>
+        <span class="text-[11px] px-2 py-1 rounded-full bg-violet-100 text-violet-700 font-semibold">XR & AI</span>
+      </div>
+      <p class="text-slate-600 mb-6">Exploring how immersive and intelligent systems can transform learning, empathy, and human experience.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="VR,Learning,Empathy" data-theme="HCI with Emerging Technologies">
+          <img src="socialvr.png" alt="Social VR" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Social VR for Language Learning</h4>
+          <p class="text-slate-600 text-sm mb-3">Embodied presence for collaborative communication and empathy.</p>
         </article>
 
-        <!-- VR in Language Learning (VRLL) -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="VR,Language,Presence">
-          <img src="vrll.png" alt="VR in Language Learning" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">VR in Language Learning</h4>
-          <p class="text-slate-600 text-sm mb-3">Presence & second-language outcomes in VR.</p>
-          <div class="text-xs text-slate-500 mb-3">IEEE • iLRN</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-violet-100 text-violet-800 px-3 py-1 rounded-full font-semibold">VR</span>
-            <span class="text-xs bg-lime-100 text-lime-800 px-3 py-1 rounded-full font-semibold">Learning</span>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full font-semibold">Presence</span>
-          </div>
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="VR,Health,Biofeedback" data-theme="HCI with Emerging Technologies">
+          <img src="gazevr.png" alt="Gaze VR" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Gaze-Based / Breath VR</h4>
+          <p class="text-slate-600 text-sm mb-3">Biofeedback and gaze for mindfulness and health support.</p>
         </article>
 
-        <!-- Esports & Wellness -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Games,SEL,Youth">
-          <img src="esports.png" alt="Esports & Wellness" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Esports & Wellness (You Are Not Alone)</h4>
-          <p class="text-slate-600 text-sm mb-3">Tabletop game co-designed with teens for team dynamics & emotion skills.</p>
-          <div class="text-xs text-slate-500 mb-3">2024–25 • CHI PLAY</div>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">Games</span>
-            <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded-full font-semibold">SEL</span>
-            <span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold">Youth</span>
-          </div>
-          <a href="https://www.figma.com/design/PkzT2dDGDhYts4cMPrngQH/Tilt-Deck-1--Copy-?node-id=39-8057" target="_blank" class="inline-block bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Game Materials</a>
-          <a href="https://johnnycho0127.wixsite.com/johnny/general-3" target="_blank" class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg ml-2 hover:bg-slate-900 transition-all shadow-md">Project Site</a>
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="VR,Memory,Cognition" data-theme="HCI with Emerging Technologies">
+          <img src="vrll.png" alt="VR Memory" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Virtual Reality & Memory Retention</h4>
+          <p class="text-slate-600 text-sm mb-3">Comparing VR vs desktop for recall and motivation.</p>
         </article>
 
-        <!-- AR-VIS -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="AR,Viz,Play">
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="VR,UX,Youth" data-theme="HCI with Emerging Technologies">
+          <img src="kidsvr.png" alt="Kids VR" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Kids VR (Child-Centered UX)</h4>
+          <p class="text-slate-600 text-sm mb-3">Designing accessible VR viewers and experiences for children.</p>
+        </article>
+
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="AR,Visualization,Play" data-theme="HCI with Emerging Technologies">
           <img src="arvis.png" alt="AR-VIS" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">AR-VIS</h4>
-          <p class="text-slate-600 text-sm mb-3">Augmented reality visualization for playful data exploration.</p>
-          <div class="text-xs text-slate-500 mb-3">2022–23 • Prototype</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-semibold">AR</span>
-            <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1 rounded-full font-semibold">Viz</span>
-            <span class="text-xs bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-semibold">Play</span>
-          </div>
+          <h4 class="font-bold text-lg text-slate-900 mb-1">AR-VIS</h4>
+          <p class="text-slate-600 text-sm mb-3">Making invisible phenomena visible with AR visualization.</p>
         </article>
 
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="AI,Mobile,Learning" data-theme="HCI with Emerging Technologies">
+          <img src="mobile.png" alt="Mobile AI App" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Mobile App (AI Recommendation)</h4>
+          <p class="text-slate-600 text-sm mb-3">Using machine learning for adaptive and creative learning.</p>
+        </article>
       </div>
     </div>
 
-    <!-- THEME 2: INFORMATION SCIENCE -->
-    <div>
-      <h3 class="text-xl font-bold text-slate-900 mb-2">Information Science</h3>
+    <!-- ==================== THEME 3 ==================== -->
+    <div id="digital-ethics-info">
+      <div class="flex items-baseline gap-3 mb-2">
+        <h3 class="text-xl font-bold text-slate-900">Digital Behaviors, Ethics & Information Literacy</h3>
+        <span class="text-[11px] px-2 py-1 rounded-full bg-sky-100 text-sky-700 font-semibold">Ethics & MIL</span>
+      </div>
       <p class="text-slate-600 mb-6">
-        Human-centered studies of how people interact with information—ethics of AR, accessibility in VR, data sensemaking, and resilience to misinformation.
+        Investigating how people engage with information and media—and how design can foster ethical, reflective use.
       </p>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Misinfo & Teen SEL -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="MIL,SEL,Games,Teens">
-          <img src="misinformation.png" alt="Misinformation & Teen SEL" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Misinformation & Teen SEL</h4>
-          <p class="text-slate-600 text-sm mb-3">Game-based misinformation education with SEL-focused debriefing.</p>
-          <div class="text-xs text-slate-500 mb-3">2023–26 • SSRC Data Fluencies (grant)</div>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-semibold">MIL</span>
-            <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded-full font-semibold">SEL</span>
-            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">Games</span>
-          </div>
-          <a href="https://opalsugar.github.io/misinfowb/" target="_blank" class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 transition-all shadow-md">Visit Portal</a>
-          <a href="https://lokisloop.org/online-escape-room-games/" target="_blank" class="inline-block bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg ml-2 hover:bg-gray-300">Play Games</a>
+      <div class="grid md:grid-cols-2 gap-6">
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="Media Literacy,Games" data-theme="Digital Ethics and Information Literacy">
+          <img src="misinformation.png" alt="Media Literacy Game" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Media Literacy: Escape Room Games</h4>
+          <p class="text-slate-600 text-sm mb-3">Interactive misinformation puzzles for critical evaluation.</p>
         </article>
 
-        <!-- Pokémon Go & AR Ethics -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="AR,Ethics,Games">
-          <img src="pokemon.png" alt="Pokémon Go & AR Ethics" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Pokémon Go & AR Ethics</h4>
-          <p class="text-slate-600 text-sm mb-3">Critical perspectives on location-based AR play, place-making, and safety.</p>
-          <div class="text-xs text-slate-500 mb-3">DiGRA • IJHCI</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-semibold">AR</span>
-            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">Games</span>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full font-semibold">HCI</span>
-          </div>
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="AR,Ethics" data-theme="Digital Ethics and Information Literacy">
+          <img src="pokemon.png" alt="Pokémon Ethics" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Pokémon GO: AR Ethical Issues</h4>
+          <p class="text-slate-600 text-sm mb-3">Place, safety, and social implications of location-based AR play.</p>
         </article>
 
-        <!-- Gaze-based VR (Accessibility) -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="VR,Accessibility,HCI">
-          <img src="gazevr.png" alt="Gaze-based VR" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Gaze-based VR Interaction</h4>
-          <p class="text-slate-600 text-sm mb-3">Eye-gaze interaction techniques for accessible VR experiences.</p>
-          <div class="text-xs text-slate-500 mb-3">2019–21 • Research</div>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-violet-100 text-violet-800 px-3 py-1 rounded-full font-semibold">VR</span>
-            <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">Accessibility</span>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full font-semibold">HCI</span>
-          </div>
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="Data Literacy,Teaching" data-theme="Digital Ethics and Information Literacy">
+          <img src="datasci.png" alt="Data Science Course" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Data Science Course (R Studio)</h4>
+          <p class="text-slate-600 text-sm mb-3">Cultivating critical data and computational literacy.</p>
         </article>
 
-        <!-- Data Literacy -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Data,Literacy,Viz">
-          <img src="datasci.png" alt="Data Literacy for Youth" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Data Literacy for Youth</h4>
-          <p class="text-slate-600 text-sm mb-3">Visual storytelling activities to interpret and question data.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-semibold">Literacy</span>
-            <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1 rounded-full font-semibold">Viz</span>
-            <span class="text-xs bg-lime-100 text-lime-800 px-3 py-1 rounded-full font-semibold">Learning</span>
-          </div>
+        <article class="project-card p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all"
+                 data-tags="Health,Ethics,Mobile" data-theme="Digital Ethics and Information Literacy">
+          <img src="phr.png" alt="Personal Health Record" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h4 class="font-bold text-lg text-slate-900 mb-1">Personal Health Record (PHR)</h4>
+          <p class="text-slate-600 text-sm mb-3">Exploring personal data management and health information ethics.</p>
         </article>
-
-        <!-- Personal Health Records -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Health,HCI,Mobile">
-          <img src="phr.png" alt="Personal Health Records" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Personal Health Records (PHR)</h4>
-          <p class="text-slate-600 text-sm mb-3">Human-centered concepts for accessible health data on mobile.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-semibold">Health</span>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full font-semibold">HCI</span>
-            <span class="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold">Mobile</span>
-          </div>
-        </article>
-
       </div>
     </div>
 
-    <!-- THEME 3: LIBRARY & LEARNING SCIENCES -->
-    <div>
-      <h3 class="text-xl font-bold text-slate-900 mb-2">Library & Learning Sciences</h3>
-      <p class="text-slate-600 mb-6">
-        Applied research and toolkits for librarians and educators—bringing AI, VR, and game-based approaches into youth programs and MIL curricula.
-      </p>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+  </div>
+</section>
 
-        <!-- Misinfo (library programs) -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Libraries,MIL,Games">
-          <img src="misinformation.png" alt="Misinformation portal" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Misinformation Programs for Teens</h4>
-          <p class="text-slate-600 text-sm mb-3">Escape rooms & game-based MIL activities for libraries and schools.</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-semibold">MIL</span>
-            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">Games</span>
-            <span class="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold">Libraries</span>
-          </div>
-          <a href="https://opalsugar.github.io/misinfowb/" target="_blank" class="inline-block bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 transition-all shadow-md">Visit Portal</a>
-        </article>
+<!-- ==================== SEARCH SCRIPT ==================== -->
+<script>
+(function () {
+  const input = document.getElementById('projectSearch');
+  const countEl = document.getElementById('searchCount');
+  const cards = Array.from(document.querySelectorAll('article.project-card'));
 
-        <!-- KidsVR Toolkit -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="VR,Libraries,Youth">
-          <img src="kidsvr.png" alt="KidsVR Toolkit" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">KidsVR Toolkit</h4>
-          <p class="text-slate-600 text-sm mb-3">Kid-safe viewer and facilitation guides for library programming.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-violet-100 text-violet-800 px-3 py-1 rounded-full font-semibold">VR</span>
-            <span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold">Youth</span>
-            <span class="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold">Libraries</span>
-          </div>
-        </article>
+  const index = cards.map(card => {
+    const title = card.querySelector('h4')?.textContent || '';
+    const tags = (card.dataset.tags || '').replace(/,/g, ' ');
+    const theme = card.dataset.theme || '';
+    const body = card.textContent || '';
+    const haystack = [title, tags, theme, body].join(' ').toLowerCase();
+    return { card, haystack };
+  });
 
-        <!-- Data Literacy (educator toolkit) -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Data,Literacy,Educators">
-          <img src="datasci.png" alt="Data Literacy Toolkit" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Data Literacy Toolkit</h4>
-          <p class="text-slate-600 text-sm mb-3">Lesson ideas and activities for librarians & teachers.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-semibold">Literacy</span>
-            <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1 rounded-full font-semibold">Viz</span>
-            <span class="text-xs bg-lime-100 text-lime-800 px-3 py-1 rounded-full font-semibold">Learning</span>
-          </div>
-        </article>
+  function filter(query) {
+    const q = query.toLowerCase().trim();
+    const tokens = q.split(/\s+/).filter(Boolean);
+    let visible = 0;
 
-        <!-- Esports (after-school/library clubs) -->
-        <article class="p-6 rounded-lg bg-white border border-slate-200 hover:shadow-lg transition-all card-hover" data-tags="Games,Clubs,SEL">
-          <img src="esports.png" alt="Esports club materials" class="w-full h-40 object-cover rounded-lg mb-4">
-          <h4 class="font-bold text-lg text-slate-900 card-title mb-1">Esports Club Materials</h4>
-          <p class="text-slate-600 text-sm mb-3">Adaptable resources for after-school & library programs.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">Games</span>
-            <span class="text-xs bg-pink-100 text-pink-800 px-3 py-1 rounded-full font-semibold">SEL</span>
-            <span class="text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold">Libraries</span>
-          </div>
-        </article>
+    index.forEach(({ card, haystack }) => {
+      const match = tokens.every(t => haystack.includes(t));
+      card.classList.toggle('hidden', tokens.length && !match);
+      if (!tokens.length || match) visible++;
+    });
 
-      </div>
-    </div>
-                   <footer class="text-center text-slate-500 text-sm py-8">
-                    &copy; 2025 Yeonhee (Johnny) Cho.
-                </footer>
-            </div>
-        </main>
+    countEl.textContent = q
+      ? `${visible} result${visible === 1 ? '' : 's'} for “${query}”`
+      : '';
 
-    
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    
-    <script>
-        // Scroll-spy for navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('#desktop-nav a.nav-link'); // More specific selector
+    let empty = document.getElementById('noResults');
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.id = 'noResults';
+      empty.className = 'hidden mt-8 text-center text-slate-500';
+      empty.textContent = 'No matching projects.';
+      document.querySelector('#projects').appendChild(empty);
+    }
+    empty.classList.toggle('hidden', visible !== 0);
+  }
 
-        window.addEventListener('scroll', () => {
-            let current = 'about'; // Default to 'about'
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) { // Adjust offset
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-
-        // Publication filter
-        const filterTags = document.querySelectorAll('#publications .filter-tag');
-        const publications = document.querySelectorAll('#publications .card-hover');
-
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                const filter = tag.dataset.filter;
-
-                // Update active tag
-                filterTags.forEach(t => t.classList.remove('active'));
-                tag.classList.add('active');
-
-                // Filter publications
-                publications.forEach(pub => {
-                    if (filter === 'all' || pub.dataset.category === filter) {
-                        pub.style.display = 'block';
-                    } else {
-                        pub.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // tsParticles Neural Network Initialization
-        window.addEventListener('load', () => {
-            tsParticles.load("tsparticles-header", {
-                fpsLimit: 60,
-                fullScreen: { enable: false }, // This confines the effect
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#94a3b8" }, // slate-400
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 2, random: { enable: true, minimumValue: 1 } },
-                    links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
-                    move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
-                },
-                interactivity: {
-                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-                    modes: { 
-                        repulse: { distance: 100 },
-                        push: { particles_nb: 4 } 
-                    }
-                },
-                retina_detect: true
-            });
-        });
-    </script>
-</body>
-</html>
-
+  let t;
+  input?.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => filter(input.value), 150);
+  });
+})();
+</script>
