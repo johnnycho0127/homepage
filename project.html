@@ -1,124 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeonhee (Johnny) Cho - PhD Candidate</title>
+    <title>Yeonhee (Johnny) Cho - Projects & Publications</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
+ <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* tsParticles container for the neural network */
+        /* tsParticles container */
         #tsparticles-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
         }
-        /* Custom styles for the active navigation link on dark background */
-        .nav-link.active {
-            color: #f8fafc; /* text-slate-50 */
-            font-weight: 700;
+        /* Icon Link Styles */
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            /* gap: 0.5rem; /* Removed gap, spacing controlled by wrapper */
+            color: #475569; /* text-slate-600 */
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            border-radius: 50%; /* Make the link itself round for hover effect */
         }
-        .nav-link.active .nav-indicator {
-            width: 2.5rem; /* w-10 */
-            height: 2px;
-            background-color: #f8fafc; /* bg-slate-50 */
+         /* Wrapper for the icon to create the round background */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;  /* w-10 */
+            height: 2.5rem; /* h-10 */
+            border-radius: 50%; /* Make it round */
+            background-color: #e2e8f0; /* bg-slate-200 */
+            transition: background-color 0.2s ease-in-out;
+            margin: 2px; /* Small margin around the circle */
         }
-        /* Smooth transition for nav links and indicators */
-        .nav-link, .nav-indicator {
-            transition: all 0.2s ease-in-out;
+        /* Change background on link hover */
+        .icon-link:hover .icon-wrapper {
+             background-color: #94a3b8; /* bg-slate-400 on hover */
         }
-        /* Group hover effect for cards */
-        .card-hover:hover {
-            border-color: #2dd4bf; /* border-teal-400 */
-            box-shadow: 0 4px 14px 0 rgb(13 148 136 / 10%);
+         /* Change icon color on link hover */
+        .icon-link:hover svg {
+             color: #f8fafc; /* text-slate-50 on hover */
         }
-        .card-hover:hover .card-title {
-            color: #2dd4bf; /* text-teal-400 */
+        /* Size of the SVG icon *inside* the wrapper */
+        .icon-link svg {
+            width: 1.25rem; /* w-5 */
+            height: 1.25rem; /* h-5 */
+            stroke-width: 2;
+            flex-shrink: 0;
+            color: #475569; /* Initial icon color */
+             transition: color 0.2s ease-in-out;
         }
-        /* Styles for filter tags */
-        .filter-tag {
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
+        /* Style for Year Headings */
+        .year-heading {
+             font-size: 1.5rem; /* text-2xl */
+             font-weight: 700; /* font-bold */
+             color: #334155; /* text-slate-700 */
+             margin-bottom: 1rem; /* mb-4 */
+             padding-bottom: 0.5rem; /* pb-2 */
+             border-bottom: 2px solid #e2e8f0; /* border-b-2 border-slate-200 */
         }
-        .filter-tag.active {
-            background-color: #1e293b; /* bg-slate-800 */
-            color: #f1f5f9; /* text-slate-100 */
+         /* Float Clearfix */
+        .cf:after {
+          content: "";
+          display: table;
+          clear: both;
         }
-       
-       /* --- Start: Scrolling Project Styles --- */
-       .scrolling-projects-container {
-         width: 100%;
-         overflow: hidden;
-         white-space: nowrap;
-         /* Optional: Adds a fade-out effect at the edges */
-         -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
-         mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
-       }
-       
-       .scrolling-wrapper {
-         display: inline-block;
-         /* Animation: name duration timing-function iteration-count */
-         animation: scroll-left 40s linear infinite;
-       }
-
-       .scrolling-wrapper:hover {
-         animation-play-state: paused; /* Pauses animation on hover */
-       }
-
-       /* Defines the scrolling animation */
-       @keyframes scroll-left {
-         0% {
-           transform: translateX(0);
-         }
-         100% {
-           /* Moves left by 50% (the width of the duplicated content) */
-           transform: translateX(-50%); 
-         }
-       }
-
-       /* New styles for the small scrolling items */
-       .recent-project-item {
-         display: inline-block; /* Essential for horizontal layout */
-         width: 200px; /* Adjust width as needed */
-         margin: 10px 15px; /* Spacing between items */
-         vertical-align: top; /* Aligns items nicely */
-         white-space: normal; /* Allows text inside to wrap */
-         text-align: center;
-         transition: transform 0.2s ease-in-out;
-       }
-       .recent-project-item:hover {
-           transform: scale(1.03); /* Slight zoom on hover */
-       }
-       .recent-project-img {
-           width: 100%;
-           height: 120px; /* Adjust height as needed */
-           object-fit: cover;
-           border-radius: 0.5rem; /* rounded-lg */
-           margin-bottom: 0.5rem; /* mb-2 */
-           background-color: #e2e8f0; /* bg-slate-200 for placeholder */
-           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-       }
-       .recent-project-title {
-           font-size: 0.875rem; /* text-sm */
-           font-weight: 600; /* font-semibold */
-           color: #334155; /* text-slate-700 */
-           /* Prevent title from breaking into too many lines */
-           line-height: 1.3; 
-           max-height: 2.7em; /* approx 2 lines */
-           overflow: hidden;
-       }
-       /* --- End: Scrolling Project Styles --- */
     </style>
 </head>
-    
 <body class="bg-slate-50 text-slate-700">
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -151,276 +103,486 @@
     <div class="max-w-screen-xl mx-auto md:flex">
 
         <header class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
-            <div id="tsparticles-header"></div>
-            <div class="relative z-10 flex flex-col justify-between h-full">
+            <div id="tsparticles-header"></div> <div class="relative z-10 flex flex-col justify-between h-full">
                 <div>
-
-                 <div class="mt-8 md:mt-0 text-center">
-                       <div class="flex justify-center space-x-4 mb-6">
-                            <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
-                            <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
-                            </a>
-                             <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                            </a>
-                        </div>
-            
-                        <div class="text-center">
-                            <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
-                             <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Johnny Cho</h1>
-                            <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
-                        </div>
-
-                        <div class="space-y-2 mt-10">
-                            <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3 text-left">Area for Research</h3>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Educational Technology</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Game-based Learning</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Augmented/Virtual Reality</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Media Literacy (Misinformation)</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI Literacy</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
-                            <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design</span>
-                        </div>
+                    <div class="mt-8 md:mt-0 text-center">
+                           <div class="flex justify-center space-x-4 mb-6">
+                                <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
+                                <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+                                </a>
+                                 <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                                <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                </a>
+                            </div>
+                
+                            <div class="text-center">
+                                <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+                                 <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Johnny Cho</h1>
+                                <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
+                            </div>
+                            
+                            <div class="space-y-2 mt-10">
+                                <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3 text-left">Area for Research</h3>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Educational Technology</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Game-based Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Augmented/Virtual Reality</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Media Literacy (Misinformation)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI Literacy</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design</span>
+                            </div>
+                    </div>
                 </div>
             </div>
-            </div>
         </header>
-         <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50">
 
-            <nav class="flex justify-end space-x-6 mb-8">
-                <a href="https://johnnycho.info" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Home</a>
-                <a href="https://johnnycho.info/project.html" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Publications</a>
-            </nav>        
+<main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50">
 
-<section id="projects" class="mb-16 scroll-mt-24">
-  <div class="flex items-center justify-between gap-3 flex-wrap mb-6">
-    <h2 class="text-sm font-bold tracking-widest text-slate-500 uppercase">Projects & Publications</h2>
-    <input
-      id="projectSearch"
-      type="search"
-      placeholder="Search by keyword, tag, or theme (e.g., VR, SEL, ethics)"
-      class="w-full sm:w-80 bg-white/90 text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent shadow-sm"
-      autocomplete="off"
-    />
-  </div>
-  <p id="searchCount" class="text-xs text-slate-500 mb-8"></p>
+    <nav class="flex justify-end space-x-6 mb-8">
+        <a href="https://johnnycho.info" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Home</a>
+        <a href="https://johnnycho.info/project.html" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Publications</a>
+    </nav>
 
-  <div class="space-y-12">
-
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="AI,SEL,Youth,Social-Emotional Learning and Youth Well-Being">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="feel.png" alt="AI Emotional Sticker" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AI-Sticker'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">AI-Emotional Sticker</h3>
-        <p class="text-slate-600 text-sm mb-4">Co-creating stickers with AI to support emotional reflection and empath (under review CHI 2026)</p>
-  
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/feelbetter.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://feel-better-sticker.replit.app/" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Demo</a>
+    <section id="publications" class="mb-16 scroll-mt-24">
+        <div class="flex items-center justify-between gap-3 flex-wrap mb-6">
+            <h2 class="text-sm font-bold tracking-widest text-slate-500 uppercase">Publications & Patents</h2>
+            <input
+              id="publicationSearch"
+              type="search"
+              placeholder="Search by title, author, venue, or year..."
+              class="w-full sm:w-80 bg-white/90 text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent shadow-sm"
+              autocomplete="off"
+            />
         </div>
-      </div>
-    </article>
+        <p id="searchCount" class="text-xs text-slate-500 mb-8"></p>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="Media Literacy,Games,Digital Ethics and Information Literacy">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="misinformation.png" alt="Media Literacy Game" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Misinfo+Game'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Misinformation Escaperoom Games</h3>
-        <p class="text-slate-600 text-sm mb-4">Interactive misinformation puzzles for critical evaluation.</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/misinfogame.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://opalsugar.github.io/misinfowb/" class="bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Misinfogame Portal</a>
-          <a href="https://lokisloop.org/online-escape-room-games/" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Play Game</a>
-          <a href="https://journals.sagepub.com/doi/10.1177/09610006231208027" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">JLIS 2023</a>
-        </div>
-      </div>
-    </article>
+        <div class="space-y-8">
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="Games,SEL,Teens,Mental Health,Social-Emotional Learning and Youth Well-Being">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="esports.png" alt="Esports Digital Wellbeing" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/fef3c7/92400e?text=Esports'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Esports Digital Mental Well-Being</h3>
-        <p class="text-slate-600 text-sm mb-4">Tabletop game to build emotional resilience and peer empathy with teen players.</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/esports.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://www.figma.com/design/PkzT2dDGDhYts4cMPrngQH/Tilt-Deck-1--Copy-?node-id=39-8057&p=f" class="bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">Game Materials</a>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3677116" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">CHI PLAY 2024</a>
-          <a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003271772-5/coaching-esports-yeonhee-cho-eric-cohen-autumn-freund-jason-yip-jin-ha-lee" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">Book Chapter</a>
-        </div>
-      </div>
-    </article>
+            <div>
+                <h3 class="year-heading">2025</h3>
+                <div class="space-y-8">
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="UKC 2025, Misinformation, Teenagers, Qualitative, Presentation, 2025, Yeonhee Cho">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                             <img src="milsel.png" alt="Misinformation Teenagers" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=UKC+2025'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Perceptions of Misinformation Among Teenagers: A Qualitative Inquiry</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho</p>
+                            <p class="text-slate-600 italic text-sm mb-4">US-Korea Conference (UKC) 2025 - Atlanta</p>
+                            <div class="flex flex-wrap gap-1 items-center"> {/* Reduced gap */}
+                               <a href="https://docs.google.com/presentation/d/1tJwoZDL3p_Yoo7klCDJe9PkUT9yVVu38JMNTUkgThQ0/edit?usp=sharing" class="icon-link" title="Presentation">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-demo"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Presentation</span>
+                               </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+             </div>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="Media Literacy,SEL,Games,Social-Emotional Learning and Youth Well-Being,dissertation">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="milsel.png" alt="Misinformation Learning" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/ffe4e6/9f1239?text=MIL+SEL'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Misinformation Learning (Teen SEL + Media Literacy)</h3>
-        <p class="text-slate-600 text-sm mb-4">Game-based activities with SEL-focused debriefs to promote responsible decision-making. (Ph.D. Dissertation)</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/misinfoteen.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://mediawell.ssrc.org/research-reviews/if-its-funny-i-share-it-rethinking-teen-misinformation-education-through-empathy/" class="bg-teal-500 text-white font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 shadow-md">MediaWell</a>
-          <a href="https://ssrc.org/data-fluencies/" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">Grant: SSRC 2024</a>
-        </div>
-      </div>
-    </article>
+            <div>
+                <h3 class="year-heading">2024</h3>
+                <div class="space-y-8">
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="CHI PLAY 2024, Esports, Tilt, Tabletop Gaming, Team Dynamics, Paper, Video, Game Materials, 2024, Yeonhee Cho, Michele Newman, Caroline Pitt, Jason Yip, Jin Ha Lee">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="esports.png" alt="Esports Tilted Game" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/fef3c7/92400e?text=Esports'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">You Are Tilted!: Leveraging Tabletop Gaming to Manage Tilt and Strengthen Team Dynamics in Esports</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho, Michele Newman, Caroline Pitt, Jason C. Yip, Jin Ha Lee</p>
+                            <p class="text-slate-600 italic text-sm mb-4">CHI PLAY 2024</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://dl.acm.org/doi/10.1145/3677116" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=c-dl2kPABt8" class="icon-link" title="Video">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-demo"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Video</span>
+                                </a>
+                                <a href="https://www.figma.com/design/PkzT2dDGDhYts4cMPrngQH/Tilt-Deck-1--Copy-?node-id=39-8057&p=f" class="icon-link" title="Game Materials">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-game"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Game Materials</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="VR,Learning,Empathy,HCI with Emerging Technologies">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="socialvr.png" alt="Social VR" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Social+VR'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Social VR for Language Learning</h3>
-        <p class="text-slate-600 text-sm mb-4">Embodied presence for collaborative communication and empathy.</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/socialvr.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://ieeexplore.ieee.org/document/9815924" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">IEEE Publication</a>
-        </div>
-      </div>
-    </article>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="UKC 2024, Misinformation, AI, High School, Presentation, 2024, Yeonhee Cho">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="milsel.png" alt="Misinformation AI High School" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=UKC+2024'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">High School Students' Understanding and Response to Misinformation in the Age of AI</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho</p>
+                            <p class="text-slate-600 italic text-sm mb-4">US-Korea Conference (UKC) 2024 - San Francisco</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                               <a href="https://www.youtube.com/watch?v=MpY4o9LG6M4" class="icon-link" title="Presentation Video">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-demo"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Presentation Video</span>
+                               </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="VR,Memory,Cognition,HCI with Emerging Technologies">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="vrll.png" alt="VR Memory" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=VR+Memory'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Virtual Reality & Memory Retention</h3>
-        <p class="text-slate-600 text-sm mb-4">Comparing VR vs desktop for recall and motivation.</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/vrll.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href=" https://www.proquest.com/docview/2066691168?%20Theses&fromopenview=true&pq-origsite=gscholar&sourcetype=Dissertations%20" class="bg-indigo-100 text-indigo-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-indigo-200">Master thesis</a>
-        </div>
-      </div>
-    </article>
+            <div>
+                <h3 class="year-heading">2023</h3>
+                <div class="space-y-8">
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="JLIS 2023, Escape Room, Misinformation, Resilience, Immersive Learning, Paper, Game, Portal, 2023, Yeonhee Cho, Chris Coward, Jacob Lackner, Travis Windleharth, Jin Ha Lee">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="misinformation.png" alt="Misinformation Escape Room" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Misinfo+Game'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">The Use of an Escape Room as an Immersive Learning Environment for Building Resilience to Misinformation</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho, Chris Coward, Jacob Lackner, Travis Willingham Windleharth, and Jin Ha Lee</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Journal of Librarianship and Information Science 2023</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://journals.sagepub.com/doi/10.1177/09610006231208027" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                                <a href="https://lokisloop.org/online-escape-room-games/" class="icon-link" title="Play Game">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-game"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Play Game</span>
+                                </a>
+                                 <a href="https://opalsugar.github.io/misinfowb/" class="icon-link" title="Game Portal">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-demo"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Game Portal</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="AR,Visualization,Play,HCI with Emerging Technologies">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="arvis.png" alt="AR-VIS" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AR-VIS'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Science Education with AR</h3>
-        <p class="text-slate-600 text-sm mb-4">Making invisible phenomena visible with AR visualization.</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/arvis.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-          <a href="https://link.springer.com/chapter/10.1007/978-3-030-30712-7_47/" class="bg-gray-200 text-gray-800 font-semibold text-sm py-2 px-4 rounded-lg hover:bg-gray-300">HCI 2019</a>
-        </div>
-      </div>
-    </article>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="DiGRA 2023, AR Games, Pokemon GO, Ethics, Gender Differences, Paper, 2023, Yeonhee Cho, Michele Newman, Lidia Morris, Lane Koughan, Jason Yip, Jin Ha Lee">
+                         <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="arvis.png" alt="AR Games Ethics" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AR+Ethics'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Gender Differences in Ethical Stances for Playing AR Games: The Case of Pokémon GO</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho, Michele Newman, Lidia Morris, Lane D. Koughan, Jason Yip, Jin Ha Lee</p>
+                            <p class="text-slate-600 italic text-sm mb-4">DiGRA 2023</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://dl.digra.org/index.php/dl/article/view/1902" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="VR,Health,Biofeedback,HCI with Emerging Technologies,professional work">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="gazevr.png" alt="Gaze VR" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Gaze+VR'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Gaze-Based / Breath VR</h3>
-        <p class="text-slate-600 text-sm mb-4">Biofeedback and gaze for mindfulness and health support. (Professional Work)</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/gazevr.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-        </div>
-      </div>
-    </article>
+                     <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="BIT 2023, Participatory Design, Online, Children, South Korea, Cultural Awareness, Paper, 2023, Kung Jin Lee, Sungmin Na, Hsuan-Chun Wang, Hayley Park, Minhyung Jo, Yeonhee Cho, Youjin Jung, Geonhui Park, Jin Ha Lee, Jason Yip">
+                         <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="https://placehold.co/400x300/e0f2fe/0891b2?text=Participatory+Design" alt="Online Participatory Design" class="w-full h-auto object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Conducting online participatory design from the United States with children in South Korea with a focus on cultural awareness</h4>
+                            <p class="text-slate-500 text-sm mb-3">Kung Jin Lee, Sungmin Na, Hsuan-Chun Wang, Hayley Park, Minhyung Jo, Yeonhee Cho, Youjin Jung, Geonhui Park, Jin Ha Lee & Jason Yip</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Behaviour & Information Technology 2023</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://www.tandfonline.com/doi/full/10.1080/0144929X.2023.2272194" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="VR,UX,Youth,HCI with Emerging Technologies,professional work">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="kidsvr.png" alt="Kids VR" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Kids+VR'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Kids VR (Child-Centered UX)</h3>
-        <p class="text-slate-600 text-sm mb-4">Designing accessible VR viewers and experiences for children. (Professional Work)</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/kidsvr.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-        </div>
-      </div>
-    </article>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="IJHCI 2023, Location-Based Games, AR, Pokemon GO, Ethics, Paper, 2023, Jin Ha Lee, Jason Yip, Adam Moore, Yeonhee Cho, Zale de Jong, Ryan Kobashigawa, Alexander Sanchez">
+                         <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                             <img src="arvis.png" alt="AR Location Games Ethics" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AR+Ethics'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Users’ Perspectives on Ethical Issues Related to Playing Location-Based Augmented Reality Games: A Case Study of Pokémon GO</h4>
+                            <p class="text-slate-500 text-sm mb-3">Jin Ha Lee, Jason Yip, Adam Moore, Yeonhee Cho, Zale de Jong, Ryan Kobashigawa & Alexander Escalera Sanchez</p>
+                            <p class="text-slate-600 italic text-sm mb-4">International Journal of Human-Computer Interaction 2023</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://www.tandfonline.com/doi/full/10.1080/10447318.2021.2012378" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+             <div>
+                <h3 class="year-heading">2022</h3>
+                <div class="space-y-8">
+                     <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="iLRN 2022, Social VR, Language Learning, Affective Filter Theory, Paper, 2022, Yeonhee Cho, Hao Ning Hsu, Zhewen Zheng, Emily Trinh, HyunYoung Jang, Yusi Cheng">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="socialvr.png" alt="Social VR Language Learning" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Social+VR'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Research Based on Affective Filter Theory: Is Social VR an Effective Tool for Learning a Second Language?</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho; Hao Ning Hsu; Zhewen Zheng; Emily Elizabeth Trinh; HyunYoung Jang; Yusi Cheng</p>
+                            <p class="text-slate-600 italic text-sm mb-4">iLRN 2022</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://ieeexplore.ieee.org/abstract/document/9815924" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Book Chapter, Esports, Coaching, Well-being, Performance, Link, 2022, Yeonhee Cho, Eric Cohen, Autumn Freund, Jason Yip, Jin Ha Lee">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                             <img src="esports.png" alt="Esports Coaching Book Chapter" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/fef3c7/92400e?text=Esports+Book'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Coaching in Esports: promoting well-being & performance</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho, Eric S. Cohen, Autumn E. Freund, Jason Yip, Jin Ha Lee</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Book Chapter in Understanding Collegiate Esports (Routledge) 2022</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003271772-5/coaching-esports-yeonhee-cho-eric-cohen-autumn-freund-jason-yip-jin-ha-lee" class="icon-link" title="Link to Chapter">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-book"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Link to Chapter</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                 </div>
+            </div>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="Data Literacy,Teaching,R,Digital Ethics and Information Literacy,professional work">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="datascience.png" alt="Data Science Course" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Data+Science'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Data Science Course (R Studio)</h3>
-        <p class="text-slate-600 text-sm mb-4">Cultivating critical data and computational literacy. (Professional Work)</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/datascience.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-        </div>
-      </div>
-    </article>
+             <div>
+                <h3 class="year-heading">2019</h3>
+                 <div class="space-y-8">
+                     <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="HCI 2019, AR-Vis, Augmented Reality, Visualization, Scientific Data, Paper, 2019, Hannah Kum-Biocca, Hyomin Kim, Frank Biocca, Yeonhee Cho">
+                         <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="arvis.png" alt="AR-Vis Project" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AR-VIS'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">AR-Vis: Augmented Reality Interactive Visualization Environment for Exploring Dynamic Scientific Data</h4>
+                            <p class="text-slate-500 text-sm mb-3">Hannah Hyejin Kum-Biocca, Hyomin Kim, Frank Biocca & Yeonhee Cho</p>
+                            <p class="text-slate-600 italic text-sm mb-4">HCI 2019</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-30712-7_47" class="icon-link" title="Paper">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Paper</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                 </div>
+             </div>
+             <div>
+                 <h3 class="year-heading">2018</h3>
+                <div class="space-y-8">
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Masters Thesis, VR, Spatial Presence, Memory Retention, Motivation, Language Learning, Paper, 2018, Yeonhee Cho, Syracuse University">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                             <img src="vrll.png" alt="VR Memory Retention Thesis" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=VR+Memory'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">How spatial presence in VR affects memory retention and motivation on second language learning</h4>
+                            <p class="text-slate-500 text-sm mb-3">Yeonhee Cho</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Master's Thesis 2018, Syracuse University</p>
+                            <div class="flex flex-wrap gap-1 items-center">
+                                <a href="https://www.proquest.com/docview/2066691168?%20Theses&fromopenview=true&pq-origsite=gscholar&sourcetype=Dissertations%20" class="icon-link" title="Thesis">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-paper"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Thesis</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="Health,Ethics,Mobile,Privacy,Digital Ethics and Information Literacy,professional work">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="phr.png" alt="Personal Health Record" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=PHR'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Personal Health Record (PHR)</h3>
-        <p class="text-slate-600 text-sm mb-4">Exploring personal data management and health information ethics. (Professional Work)</p>
-          <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/phr.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-        </div>
-      </div>
-    </article>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Patent, Virtual Reality, Kids, 2018">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                             <img src="kidsvr.png" alt="VR for Kids Patent" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Kids+VR'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Virtual Reality for Kids (#10-2018-0086001)</h4>
+                            <p class="text-slate-500 text-sm mb-3">Patent</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Patent 2018</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+             {/* HR removed */}
 
-    <article class="project-item flex flex-col md:flex-row gap-6 border-b border-slate-200 pb-8" data-tags="AI,Mobile,Learning,ML,HCI with Emerging Technologies,professional work">
-      <div class="w-full md:w-1/4 lg:w-1/5 flex-shrink-0">
-        <img src="bts.png" alt="Mobile AI App" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AI+App'">
-      </div>
-      <div class="w-full">
-        <h3 class="font-bold text-xl text-slate-900 mb-2">Mobile App (AI Recommendation)</h3>
-        <p class="text-slate-600 text-sm mb-4">Using machine learning for adaptive and creative learning. (Professional Work)</p>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://johnnycho.info/bts.html" class="bg-yellow-300 text-yellow-900 font-bold text-sm py-2 px-4 rounded-lg hover:bg-yellow-400 shadow-md">Project Site</a>
-        </div>
-      </div>
-    </article>
+            <div>
+                 <h3 class="year-heading">2017</h3>
+                 <div class="space-y-8">
+                      <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Patent, Virtual Reality, Survey System, Augmented Reality, 2017">
+                         <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="https://placehold.co/400x300/ede9fe/5b21b6?text=VR+Survey" alt="VR Survey Patent" class="w-full h-auto object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Virtual Reality Survey System (#10-2017-0103497)</h4>
+                            <p class="text-slate-500 text-sm mb-3">The innovative way to survey instantly by using virtual reality or augmented reality</p>
+                            <p class="text-slate-600 italic text-sm mb-4">Patent 2017</p>
+                            {/* No external link */}
+                        </div>
+                    </article>
+                </div>
+            </div>
 
-    <div id="noResults" class="hidden mt-8 text-center text-slate-500">
-      No matching projects found.
-    </div>
+             <div>
+                 <h3 class="year-heading">Ongoing & Other Projects</h3>
+                 <div class="space-y-8">
+                     <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="AI,SEL,Youth,Social-Emotional Learning and Youth Well-Being, Project">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                            <img src="feel.png" alt="AI Emotional Sticker" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AI-Sticker'">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">AI-Emotional Sticker (Project)</h4>
+                            <p class="text-slate-600 text-sm mb-3">Co-creating stickers with AI to support emotional reflection and empath.</p>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                               <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">AI</span>
+                               <span class="text-xs bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold">SEL</span>
+                               <span class="text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold">Youth</span>
+                             </div>
+                            <div class="flex flex-wrap gap-1 items-center">
+                               <a href="https://feel-better-sticker.replit.app/" class="icon-link" title="Demo">
+                                   <span class="icon-wrapper">
+                                       <svg><use href="#icon-demo"></use></svg>
+                                   </span>
+                                   <span class="sr-only">Demo</span>
+                               </a>
+                            </div>
+                        </div>
+                     </article>
 
-  </div> </section>
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Data Literacy,Teaching,R,Digital Ethics and Information Literacy,professional work, Project">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                           <img src="datascience.png" alt="Data Science Course" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Data+Science'">
+                        </div>
+                        <div class="overflow-hidden">
+                           <h4 class="font-bold text-lg text-slate-900 mb-1">Data Science Course (R Studio) (Professional Work)</h4>
+                           <p class="text-slate-600 text-sm mb-3">Cultivating critical data and computational literacy.</p>
+                           <div class="flex flex-wrap gap-2 mb-4">
+                              <span class="chip text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-semibold" data-term="Data Literacy">Data Literacy</span>
+                              <span class="chip text-xs bg-slate-100 text-slate-800 px-3 py-1 rounded-full font-semibold" data-term="Teaching">Teaching</span>
+                              <span class="chip text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold" data-term="R">R</span>
+                           </div>
+                            </div>
+                    </article>
+
+                     <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="Health,Ethics,Mobile,Privacy,Digital Ethics and Information Literacy,professional work, Project">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                           <img src="phr.png" alt="Personal Health Record" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=PHR'">
+                        </div>
+                        <div class="overflow-hidden">
+                           <h4 class="font-bold text-lg text-slate-900 mb-1">Personal Health Record (PHR) (Professional Work)</h4>
+                           <p class="text-slate-600 text-sm mb-3">Exploring personal data management and health information ethics.</p>
+                           <div class="flex flex-wrap gap-2 mb-4">
+                              <span class="chip text-xs bg-teal-100 text-teal-800 px-3 py-1 rounded-full font-semibold" data-term="Health">Health</span>
+                              <span class="chip text-xs bg-sky-100 text-sky-800 px-3 py-1 rounded-full font-semibold" data-term="Ethics">Ethics</span>
+                              <span class="chip text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold" data-term="Mobile">Mobile</span>
+                              <span class="chip text-xs bg-rose-100 text-rose-800 px-3 py-1 rounded-full font-semibold" data-term="Privacy">Privacy</span>
+                           </div>
+                           {/* No external links */}
+                        </div>
+                    </article>
+
+                    <article class="publication-item cf border-b border-slate-200 pb-8" data-tags="AI,Mobile,Learning,ML,HCI with Emerging Technologies,professional work, Project">
+                        <div class="w-full md:w-32 lg:w-40 flex-shrink-0 mb-4 md:mb-0 md:mr-6 float-left">
+                           <img src="bts.png" alt="Mobile AI App" class="w-full h-auto object-cover rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=AI+App'">
+                        </div>
+                        <div class="overflow-hidden">
+                           <h4 class="font-bold text-lg text-slate-900 mb-1">Mobile App (AI Recommendation) (Professional Work)</h4>
+                           <p class="text-slate-600 text-sm mb-3">Using machine learning for adaptive and creative learning.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                              <span class="chip text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold" data-term="AI">AI</span>
+                              <span class="chip text-xs bg-fuchsia-100 text-fuchsia-800 px-3 py-1 rounded-full font-semibold" data-term="ML">ML</span>
+                              <span class="chip text-xs bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-semibold" data-term="Mobile">Mobile</span>
+                           </div>
+                            {/* No external links */}
+                        </div>
+                    </article>
+                 </div>
+             </div>       
+            <div id="noResults" class="hidden mt-8 text-center text-slate-500">
+                No matching publications found.
+            </div>
+
+        </div> </section>
 </main>
 
 <script>
 (function () {
-  const input = document.getElementById('projectSearch');
+  const input = document.getElementById('publicationSearch');
   const countEl = document.getElementById('searchCount');
   // Select the new article class
-  const cards = Array.from(document.querySelectorAll('article.project-item'));
+  const cards = Array.from(document.querySelectorAll('article.publication-item'));
   const noResultsEl = document.getElementById('noResults');
+  // Also select year headings to hide them if all items within are hidden
+  const yearSections = Array.from(document.querySelectorAll('main section > div:not(#noResults)')); // Select divs containing year headings + articles
 
   const index = cards.map(card => {
-    // Select the new title tag
-    const title = card.querySelector('h3')?.textContent || '';
+    const title = card.querySelector('h4')?.textContent || '';
+    const authors = card.querySelector('p')?.textContent || ''; // Include authors in search
+    const venue = card.querySelector('span')?.textContent || ''; // Include venue in search
     const tags = (card.dataset.tags || '').replace(/,/g, ' ');
-    const body = card.textContent || '';
-    const haystack = [title, tags, body].join(' ').toLowerCase();
+    const body = card.textContent || ''; // Use full text content
+    const haystack = [title, authors, venue, tags, body].join(' ').toLowerCase();
     return { card, haystack };
   });
 
   function filter(query) {
     const q = query.toLowerCase().trim();
     const tokens = q.split(/\s+/).filter(Boolean);
-    let visible = 0;
+    let visibleTotal = 0;
 
+    // Filter individual publication items
     index.forEach(({ card, haystack }) => {
       const match = tokens.every(t => haystack.includes(t));
-      card.classList.toggle('hidden', tokens.length && !match);
-      if (!tokens.length || match) visible++;
+      card.classList.toggle('hidden', tokens.length > 0 && !match);
+      if (tokens.length === 0 || match) visibleTotal++;
     });
 
+    // Show/hide year sections based on visible items within them
+    yearSections.forEach(section => {
+        const itemsInSection = section.querySelectorAll('article.publication-item');
+        const visibleItemsInSection = Array.from(itemsInSection).filter(item => !item.classList.contains('hidden'));
+        section.classList.toggle('hidden', tokens.length > 0 && visibleItemsInSection.length === 0);
+    });
+
+
+    // Update search count text
     countEl.textContent = q
-      ? `${visible} result${visible === 1 ? '' : 's'} for “${query}”`
+      ? `${visibleTotal} result${visibleTotal === 1 ? '' : 's'} for “${query}”`
       : '';
 
-    noResultsEl.classList.toggle('hidden', visible !== 0 || tokens.length === 0);
+    // Show/hide "no results" message
+    if (noResultsEl) {
+        noResultsEl.classList.toggle('hidden', visibleTotal > 0 || tokens.length === 0);
+    }
   }
 
   let t;
@@ -432,33 +594,30 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <script>
-  // tsParticles Neural Network Initialization (from your original file)
+  // tsParticles Neural Network Initialization
   window.addEventListener('load', () => {
-      // Check if the header element exists before loading particles
-      // (It doesn't on this page, but the script was in your file so I'm leaving it)
-      // To be safe, we can add a check:
       const particleEl = document.getElementById("tsparticles-header");
       if (particleEl) {
-          tsParticles.load("tsparticles-header", {
-              fpsLimit: 60,
-              fullScreen: { enable: false }, // This confines the effect
-              particles: {
-                  number: { value: 80, density: { enable: true, value_area: 800 } },
-                  color: { value: "#94a3b8" }, // slate-400
-                  shape: { type: "circle" },
-                  opacity: { value: 0.5, random: true },
-                  size: { value: 2, random: { enable: true, minimumValue: 1 } },
-                  links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
-                  move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
-              },
-              interactivity: {
-                  events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-                  modes: { 
-                      repulse: { distance: 100 },
-                      push: { particles_nb: 4 } 
-                  }
-              },
-              retina_detect: true
+          tsParticles.load("tsparticles-header", { /* ... particle config ... */
+                fpsLimit: 60,
+                fullScreen: { enable: false }, // Confines the effect
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#94a3b8" }, // slate-400
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 2, random: { enable: true, minimumValue: 1 } },
+                    links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
+                    move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
+                },
+                interactivity: {
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                    modes: {
+                        repulse: { distance: 100 },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
           });
       }
   });
