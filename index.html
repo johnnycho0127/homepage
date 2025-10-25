@@ -52,8 +52,60 @@
             background-color: #1e293b; /* bg-slate-800 */
             color: #f1f5f9; /* text-slate-100 */
         }
+       .scrolling-projects-container {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          /* Optional: Adds a fade-out effect at the edges */
+          -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+        }
+        
+        .scrolling-wrapper {
+          display: inline-block;
+          /* Animation: name duration timing-function iteration-count */
+          animation: scroll-left 40s linear infinite;
+        }
+
+        .scrolling-wrapper:hover {
+          animation-play-state: paused; /* Pauses animation on hover */
+        }
+
+        /* Defines the scrolling animation */
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            /* Moves left by 50% (the width of the duplicated content) */
+            transform: translateX(-50%); 
+          }
+        }
+
+        .project-card-scroll {
+          display: inline-block; /* Essential for horizontal layout */
+          width: 300px; /* Fixed width for each card */
+          margin: 10px 15px; /* Spacing between cards */
+          vertical-align: top; /* Aligns cards nicely */
+          white-space: normal; /* Allows text inside to wrap */
+          
+          /* Applying Tailwind styles from your site for consistency */
+          background-color: #ffffff; /* bg-white */
+          border-radius: 0.5rem; /* rounded-lg */
+          border: 1px solid #e2e8f0; /* border-slate-200 */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .project-card-scroll:hover {
+            border-color: #2dd4bf; /* Your site's border-teal-400 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transform: translateY(-4px); /* Lifts the card up slightly */
+        }
+        /* --- End: New Scrolling Project Styles --- *
     </style>
 </head>
+   
 <body class="bg-slate-50 text-slate-700">
 
     <!-- Main container for two-column layout -->
@@ -383,8 +435,8 @@
         </main>
 
     
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+ 
     <script>
         // Scroll-spy for navigation
         const sections = document.querySelectorAll('section[id]');
