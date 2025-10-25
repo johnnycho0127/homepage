@@ -52,13 +52,15 @@
             background-color: #1e293b; /* bg-slate-800 */
             color: #f1f5f9; /* text-slate-100 */
         }
+       
+       /* --- Start: Scrolling Project Styles --- */
        .scrolling-projects-container {
          width: 100%;
          overflow: hidden;
          white-space: nowrap;
          /* Optional: Adds a fade-out effect at the edges */
-         -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-         mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+         -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+         mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
        }
        
        .scrolling-wrapper {
@@ -82,27 +84,38 @@
          }
        }
 
-       .project-card-scroll {
+       /* New styles for the small scrolling items */
+       .recent-project-item {
          display: inline-block; /* Essential for horizontal layout */
-         width: 300px; /* Fixed width for each card */
-         margin: 10px 15px; /* Spacing between cards */
-         vertical-align: top; /* Aligns cards nicely */
+         width: 200px; /* Adjust width as needed */
+         margin: 10px 15px; /* Spacing between items */
+         vertical-align: top; /* Aligns items nicely */
          white-space: normal; /* Allows text inside to wrap */
-         
-         /* Applying Tailwind styles from your site for consistency */
-         background-color: #ffffff; /* bg-white */
-         border-radius: 0.5rem; /* rounded-lg */
-         border: 1px solid #e2e8f0; /* border-slate-200 */
-         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-         transition: all 0.3s ease-in-out;
+         text-align: center;
+         transition: transform 0.2s ease-in-out;
        }
-       
-       .project-card-scroll:hover {
-           border-color: #2dd4bf; /* Your site's border-teal-400 */
-           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-           transform: translateY(-4px); /* Lifts the card up slightly */
+       .recent-project-item:hover {
+           transform: scale(1.03); /* Slight zoom on hover */
        }
-       /* --- End: New Scrolling Project Styles --- */
+       .recent-project-img {
+           width: 100%;
+           height: 120px; /* Adjust height as needed */
+           object-fit: cover;
+           border-radius: 0.5rem; /* rounded-lg */
+           margin-bottom: 0.5rem; /* mb-2 */
+           background-color: #e2e8f0; /* bg-slate-200 for placeholder */
+           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+       }
+       .recent-project-title {
+           font-size: 0.875rem; /* text-sm */
+           font-weight: 600; /* font-semibold */
+           color: #334155; /* text-slate-700 */
+           /* Prevent title from breaking into too many lines */
+           line-height: 1.3; 
+           max-height: 2.7em; /* approx 2 lines */
+           overflow: hidden;
+       }
+       /* --- End: Scrolling Project Styles --- */
     </style>
 </head>
     
@@ -135,7 +148,6 @@
                             <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
                         </div>
 
-                
                         <div class="space-y-2 mt-10">
                             <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3 text-left">Area for Research</h3>
                             <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
@@ -147,7 +159,7 @@
                             <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
                             <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design</span>
                         </div>
-                        </div>
+                </div>
             </div>
             </div>
         </header>
@@ -169,61 +181,84 @@
                 </section>                 
 
                 <section id="projects" class="mb-16 scroll-mt-24">
-                    <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Projects</h2>
+                    <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Recent Projects</h2>
                     
                     <div class="scrolling-projects-container">
                         <div class="scrolling-wrapper">
                             
-                            <div class="project-card-scroll">
-                                <img src="feel.png" alt="Feel-Better Sticker" class="w-full h-40 object-cover rounded-t-lg">
-                                <div class="p-5">
-                                    <h3 class="font-bold text-xl text-slate-900 card-title transition-colors mb-2 h-16">AI-Emotional Sticker</h3>
-                                    <p class="text-slate-600 mb-3 text-sm h-20">An interactive digital sticker project aimed at promoting emotional well-being.</p>
-                                </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/feelbetter.html"> 
+                                    <img src="feel.png" alt="AI Emotional Sticker" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=AI-Sticker'">
+                                    <h4 class="recent-project-title">AI-Emotional Sticker</h4>
+                                </a>
                             </div>
-        
-                            <div class="project-card-scroll">
-                                <img src="misinformation.png" alt="Misinformation Game" class="w-full h-40 object-cover rounded-t-lg">
-                                <div class="p-5">
-                                    <h3 class="font-bold text-xl text-slate-900 card-title transition-colors mb-2 h-16">Misinformation Educational Game</h3>
-                                    <p class="text-slate-600 mb-3 text-sm h-20">A web portal offering various educational games focused on media and information literacy.</p>
-                                </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/misinfogame.html">
+                                    <img src="misinformation.png" alt="Misinformation Game" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Misinfo+Game'">
+                                    <h4 class="recent-project-title">Misinformation Educational Game</h4>
+                                </a>
                             </div>
-        
-                            <div class="project-card-scroll">
-                                <img src="socialvr.png" alt="Social VR" class="w-full h-40 object-cover rounded-t-lg">
-                                <div class="p-5">
-                                    <h3 class="font-bold text-xl text-slate-900 card-title transition-colors mb-2 h-16">Social Virtual Reality</h3>
-                                    <p class="text-slate-600 mb-3 text-sm h-20">Is social VR an effective tool for learning a second langauge?</p>
-                                </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/socialvr.html">
+                                    <img src="socialvr.png" alt="Social VR" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Social+VR'">
+                                    <h4 class="recent-project-title">Social Virtual Reality</h4>
+                                </a>
                             </div>
-        
-                            <div class="project-card-scroll">
-                                <img src="esports.png" alt="Digital Mental Wellbeing" class="w-full h-40 object-cover rounded-t-lg">
-                                <div class="p-5">
-                                    <h3 class="font-bold text-xl text-slate-900 card-title transition-colors mb-2 h-16">Digital Mental Wellbeing</h3>
-                                    <p class="text-slate-600 mb-3 text-sm h-20">co-design with youth esports players and coaches and solve mental wellbing problem...</p>
-                                </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/esports.html">
+                                    <img src="esports.png" alt="Digital Mental Wellbeing" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Esports'">
+                                    <h4 class="recent-project-title">Digital Mental Wellbeing</h4>
+                                </a>
                             </div>
-
-                            <div class="project-card-scroll">
-                                <img src="feel.png" alt="AI Emotional Sticker" class="w-full h-40 object-cover rounded-t-lg">
-                                <div class="p-5">
-                                    <h3 class="font-bold text-xl text-slate-900 card-title transition-colors mb-2 h-16">AI-Emotional Sticker</h3>
-                                    <p class="text-slate-600 mb-3 text-sm h-20">An interactive digital sticker project aimed at promoting emotional well-being.</p>
-                                </div>
-                            </div>        
+                             <div class="recent-project-item">
+                                <a href="https://johnnycho.info/misinfoteen.html">
+                                    <img src="milsel.png" alt="Misinformation Learning (Teen)" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=MIL+SEL'">
+                                    <h4 class="recent-project-title">Misinformation Learning (Teen SEL + MIL)</h4>
+                                </a>
+                            </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/feelbetter.html">
+                                    <img src="feel.png" alt="AI Emotional Sticker" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=AI-Sticker'">
+                                    <h4 class="recent-project-title">AI-Emotional Sticker</h4>
+                                </a>
+                            </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/misinfogame.html">
+                                    <img src="misinformation.png" alt="Misinformation Game" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Misinfo+Game'">
+                                    <h4 class="recent-project-title">Misinformation Educational Game</h4>
+                                </a>
+                            </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/socialvr.html">
+                                    <img src="socialvr.png" alt="Social VR" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Social+VR'">
+                                    <h4 class="recent-project-title">Social Virtual Reality</h4>
+                                </a>
+                            </div>
+                            <div class="recent-project-item">
+                                <a href="https://johnnycho.info/esports.html">
+                                    <img src="esports.png" alt="Digital Mental Wellbeing" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=Esports'">
+                                    <h4 class="recent-project-title">Digital Mental Wellbeing</h4>
+                                </a>
+                            </div>
+                             <div class="recent-project-item">
+                                <a href="https://johnnycho.info/misinfoteen.html">
+                                    <img src="milsel.png" alt="Misinformation Learning (Teen)" class="recent-project-img" onerror="this.src='https://placehold.co/200x120/e2e8f0/475569?text=MIL+SEL'">
+                                    <h4 class="recent-project-title">Misinformation Learning (Teen SEL + MIL)</h4>
+                                </a>
+                            </div>
+                            </div>
+                    </div>
                     
                     <div class="text-center mt-8">
-                        <a href="https://johnnycho0127.wixsite.com/johnny" class="inline-block bg-slate-200 text-slate-800 font-bold text-lg py-3 px-8 rounded-lg hover:bg-slate-900 hover:text-white transition-all shadow-md">View All Projects</a>
+                        <a href="https://johnnycho.info/project.html" class="inline-block bg-slate-200 text-slate-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-slate-900 hover:text-white transition-all shadow-md">View All Projects & Publications →</a>
                     </div>
-       
-                                <section id="teaching" class="mb-16 scroll-mt-24">
+                </section>
+                <section id="teaching" class="mb-16 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Teaching</h2>
                     <div class="border-l-2 border-slate-200 pl-6 space-y-6">
                         <div>
                             <h3 class="font-bold text-lg text-slate-900">Pre-doctoral Instructor</h3>
-    <p class="text-slate-600">University of Washington</p>
+                            <p class="text-slate-600">University of Washington</p>
                            <ul class="list-disc list-inside text-slate-600 mt-1">
                                 <li>Design Methods (INFO 360); Winter & Spring 2026</li>                                 
                                 <li>Research Design (INFO 300); Autumn 2025</li>
@@ -253,7 +288,7 @@
                         </div>
                     </div>
                 </section>
-  
+        
                 <section id="funding" class="mb-16 scroll-mt-24">
                     <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Funding & Awards</h2>
                     <div class="border-l-2 border-slate-200 pl-6 space-y-6">
@@ -266,133 +301,88 @@
                             </div>
                         </div>
                         <div>
-                       <h3 class="font-bold text-lg text-slate-900">Korean-American Scientists and Engineers Association (KSEA) Scholarship</h3>
+                           <h3 class="font-bold text-lg text-slate-900">Korean-American Scientists and Engineers Association (KSEA) Scholarship</h3>
                             <p class="text-slate-600 font-semibold">$2,000 | 2024</p>
                            </div>
                     </div>
                 </section>
                 
-<section id="contribution" class="mb-16 scroll-mt-24">
-                <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Contribution</h2>
-                <div class="border-l-2 border-slate-200 pl-6 space-y-8">
-
-                    <div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Knowledge Sharing</h3>
-                        <div class="space-y-2">
-                            <p><a href="https://ischool.uw.edu/news/2022/11/phd-students-work-misinformation-puzzle" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Ph.D. students work on the misinformation puzzle - iSchool News, 2022</a></p>
-                            <p><a href="https://ischool.uw.edu/news/2021/09/ischool-researchers-inform-four-projects-awarded-more-16million-imls" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">iSchool researchers to inform four projects awarded more than $1.6 million by IMLS - iSchool News, 2021</a></p>
-                            <p><a href="https://ischool.uw.edu/news/2020/07/students-pacific-science-center-team-educational-game" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Students, Pacific Science Center team up on educational game - iSchool News, 2020</a></p>
-                            <p><a href="https://www.youtube.com/watch?v=Dr68yXXZhAY" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Misinformation in Science & Society (M.I.S.S.)</a></p>
+                <section id="contribution" class="mb-16 scroll-mt-24">
+                    <h2 class="text-sm font-bold tracking-widest text-slate-500 mb-6 uppercase">Contribution</h2>
+                    <div class="border-l-2 border-slate-200 pl-6 space-y-8">
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Knowledge Sharing</h3>
+                            <div class="space-y-2">
+                                <p><a href="https://ischool.uw.edu/news/2022/11/phd-students-work-misinformation-puzzle" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Ph.D. students work on the misinformation puzzle - iSchool News, 2022</a></p>
+                                <p><a href="https://ischool.uw.edu/news/2021/09/ischool-researchers-inform-four-projects-awarded-more-16million-imls" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">iSchool researchers to inform four projects awarded more than $1.6 million by IMLS - iSchool News, 2021</a></p>
+                                <p><a href="https://ischool.uw.edu/news/2020/07/students-pacific-science-center-team-educational-game" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Students, Pacific Science Center team up on educational game - iSchool News, 2020</a></p>
+                                <p><a href="https://www.youtube.com/watch?v=Dr68yXXZhAY" target="_blank" class="text-slate-800 hover:text-teal-500 transition-colors">Misinformation in Science & Society (M.I.S.S.)</a></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Leadership</h3>
+                            <div class="space-y-2 text-base">
+                                <p class="text-slate-800"><strong>President</strong>, Bellevue Korean Soccer Team (2024 - Present)</p>
+                                <p class="text-slate-800"><strong>KSEA YG President</strong>, Seattle (2024 - Present)</p>
+                                <p class="text-slate-800"><strong>PR/Event Manager</strong>, Changbal Korean IT Society in Seattle (2022-2023)</p>
+                                <p class="text-slate-800"><strong>President of Korean Student Association</strong>, Syracuse University (2016-2017)</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Reviewer</h3>
+                            <div class="space-y-2">
+                                <p class="text-slate-600">Journal of Education and Information Technologies</p>
+                                <p class="text-slate-600">The International Conference of the Immersive Learning Research Network</p>
+                                <p class="text-slate-600">Discover Public Health</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Research Mentor</h3>
+                            <div class="space-y-2">
+                                <p class="text-slate-600">Korean-American Youth Scientist Research-thon</p>
+                                <p class="text-slate-600">Lumiere Education Research Program</p>
+                            </div>
                         </div>
                     </div>
-
-                    <div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Leadership</h3>
-                        <div class="space-y-2 text-base">
-                            <p class="text-slate-800"><strong>President</strong>, Bellevue Korean Soccer Team (2024 - Present)</p>
-                            <p class="text-slate-800"><strong>KSEA YG President</strong>, Seattle (2024 - Present)</p>
-                            <p class="text-slate-800"><strong>PR/Event Manager</strong>, Changbal Korean IT Society in Seattle (2022-2023)</p>
-                            <p class="text-slate-800"><strong>President of Korean Student Association</strong>, Syracuse University (2016-2017)</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Reviewer</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-600">Journal of Education and Information Technologies</p>
-                            <p class="text-slate-600">The International Conference of the Immersive Learning Research Network</p>
-                            <p class="text-slate-600">Discover Public Health</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Research Mentor</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-600">Korean-American Youth Scientist Research-thon</p>
-                            <p class="text-slate-600">Lumiere Education Research Program</p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-                   <footer class="text-center text-slate-500 text-sm py-8">
+                </section>
+                 <footer class="text-center text-slate-500 text-sm py-8">
                     &copy; 2025 Yeonhee (Johnny) Cho.
                 </footer>
             </div>
         </main>
-
-    
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
- 
+    </div> <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script>
-        // Scroll-spy for navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('#desktop-nav a.nav-link'); // More specific selector
-
-        window.addEventListener('scroll', () => {
-            let current = 'about'; // Default to 'about'
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) { // Adjust offset
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-
-        // Publication filter
-        const filterTags = document.querySelectorAll('#publications .filter-tag');
-        const publications = document.querySelectorAll('#publications .card-hover');
-
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                const filter = tag.dataset.filter;
-
-                // Update active tag
-                filterTags.forEach(t => t.classList.remove('active'));
-                tag.classList.add('active');
-
-                // Filter publications
-                publications.forEach(pub => {
-                    if (filter === 'all' || pub.dataset.category === filter) {
-                        pub.style.display = 'block';
-                    } else {
-                        pub.style.display = 'none';
-                    }
-                });
-            });
-        });
+        // Scroll-spy for navigation (if needed - currently no nav links to spy on this page)
+        // const sections = document.querySelectorAll('section[id]');
+        // const navLinks = document.querySelectorAll('#desktop-nav a.nav-link'); // Update selector if nav exists
+        // window.addEventListener('scroll', () => { /* ... scroll spy logic ... */ });
 
         // tsParticles Neural Network Initialization
         window.addEventListener('load', () => {
-            tsParticles.load("tsparticles-header", {
-                fpsLimit: 60,
-                fullScreen: { enable: false }, // This confines the effect
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#94a3b8" }, // slate-400
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 2, random: { enable: true, minimumValue: 1 } },
-                    links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
-                    move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
-                },
-                interactivity: {
-                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-                    modes: { 
-                        repulse: { distance: 100 },
-                        push: { particles_nb: 4 } 
-                    }
-                },
-                retina_detect: true
-            });
+            const particleEl = document.getElementById("tsparticles-header");
+            if (particleEl) {
+                tsParticles.load("tsparticles-header", {
+                    fpsLimit: 60,
+                    fullScreen: { enable: false }, // Confines the effect
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#94a3b8" }, // slate-400
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 2, random: { enable: true, minimumValue: 1 } },
+                        links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
+                        move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
+                    },
+                    interactivity: {
+                        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                        modes: { 
+                            repulse: { distance: 100 },
+                            push: { particles_nb: 4 } 
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
         });
     </script>
 </body>
