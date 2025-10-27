@@ -474,5 +474,41 @@
                 No matching publications found.
             </div>
 
-        </div> </section>
-</main>
+        </main>
+    </div> <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+        // Scroll-spy for navigation (if needed - currently no nav links to spy on this page)
+        // const sections = document.querySelectorAll('section[id]');
+        // const navLinks = document.querySelectorAll('#desktop-nav a.nav-link'); // Update selector if nav exists
+        // window.addEventListener('scroll', () => { /* ... scroll spy logic ... */ });
+
+        // tsParticles Neural Network Initialization
+        window.addEventListener('load', () => {
+            const particleEl = document.getElementById("tsparticles-header");
+            if (particleEl) {
+                tsParticles.load("tsparticles-header", {
+                    fpsLimit: 60,
+                    fullScreen: { enable: false }, // Confines the effect
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#94a3b8" }, // slate-400
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 2, random: { enable: true, minimumValue: 1 } },
+                        links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 }, // slate-400
+                        move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
+                    },
+                    interactivity: {
+                        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                        modes: { 
+                            repulse: { distance: 100 },
+                            push: { particles_nb: 4 } 
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>
