@@ -338,9 +338,10 @@
         </div>
 
         <div>
-          <div class="img-slot ratio-43">
-            [Insert “State of the World” slide: stressors kids named + why play matters]
-          </div>
+         <img src="E_mapping.png"
+         alt="understand kids' emotions"
+         class="w-full h-auto rounded-lg object-contain">
+  </div>
           <p class="caption mt-2">
             Fig 4. Framing deck for school partners: kids need social, low-stakes emotional spaces. 
           </p>
@@ -572,7 +573,7 @@
          alt="Low-fidelity wireframe of child storytelling interface"
          class="w-full h-auto rounded-xl shadow-md object-contain">
     <p class="caption text-slate-600 text-sm mt-3">
-      Fig 7. Early wireframe sketch showing how children share short stories and select emotions
+      Fig 9. Early wireframe sketch showing how children share short stories and select emotions
       through icons. The goal was to make the process conversational, visual, and low-pressure.
     </p>
   </div>
@@ -584,11 +585,31 @@
          alt="Process flow showing AI sticker generation and feedback loop"
          class="w-full h-auto rounded-xl shadow-md object-contain">
     <p class="caption text-slate-600 text-sm mt-3">
-      Fig 8. Process flow for the Feel-Better Sticker tool, mapping how children’s stories and emotions
+      Fig 10. Process flow for the Feel-Better Sticker tool, mapping how children’s stories and emotions
       are transformed into AI-generated stickers that invite reflection, sharing, and discussion.
     </p>
   </div>
 
+<div class="border rounded-xl p-6 mt-10 bg-slate-50 border-slate-200">
+  <h4 class="text-slate-900 font-semibold text-base mb-3">C.3 Technical Overview of the AI Tool</h4>
+  <p class="text-slate-700 text-sm leading-relaxed">
+    The <em>AI Emotional Sticker</em> tool was developed as a web-based prototype using <strong>React/Node.js</strong> on Replit.
+    It connects children’s self-expression with generative AI models through a simple, safe, and creative workflow:
+  </p>
+
+  <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-3 space-y-1">
+    <li><strong>Input stage:</strong> Children upload their activity sheet, select an emotion, and write a short description of their story.</li>
+    <li><strong>Generation stage:</strong> OpenAI’s <em>ChatGPT-4o</em> model produces a message and image prompt describing the child’s emotion, which is then sent to <em>DALL·E 3</em> to generate a visual sticker. All outputs are safety-checked using OpenAI’s moderation tools.</li>
+    <li><strong>Display stage:</strong> The tool presents the generated sticker, message, and emotion summary on a results page that encourages reflection and sharing.</li>
+    <li><strong>Regeneration stage (optional):</strong> Children can refine or recreate stickers and messages using <em>ChatGPT-4o</em> or <em>Google Gemini 2.0 Flash</em>, allowing them to experiment and personalize emotional expression.</li>
+  </ul>
+
+  <p class="text-slate-700 text-sm leading-relaxed mt-3">
+    This iterative loop between storytelling, AI generation, and playful regeneration reflects the project’s central idea:
+    <span class="italic text-slate-800">AI as a creative companion that helps children see and reshape their emotions — not a judge that defines them.</span>
+  </p>
+</div>
+  
   <p class="text-sm text-slate-700 mt-8 italic">
     Prototype link:
     <a class="text-indigo-600 font-medium underline" target="_blank"
@@ -656,7 +677,7 @@
          class="w-full h-auto rounded-lg object-contain">
   </div>
             <p class="caption mt-2">
-              Fig 8. Kids used AI output as a safe third party they could critique together. 
+              Fig 11. Kids used AI output as a safe third party they could critique together. 
             </p>
           </div>
 
@@ -668,7 +689,7 @@
          class="w-full h-auto rounded-lg object-contain">
   </div>
             <p class="caption mt-2">
-              Fig 9. Stickers became emotional keepsakes and gifts.
+              Fig 12. Stickers became emotional keepsakes and gifts.
             </p>
           </div>
         </div>
@@ -742,6 +763,35 @@
             🌟 Try the Feel-Better Sticker interactive demo →
           </p>
         </a>
+
+        <div class="mt-16 border-t border-slate-700 pt-8">
+  <h3 class="text-white text-lg font-semibold mb-3 flex items-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5zm0 0V10m0 10v-6" />
+    </svg>
+    Further Reading
+  </h3>
+
+  <p class="text-slate-300 text-sm leading-relaxed mb-4">
+    For a deeper understanding of the design process, findings, and implications,
+    you can read the full research paper currently <em>under confidential review</em> for
+    <strong>CHI 2026</strong>:
+  </p>
+
+  <a href="https://github.com/johnnycho0127/homepage/blob/main/Emotions%20at%20Play.pdf"
+     target="_blank"
+     class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-200">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+    </svg>
+    Download Paper (PDF)
+  </a>
+
+  <p class="text-xs text-slate-500 mt-2">
+    *Please note: This draft is shared only for academic review purposes and should not be redistributed.
+  </p>
+</div>
+        
       </div>
 
     </div>
