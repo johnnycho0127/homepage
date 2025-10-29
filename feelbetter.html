@@ -554,55 +554,46 @@
   </h2>
 
   <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
-    I built mid- and hi-fidelity prototypes in Figma. The flow was intentionally simple and child-led:
+    I built mid- and hi-fidelity prototypes in Figma. The design goal was to make the flow feel
+    intuitive, story-driven, and emotionally safe for children. The interface encourages playful
+    exploration while giving children control over how emotions are represented and shared.
   </p>
 
   <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-6 space-y-2">
-    <li><span class="font-semibold text-slate-900">Story Input:</span> “Tell us what happened” + pick how you felt (sad / angry / scared / worried / lonely).</li>
-    <li><span class="font-semibold text-slate-900">AI Output Preview:</span> Generated sticker art + a short supportive message in kid-friendly tone.</li>
-    <li><span class="font-semibold text-slate-900">Customize:</span> Children can rewrite the message, regenerate the art, and add playful elements (“make it cuter”).</li>
+    <li><span class="font-semibold text-slate-900">Story Input:</span> Children describe what happened and select how they felt (sad, angry, scared, or worried).</li>
+    <li><span class="font-semibold text-slate-900">AI Output:</span> The system generates a “feel-better” sticker — an image and short supportive message in a kid-friendly tone.</li>
+    <li><span class="font-semibold text-slate-900">Customization:</span> Kids can edit, regenerate, or restyle the AI output to better match their emotions and stories.</li>
   </ul>
 
-  <!-- Unified 2x2 Grid for Prototype Images -->
-  <div class="grid md:grid-cols-2 gap-8 mt-10">
-    <!-- Image 1 -->
-    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Wireframe · Story Input</p>
-      <img src="E_wireframe.png"
-           alt="Low-fidelity wireframe"
-           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
-    </div>
-
-    <!-- Image 2 -->
-    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Prototype · AI Output (Feel-Better Sticker)</p>
-      <img src="E_feelbetter.png"
-           alt="AI-generated sticker prototype"
-           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
-    </div>
-
-    <!-- Image 3 -->
-    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Process Flow · Feel-Better Generation</p>
-      <img src="E_Feelbetterprocess.png"
-           alt="AI sticker generation process"
-           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
-    </div>
-
-    <!-- Image 4 -->
-    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
-      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Technical Architecture · AI Sticker System</p>
-      <img src="E_tech.png"
-           alt="Technical architecture diagram"
-           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
-    </div>
+  <!-- IMAGE 1: WIREFRAME -->
+  <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mt-10">
+    <p class="text-slate-900 font-semibold text-base mb-4">Wireframe · Story Input & Emotional Flow</p>
+    <img src="E_wireframe.png"
+         alt="Low-fidelity wireframe of child storytelling interface"
+         class="w-full h-auto rounded-xl shadow-md object-contain">
+    <p class="caption text-slate-600 text-sm mt-3">
+      Fig 7. Early wireframe sketch showing how children share short stories and select emotions
+      through icons. The goal was to make the process conversational, visual, and low-pressure.
+    </p>
   </div>
 
-  <p class="text-sm text-slate-700 mt-6 italic">
+  <!-- IMAGE 2: PROCESS FLOW -->
+  <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mt-10">
+    <p class="text-slate-900 font-semibold text-base mb-4">Process Flow · Feel-Better Sticker Generation</p>
+    <img src="E_Feelbetterprocess.png"
+         alt="Process flow showing AI sticker generation and feedback loop"
+         class="w-full h-auto rounded-xl shadow-md object-contain">
+    <p class="caption text-slate-600 text-sm mt-3">
+      Fig 8. Process flow for the Feel-Better Sticker tool, mapping how children’s stories and emotions
+      are transformed into AI-generated stickers that invite reflection, sharing, and discussion.
+    </p>
+  </div>
+
+  <p class="text-sm text-slate-700 mt-8 italic">
     Prototype link:
     <a class="text-indigo-600 font-medium underline" target="_blank"
        href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f">
-      AI Emotional Sticker Prototype
+      Try the AI Emotional Sticker Prototype
     </a>
   </p>
 
@@ -611,9 +602,11 @@
     <p class="text-slate-700 text-sm leading-relaxed mt-2">
       Kids mistrusted “teacher voice” (“Calm down.”). They preferred playful, caring tone
       that sounded like a friend or mascot. We treated tone as a core part of interaction design.
+      Every message and color cue was tested to ensure it invited empathy, not correction.
     </p>
   </div>
 </section>
+
 
 
     <!-- 6. TEST -->
@@ -691,77 +684,70 @@
       </div>
     </section>
 
-    <!-- CONCLUSION -->
-    <section id="conclusion" class="rounded-2xl overflow-hidden surface shadow-2xl">
-      <footer class="footer-dark-gradient text-slate-100">
-        <div class="max-w-5xl mx-auto p-8 md:p-12 space-y-10">
+<!-- CONCLUSION -->
+<section id="conclusion" class="rounded-2xl overflow-hidden surface shadow-2xl">
+  <footer class="footer-dark-gradient text-slate-100">
+    <div class="max-w-5xl mx-auto p-8 md:p-12 space-y-10">
 
-          <h2 class="text-white text-2xl md:text-3xl font-semibold flex flex-wrap items-baseline gap-2">
-            <span>Conclusion &amp; Design Guidance</span>
-            <span class="phase-pill phase-reflect">Reflection</span>
-          </h2>
+      <h2 class="text-white text-2xl md:text-3xl font-semibold flex flex-wrap items-baseline gap-2">
+        <span>Conclusion &amp; Design Guidance</span>
+        <span class="phase-pill phase-reflect">Reflection</span>
+      </h2>
 
-          <div class="grid md:grid-cols-2 gap-10 text-slate-300 text-sm leading-relaxed">
-            <div>
-              <h3 class="text-white text-lg font-semibold">The Campfire Model</h3>
-              <p class="mt-4">
-                Emotional UX for children should not act like a teacher.
-                It should act like a campfire:
-                the tool creates an artifact (a sticker, a character, a caring message),
-                and kids gather around it, react to it, and talk through it — together. 
-              </p>
+      <div class="grid md:grid-cols-2 gap-10 text-slate-300 text-sm leading-relaxed">
+        <div>
+          <h3 class="text-white text-lg font-semibold">The Campfire Model</h3>
+          <p class="mt-4">
+            Emotional UX for children should not act like a teacher.
+            It should act like a campfire:
+            the tool creates an artifact (a sticker, a character, a caring message),
+            and kids gather around it, react to it, and talk through it — together.
+          </p>
 
-              <ul class="list-disc list-inside mt-6 space-y-2">
-                <li><span class="font-semibold text-white">Curiosity</span> – Surprise and play (“roll the dice,” “regenerate the sticker”) invite honest exploration. </li>
-                <li><span class="font-semibold text-white">Ownership</span> – Children rewrite, restyle, or reject AI. Control = safety. </li>
-                <li><span class="font-semibold text-white">Enjoyment</span> – Humor turns embarrassment into connection. Fun is the gateway to empathy. </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white text-lg font-semibold">Why this matters (as design &amp; pedagogy)</h3>
-              <p class="mt-4">
-                This work shows how AI can support children’s well-being without diagnosing them.
-                Instead of “tell me your feeling so I can fix you,” the tool says,
-                “Let’s make something together you can share.”
-              </p>
-
-              <p class="mt-4 text-white font-semibold">
-                Outcome: Submitted to CHI 2026 — “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
-              </p>
-
-              <p class="mt-4">
-                As an educator, I now teach AI design for children as:
-                not “AI that knows you,” but “AI that helps you feel less alone.”
-              </p>
-            </div>
-          </div>
-
-   <!-- just the grid inside Conclusion; removed the Final sticker gallery card -->
-<div class="grid md:grid-cols-2 gap-6 pt-8">
-  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
-    <div class="img-slot ratio-43" style="background-color:#1e293b;border-color:#1e293b;color:#94a3b8;">
-      [Campfire model diagram: tool in middle, kids around it]
-    </div>
-    <p class="caption text-slate-500 mt-2">
-      The tool acts as a “campfire,” holding the feeling so kids can talk around it.
-    </p>
-  </div>
-
-  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
-    <div class="img-slot ratio-43" style="background-color:#1e293b;border-color:#1e293b;color:#94a3b8;">
-      [Slide: Curiosity · Ownership · Enjoyment]
-    </div>
-    <p class="caption text-slate-500 mt-2">
-      Our design rubric: curiosity, ownership, enjoyment.
-    </p>
-  </div>
-</div>
-
-
+          <ul class="list-disc list-inside mt-6 space-y-2">
+            <li><span class="font-semibold text-white">Curiosity</span> – Surprise and play (“roll the dice,” “regenerate the sticker”) invite honest exploration.</li>
+            <li><span class="font-semibold text-white">Ownership</span> – Children rewrite, restyle, or reject AI. Control = safety.</li>
+            <li><span class="font-semibold text-white">Enjoyment</span> – Humor turns embarrassment into connection. Fun is the gateway to empathy.</li>
+          </ul>
         </div>
-      </footer>
-    </section>
+
+        <div>
+          <h3 class="text-white text-lg font-semibold">Why this matters (as design &amp; pedagogy)</h3>
+          <p class="mt-4">
+            This work shows how AI can support children’s well-being without diagnosing them.
+            Instead of “tell me your feeling so I can fix you,” the tool says,
+            “Let’s make something together you can share.”
+          </p>
+
+          <p class="mt-4 text-white font-semibold">
+            Outcome: Submitted to CHI 2026 — “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
+          </p>
+
+          <p class="mt-4">
+            As an educator, I now teach AI design for children as:
+            not “AI that knows you,” but “AI that helps you feel less alone.”
+          </p>
+        </div>
+      </div>
+
+      <!-- SINGLE THUMBNAIL IMAGE WITH LINK -->
+      <div class="mt-12 flex flex-col items-center">
+        <a href="https://feel-better-sticker.replit.app/"
+           target="_blank"
+           class="group block w-full md:w-2/3 lg:w-1/2 transform transition hover:scale-105">
+          <img src="E_feelbetter.png"
+               alt="Feel-Better Sticker demo homepage"
+               class="rounded-2xl shadow-xl w-full h-auto object-contain border border-slate-700">
+          <p class="text-center text-slate-300 mt-4 group-hover:text-teal-400 transition">
+            🌟 Try the Feel-Better Sticker interactive demo →
+          </p>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</section>
+
 
   </main>
 </div>
