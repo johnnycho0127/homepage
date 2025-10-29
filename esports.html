@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>You Are Tilted! · UX Case Study · Yeonhee (Johnny) Cho</title>
+  <title>Emotions at Play: AI Emotional Sticker Project · UX Case Study</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,108 +11,107 @@
 
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif; }
-    /* subtle soft shadow card */
+
+    /* card shadows */
     .surface {
       box-shadow: 0 24px 64px -12px rgb(15 23 42 / .08);
     }
     .surface-soft {
       box-shadow: 0 24px 64px -12px rgb(15 23 42 / .05);
     }
-    /* image placeholder box */
-    .img-slot {
-      @apply flex items-center justify-center text-slate-500 text-xs text-center;
-      background-color: #e5e7eb;
-      border: 1px solid #e5e7eb;
-      border-radius: .75rem;
-      padding: 1rem;
-      width: 100%;
-    }
-    .ratio-hero { aspect-ratio: 16 / 9; }
-    .ratio-43   { aspect-ratio: 4 / 3; }
-    .ratio-169  { aspect-ratio: 16 / 9; }
-    .ratio-wide { aspect-ratio: 16 / 5; }
 
-    /* colored phase pill */
-    .phase-pill {
-      @apply text-[0.7rem] leading-4 font-semibold uppercase tracking-wider text-white rounded-full px-2 py-1;
-      letter-spacing: .08em;
-    }
-    .phase-discover { background-color: #4f46e5; } /* indigo-600 */
-    .phase-define   { background-color: #d97706; } /* amber-600  */
-    .phase-develop  { background-color: #2563eb; } /* blue-600   */
-    .phase-deliver  { background-color: #e11d48; } /* rose-600   */
-
-    /* section block style */
+    /* generic section card */
     .section-block {
-      @apply bg-white border border-slate-200 rounded-2xl surface-soft;
-      padding: 2.5rem 1.5rem 2rem;
+      background-color:#fff;
+      border:1px solid #e2e8f0; /* slate-200 */
+      border-radius:1rem;
+      padding:2.5rem 1.5rem 2rem;
+      box-shadow:0 24px 64px -12px rgb(15 23 42 / .05);
     }
     @media (min-width:768px){
-      .section-block { padding: 3rem 3rem 2.5rem; }
+      .section-block { padding:3rem 3rem 2.5rem; border-radius:1.5rem; }
     }
 
-    /* accent callouts */
-    .accent-indigo {
-      background-color: rgb(79 70 229 / .06);
-      border-color: rgb(79 70 229 / .2);
+    /* colored pill labels */
+    .phase-pill {
+      font-size:.7rem;
+      line-height:1rem;
+      font-weight:600;
+      text-transform:uppercase;
+      border-radius:9999px;
+      padding:.25rem .5rem;
+      letter-spacing:.08em;
+      color:#fff;
     }
-    .accent-amber {
-      background-color: rgb(217 119 6 / .07);
-      border-color: rgb(217 119 6 / .2);
+    .phase-understand { background-color:#4f46e5; } /* indigo-600 */
+    .phase-observe    { background-color:#d97706; } /* amber-600  */
+    .phase-define     { background-color:#2563eb; } /* blue-600   */
+    .phase-build      { background-color:#e11d48; } /* rose-600   */
+    .phase-reflect    { background-color:#0ea5e9; } /* sky-500    */
+
+    /* accent callout cards */
+    .accent-indigo { background-color:rgb(79 70 229 / .06); border-color:rgb(79 70 229 / .2); }
+    .accent-amber  { background-color:rgb(217 119 6 / .07); border-color:rgb(217 119 6 / .2); }
+    .accent-blue   { background-color:rgb(37 99 235 / .07); border-color:rgb(37 99 235 / .2); }
+    .accent-rose   { background-color:rgb(225 29 72 / .07); border-color:rgb(225 29 72 / .2); }
+    .accent-sky    { background-color:rgb(14 165 233 / .07); border-color:rgb(14 165 233 / .2); }
+
+    /* dark footer section */
+    .footer-dark-gradient { background-color:#0f172a; }
+
+    /* helper text styles */
+    .mini-label {
+      font-size:.7rem;
+      line-height:1rem;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
-    .accent-blue {
-      background-color: rgb(37 99 235 / .07);
-      border-color: rgb(37 99 235 / .2);
-    }
-    .accent-rose {
-      background-color: rgb(225 29 72 / .07);
-      border-color: rgb(225 29 72 / .2);
+    .caption {
+      font-size:.7rem;
+      line-height:1rem;
+      color:#64748b; /* slate-500 */
     }
 
-    /* dark footer */
-    .footer-dark-gradient {
-      background-color: #0f172a;
+    /* image placeholders */
+    .img-slot {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:.7rem;
+      line-height:1rem;
+      color:#64748b; /* slate-500 */
+      background-color:#e2e8f0; /* slate-200 */
+      border:1px solid #e2e8f0;
+      border-radius:.75rem;
+      padding:1rem;
+      width:100%;
     }
+    .ratio-hero { aspect-ratio:16/9; }
+    .ratio-43   { aspect-ratio:4/3; }
+    .ratio-34   { aspect-ratio:3/4; }
+    .ratio-wide { aspect-ratio:16/5; }
+
+    /* icon sprite refs */
+    svg[hidden] { display:none; }
   </style>
 </head>
 
 <body class="bg-slate-50 text-slate-700 antialiased">
 
-<!-- SPRITE ICONS (copied from your snippet) -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
-  <symbol id="icon-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="16" y1="13" x2="8" y2="13"></line>
-    <line x1="16" y1="17" x2="8" y2="17"></line>
-    <polyline points="10 9 9 9 8 9"></polyline>
-  </symbol>
+<!-- ICON DEFINITIONS -->
+<svg xmlns="http://www.w3.org/2000/svg" hidden>
   <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
   </symbol>
-  <symbol id="icon-demo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-    <line x1="2" y1="20" x2="22" y2="20"></line>
-  </symbol>
-  <symbol id="icon-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 12h12M12 6v12"></path>
-    <path d="M18 10v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
-    <path d="M10 12h.01"></path>
-  </symbol>
-  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-  </symbol>
-  <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-  </symbol>
 </svg>
 
-<!-- PAGE WRAPPER -->
+<!-- LAYOUT WRAPPER -->
 <div class="max-w-screen-xl mx-auto md:flex">
 
-  <!-- ========= LEFT SIDEBAR / NAV ========= -->
+  <!-- ===== LEFT SIDEBAR (unchanged) ===== -->
   <aside class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
     <div class="relative z-10 flex flex-col justify-between h-full">
       <div>
@@ -120,40 +119,46 @@
         <div class="flex justify-center space-x-4 mb-6">
           <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
 
-          <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+          <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868"
+             target="_blank"
+             class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors"
+             aria-label="Google Scholar">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5 0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/johnny-cho-553592a3/"
+             target="_blank"
+             class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors"
+             aria-label="LinkedIn">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
 
-          <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
+          <a href="https://ischool.uw.edu/people/phd/profile/yhcho"
+             target="_blank"
+             class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors"
+             aria-label="UW Website">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
           </a>
         </div>
 
-        <!-- profile -->
-        <div class="text-center">
-          <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover ring-2 ring-slate-500 ring-offset-2 ring-offset-zinc-800"
-               src="test.png"
-               alt="Profile picture of Yeonhee (Johnny) Cho"
-               onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
-          <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50 leading-tight">Johnny Cho</h1>
-          <p class="text-lg text-slate-300 mt-3 leading-snug">
-            Ph.D. Candidate @ UW iSchool<br/>Human-Centered Tech + Learning Sciences
-          </p>
-        </div>
+        <!-- project title / identity -->
+              <div class="text-center">
+      <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+                  <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-100">Johnny Cho</h1>
+                   <p class="text-lg text-slate-100 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
+                            </div>
 
-        <!-- research area pills -->
-        <div class="space-y-2 mt-10 text-left">
-          <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3">Areas of Work</h3>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Educational Technology</span>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Game-based / Esports Well-being</span>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI Literacy for Youth</span>
-          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design with Teens</span>
+        <!-- areas / tags -->
+           <div class="space-y-2 mt-10">
+     <h3 class="text-sm font-bold tracking-widest text-slate-100 uppercase mb-3 text-left">Area for Research</h3>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Educational Technology</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Game-based Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Augmented/Virtual Reality</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Media Literacy (Misinformation)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">AI Literacy</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Social Emotional Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-100 font-bold px-3 py-1 rounded-full">Participatory Design</span>
         </div>
 
         <!-- internal nav to scroll right column -->
@@ -170,30 +175,15 @@
           </ul>
         </nav>
 
-        <!-- top nav links -->
-        <div class="mt-12 flex flex-col items-start text-left text-sm font-bold space-y-2 text-slate-300">
-          <a href="https://johnnycho.info" class="hover:text-teal-400 transition-colors">← Back to Home</a>
-          <a href="https://johnnycho.info/project.html" class="hover:text-teal-400 transition-colors">More Projects / Publications</a>
-        </div>
-
-      </div>
-
-      <div class="mt-12 text-left text-[10px] text-slate-500 leading-relaxed">
-        <p>
-          This work appears in:<br/>
-          <span class="text-slate-300 font-semibold">
-            Cho, Y., Newman, M., Pitt, C., Yip, J., &amp; Lee, J. H. (2024).
-            "You Are Tilted!: Leveraging Tabletop Gaming to Manage Tilt and Strengthen Team Dynamics in Esports."
-            Proceedings of the ACM on Human-Computer Interaction (CHI PLAY 2024)
-          </span>
-        </p>
-      </div>
-    </div>
   </aside>
 
   <!-- ========= RIGHT CONTENT / CASE STUDY ========= -->
   <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50 space-y-12">
-
+              <nav class="flex justify-end space-x-6 mb-8">
+                <a href="https://johnnycho.info" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Home</a>
+                <a href="https://johnnycho.info/project.html" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Publications</a>
+            </nav>
+  
     <!-- HERO / INTRO -->
     <section class="section-block surface bg-white">
       <p class="text-[.7rem] font-semibold tracking-wider text-indigo-600 uppercase">UX Case Study · Double Diamond Process</p>
