@@ -9,157 +9,383 @@
 
 <body class="bg-neutral-50 text-neutral-900 antialiased leading-relaxed">
 
-  <!-- HEADER -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <p class="text-xs tracking-wide uppercase text-neutral-500">UX Case Study</p>
-    <h1 class="text-4xl font-bold mt-3">Emotions at Play: Designing Child-Centered AI for Emotional Learning</h1>
-    <p class="text-lg text-neutral-700 mt-4 max-w-4xl">
-      A participatory UX research and design project exploring how AI and tangible play can foster emotional intelligence in children.
-      I led the full design cycle — from generative research and prototyping in Figma to iterative testing with real users.
-    </p>
+  <!-- OVERVIEW / HERO -->
+  <section class="bg-white border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-2 items-start">
+      <!-- Left column -->
+      <div>
+        <h1 class="text-3xl font-semibold text-neutral-900 leading-tight">
+          Emotions at Play: Designing AI &amp; Tangible Tools for Children’s Emotional Learning
+        </h1>
+        <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
+          A playful emotional learning toolkit co-designed with 27 children (ages 6–12), combining tangible tools
+          (storytelling dice, empathy games, stickers) and an AI-powered “feel-better sticker” generator.
+        </p>
+
+        <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-900 text-sm">Role</div>
+            <div class="text-neutral-700">
+              UX Research Lead<br/>Product Designer<br/>Educator
+            </div>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-900 text-sm">Methods</div>
+            <div class="text-neutral-700">
+              Participatory Design (PD1–PD4),<br/>Child-Centered Co-Design,<br/>Qualitative Research
+            </div>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-900 text-sm">Timeline</div>
+            <div class="text-neutral-700">
+              2024–2025
+            </div>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-900 text-sm">Tools</div>
+            <div class="text-neutral-700">
+              Figma, Custom Web App<br/>(AI Sticker Tool),<br/>Tangible Dice &amp; Game Materials
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-sm text-neutral-600">
+          <div><span class="font-semibold text-neutral-900">Outcome:</span> Full Paper Submission to CHI 2026</div>
+          <div><span class="font-semibold text-neutral-900">Core Skills:</span> Interaction Prototyping, AI Interface Design, Child-Centered UX Ethics</div>
+        </div>
+      </div>
+
+      <!-- Right column: image placeholders -->
+      <div class="flex flex-col gap-4">
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          Session photos: storytelling dice game, empathy game, AI sticker activity
+        </div>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          Printed “feel-better” stickers / children’s artifacts
+        </div>
+      </div>
+    </div>
   </section>
+
 
   <!-- PROBLEM STATEMENT -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Problem Statement</h2>
-    <ol class="list-decimal ml-6 space-y-4">
-      <li><strong>State of the World:</strong>  
-        Play is a natural foundation for children’s emotional growth. Studies show that when children build stories, games, or characters, 
-        they externalize emotions, negotiate meaning, and develop empathy:contentReference[oaicite:0]{index=0}.
-        Yet digital emotional-learning tools often remain adult-centered, focusing on structured skill training instead of spontaneous, child-led exploration.
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-2xl font-semibold mb-4 text-neutral-900">Problem Statement</h2>
+    <ol class="list-decimal ml-6 space-y-4 text-neutral-700">
+      <li>
+        <strong>State of the world:</strong>
+        Children are navigating anxiety, loneliness, and conflict in increasingly digital environments. Research shows
+        that play supports emotional growth by giving kids space to rehearse feelings, negotiate meaning, and build empathy together,
+        especially when they create shared objects like stories or games. 
       </li>
-      <li><strong>The Big BUT:</strong>  
-        Despite evidence that play transforms difficult emotions into manageable experiences, 
-        there is little research on how children themselves use playful and technological tools to express and reinterpret emotions collectively.
-        This gap limits how we design emotionally intelligent systems for youth in an age of pervasive AI and screen time.
+
+      <li>
+        <strong>The big BUT:</strong>
+        Most emotional-learning tools for youth are adult-scripted and individual (“tell me how you feel”), not co-created and social.
+        There is limited understanding of how kids themselves repurpose playful tools — including AI — to express,
+        reinterpret, and share emotions with peers.
       </li>
-      <li><strong>Therefore, We Did:</strong>  
-        This study explored how children engage with <strong>AI-assisted and tangible tools</strong> to express, share, and reinterpret emotions through play.  
-        The goal was to design and evaluate the <em>AI Emotional Sticker Tool</em> — a hybrid interface that combines storytelling, empathy games, and AI image generation — 
-        to understand how technology can serve as a <strong>campfire for emotional learning</strong>.
+
+      <li>
+        <strong>Therefore, we did:</strong>
+        We set out to design and test a hybrid system — tangible activities + an AI-powered sticker tool — that
+        helps children express emotions, see that “others feel this too,” and build empathy through playful artifacts.
+        Our research goal: <em>Can AI and physical play act like a ‘campfire’ that invites kids to gather, share, and co-make emotional meaning?</em> 
       </li>
     </ol>
-    <p class="mt-4 text-sm italic text-neutral-600">
-      Research outcome: Submitted as a full paper to CHI 2026, “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
-    </p>
+
+    <div class="mt-6 bg-neutral-100 border border-neutral-200 rounded-xl p-4 text-sm text-neutral-700">
+      <div class="font-semibold text-neutral-900 text-sm mb-1">Research Goal</div>
+      Use participatory design with children to (1) understand how they naturally express and negotiate difficult feelings through play,
+      (2) translate those behaviors into interface requirements, and (3) build/test an AI-assisted prototype that supports peer empathy,
+      not just self-regulation.
+    </div>
   </section>
 
-  <!-- DESIGN PHILOSOPHY -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Design Philosophy</h2>
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <div>
-        <p>
-          My UX philosophy emphasizes <strong>emotional intelligence, participatory design, and play</strong> as drivers of creativity and empathy.
-          Grounded in sociocultural theory and constructivism, I view children not as end-users but as co-designers who bring emotional insight into the design process.
-        </p>
-        <p class="mt-4">
-          The goal was not only to design for emotional learning, but to design <em>through</em> it—creating tools that spark curiosity, agency, and shared reflection.
-          This project treats technology, especially AI, as a <strong>reflective partner</strong> rather than an evaluator.
-        </p>
+
+  <!-- DESIGN THINKING PROCESS OVERVIEW -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-2xl font-semibold mb-8 text-neutral-900">Design Thinking Process</h2>
+
+    <!-- We'll walk through each stage below. This nav-style row just previews it -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">1 · Understand</div>
+        <div class="font-semibold text-neutral-900 mt-1">Emotional reality of kids</div>
+        <div class="text-neutral-700 mt-1">What challenges are they carrying?</div>
       </div>
-      <div>
-        <img src="placeholder-design-philosophy.jpg" alt="Design philosophy visual" class="rounded-lg shadow-sm border border-neutral-200">
-        <p class="text-sm text-neutral-500 mt-2">[Placeholder: diagram of “Curiosity, Ownership, Enjoyment” framework]</p>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">2 · Observe</div>
+        <div class="font-semibold text-neutral-900 mt-1">PD1 &amp; PD2 with children</div>
+        <div class="text-neutral-700 mt-1">How do they express feelings in play?</div>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">3 · Define</div>
+        <div class="font-semibold text-neutral-900 mt-1">Design requirements</div>
+        <div class="text-neutral-700 mt-1">Sticker as emotional artifact.</div>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">4 · Ideate</div>
+        <div class="font-semibold text-neutral-900 mt-1">Interaction concepts</div>
+        <div class="text-neutral-700 mt-1">Campfire model, empathy game, shared reflection.</div>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">5 · Prototype</div>
+        <div class="font-semibold text-neutral-900 mt-1">AI Emotional Sticker Tool</div>
+        <div class="text-neutral-700 mt-1">Wireframes &amp; flows in Figma.</div>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">6 · Test</div>
+        <div class="font-semibold text-neutral-900 mt-1">Child feedback &amp; iteration</div>
+        <div class="text-neutral-700 mt-1">“Make it cuter.” “Let me change the words.”</div>
       </div>
     </div>
   </section>
 
-  <!-- DISCOVER: PD1 + PD2 -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Discover · Play-Based Emotional Expression (PD1 + PD2)</h2>
+
+  <!-- 1. UNDERSTAND -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">1 · Understand</h2>
     <div class="grid md:grid-cols-2 gap-8">
       <div>
-        <h3 class="font-medium text-lg mb-2">PD1 · Storytelling Dice Game</h3>
-        <p>
-          Using dice inspired by Pixar’s <em>Inside Out</em>, children created stories around emotions such as anger, sadness, or joy.
-          The activity revealed that difficult emotions were often the most fun to explore — curiosity became a gateway for emotional expression:contentReference[oaicite:1]{index=1}.
+        <p class="text-neutral-700">
+          Before making anything, I mapped current conditions: kids are emotionally overloaded (stress, conflict, anxiety),
+          yet most “social-emotional learning” tools correct behavior instead of honoring lived feelings.
+          Literature says play lets kids safely reframe negative emotions into something manageable and even fun. 
         </p>
-        <h3 class="font-medium text-lg mt-6 mb-2">PD2 · Empathy Game Design</h3>
-        <p>
-          Children co-designed empathy games (“You Are Not Alone”) using cards, dice, and wheels.  
-          By recognizing shared emotions, they turned vulnerability into social play, discovering that <strong>stickers</strong> and 
-          visual tokens were their favorite medium for expressing and sharing feelings:contentReference[oaicite:2]{index=2}.
-        </p>
-        <p class="mt-4 italic text-sm text-neutral-700">
-          Insight → Stickers emerged as playful emotional artifacts — visual “campfires” around which conversation and empathy formed.
+        <p class="text-neutral-700 mt-4">
+          Design implication: support honest, messy feelings — not only “positive coping.” That means the UI tone cannot sound like a school counselor.
         </p>
       </div>
       <div>
-        <img src="placeholder-discover.jpg" alt="PD1 and PD2 visuals" class="rounded-lg border border-neutral-200 shadow-sm">
-        <p class="text-sm text-neutral-500 mt-2">[Insert photos: dice storytelling session and empathy game artifacts]</p>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          [Insert slide / graphic: “State of the World” + quotes from lit review + real child challenges]
+        </div>
+        <p class="text-sm text-neutral-500 mt-2">Context framing I would show to stakeholders / IRB / school partners.</p>
       </div>
     </div>
   </section>
 
-  <!-- DESIGN / DEVELOP -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Design & Develop · AI Emotional Sticker Tool</h2>
-    <p>
-      Building on PD insights, I prototyped the <strong>AI Emotional Sticker Tool</strong> in Figma, designed for self and peer reflection.
-      The tool allows children to describe emotions, generate AI stickers, and customize them before printing.
+
+  <!-- 2. OBSERVE (PD1 + PD2) -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">2 · Observe (Participatory Design with Children)</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-medium text-neutral-900 mb-2">PD1 · Storytelling Dice</h3>
+        <p class="text-neutral-700">
+          Children rolled custom “emotion dice” (anger, fear, disgust, etc.) and told real stories based on those emotions.
+          They loved exploring so-called “negative” emotions because those felt dramatic, funny, and honest — not shameful. 
+        </p>
+
+        <h3 class="font-medium text-neutral-900 mt-6 mb-2">PD2 · Empathy Game (“You Are Not Alone”)</h3>
+        <p class="text-neutral-700">
+          In small groups, kids designed games that rewarded admitting hard moments (“I was nervous before speaking”).
+          Other kids said “me too,” acted it out, or built on it. Empathy happened as co-experience, not as moral lecture. 
+        </p>
+
+        <p class="text-neutral-700 mt-6 text-sm italic">
+          Key observation:<br/>
+          Children repeatedly gravitated toward <strong>stickers</strong> and other portable visual tokens as “this is how I felt.”
+          Stickers became little emotional artifacts they wanted to keep, trade, and show.
+        </p>
+      </div>
+
+      <div>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          [Insert photos: kids with dice, empathy game boards, early hand-drawn emotion stickers]
+        </div>
+        <p class="text-sm text-neutral-500 mt-2">Children building emotional meaning together through play artifacts.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3. DEFINE -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">3 · Define</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-neutral-700">
+          From PD1 and PD2, we defined the core design requirement:
+          <strong>Give kids a shared emotional object they can point to, laugh about, critique, edit, and keep.</strong>
+        </p>
+        <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
+          <li>Emotions must become visible, collectible, and tradable.</li>
+          <li>The artifact should invite group conversation (“that happened to me too”), not just self-reflection.</li>
+          <li>Adults should not own the language. Kids should.</li>
+        </ul>
+        <p class="text-neutral-700 mt-4">
+          This led directly to the “sticker as emotional artifact” concept.
+        </p>
+      </div>
+      <div>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          [Insert image: affinity map / sticky notes with themes “Curiosity · Ownership · Enjoyment”]
+        </div>
+        <p class="text-sm text-neutral-500 mt-2">
+          Synthesis wall: curiosity, ownership, enjoyment as design pillars. 
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4. IDEATE -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">4 · Ideate</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-neutral-700">
+          I sketched interaction models where a tool could:
+        </p>
+        <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
+          <li>Listen to a child’s story about a tough moment.</li>
+          <li>Generate a “feel-better” sticker for that moment (image + message).</li>
+          <li>Let peers create supportive stickers for each other and compare interpretations.</li>
+        </ul>
+        <p class="text-neutral-700 mt-4">
+          Conceptually, this becomes a <strong>campfire model</strong>: the tool is not the teacher.  
+          The tool is the “fire in the middle” that everyone gathers around to tell stories, laugh, and feel seen together. 
+        </p>
+      </div>
+      <div>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          [Insert sketch / user flow diagram of “me → AI sticker → share with group”]
+        </div>
+        <p class="text-sm text-neutral-500 mt-2">Early interaction model: sticker as a social/emotional campfire.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 5. PROTOTYPE -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">5 · Prototype (AI Emotional Sticker Tool)</h2>
+    <p class="text-neutral-700">
+      I built mid-fidelity wireframes and an interactive Figma prototype for the AI Emotional Sticker Tool.
+      The flow supports both self-reflection and peer empathy.
     </p>
+
     <div class="grid md:grid-cols-3 gap-6 mt-8">
       <div>
-        <h3 class="font-medium mb-2">Wireframes</h3>
-        <img src="placeholder-wireframe.jpg" alt="Wireframe" class="rounded-lg border border-neutral-200 shadow-sm">
+        <h3 class="font-medium text-neutral-900 mb-2">Wireframe · Story Input</h3>
+        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+          [Drop Figma screen: “Tell us what happened / pick how you felt”]
+        </div>
       </div>
+
       <div>
-        <h3 class="font-medium mb-2">Prototype Flow</h3>
-        <img src="placeholder-prototype.jpg" alt="Prototype flow" class="rounded-lg border border-neutral-200 shadow-sm">
+        <h3 class="font-medium text-neutral-900 mb-2">Prototype · AI Output</h3>
+        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+          [Drop Figma screen: Sticker preview (image + comforting text)]
+        </div>
       </div>
+
       <div>
-        <h3 class="font-medium mb-2">Figma Interface</h3>
-        <img src="placeholder-figma.jpg" alt="Figma UI" class="rounded-lg border border-neutral-200 shadow-sm">
+        <h3 class="font-medium text-neutral-900 mb-2">Prototype · Print & Share</h3>
+        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+          [Drop Figma screen: Printable sticker sheet layout]
+        </div>
       </div>
     </div>
+
     <p class="text-sm text-neutral-700 mt-4 italic">
-      View prototype: <a href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f"
-         target="_blank" class="text-blue-600 underline">AI Emotional Sticker Prototype (Figma)</a>
+      Figma link (mid/hi-fi):
+      <a href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f"
+         target="_blank" class="text-blue-600 underline">
+        AI Emotional Sticker Prototype
+      </a>
     </p>
   </section>
 
-  <!-- EVALUATE -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Evaluate · User Testing & Iteration</h2>
+
+  <!-- 6. TEST -->
+  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
+    <h2 class="text-xl font-semibold mb-4 text-neutral-900">6 · Test</h2>
     <div class="grid md:grid-cols-2 gap-8">
       <div>
-        <p>
-          During testing, children interacted with the AI tool individually and in pairs, creating stickers for both themselves and their peers.
-          Humor and imperfection fueled engagement — children laughed at AI’s “mistakes,” leading to deeper emotional reflection and empathy.
+        <p class="text-neutral-700">
+          We tested with children using both self-stickers (“for me”) and peer-stickers (“for you”).
+          Kids critiqued the AI’s tone (“too corny”), rewrote text, and requested visual changes (“make it cuter,”
+          “add dog ears”). They treated AI output as something to edit — not something to obey.
         </p>
-        <p class="mt-4 italic text-sm text-neutral-700">
-          Insight → Fun and imperfection lowered emotional barriers and encouraged collective reflection.
+        <p class="text-neutral-700 mt-4">
+          This confirmed a core requirement: <strong>the child must own the message.</strong>
+          The tool should offer drafts, not diagnoses. 
         </p>
       </div>
+
       <div>
-        <img src="placeholder-usertesting.jpg" alt="User testing visuals" class="rounded-lg border border-neutral-200 shadow-sm">
-        <p class="text-sm text-neutral-500 mt-2">[Insert photo: user testing or AI sticker samples]</p>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
+          [Insert photos: kids editing AI stickers / comparing “my version” vs “your version of my feeling”]
+        </div>
+        <p class="text-sm text-neutral-500 mt-2">
+          Testing moment: disagreement about feelings became a safe way to talk about the feeling.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- CONCLUSION -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-4">Conclusion · Campfire Model & Playful Learning</h2>
-    <p>
-      This project shows that emotional learning happens most effectively around shared, playful artifacts — what I call the
-      <strong>Campfire Model of Emotional Design</strong>. Like a campfire, these tools draw children together to share stories, 
-      laugh, and reinterpret emotions collectively:contentReference[oaicite:3]{index=3}.
+
+  <!-- CONCLUSION / IMPACT -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-semibold mb-4 text-neutral-900">Conclusion · What I Learned / Design Guidance</h2>
+
+    <p class="text-neutral-700">
+      The project supports a new model for emotionally intelligent UX with children: tools should act less like instructors
+      and more like <strong>campfires</strong>. Kids gather around them, contribute their own stories, remix each other’s ideas,
+      laugh at AI’s weirdness, and negotiate meaning together. 
     </p>
-    <ul class="list-disc ml-6 mt-4 text-neutral-700">
-      <li><strong>Curiosity</strong> – Playful uncertainty (dice, AI randomness) sparks emotional exploration.</li>
-      <li><strong>Ownership</strong> – Children co-create and adapt rules, claiming voice and authorship:contentReference[oaicite:4]{index=4}.</li>
-      <li><strong>Enjoyment</strong> – Humor transforms vulnerability into connection and empathy:contentReference[oaicite:5]{index=5}.</li>
+
+    <ul class="list-disc ml-6 mt-6 text-neutral-700">
+      <li><strong>Curiosity</strong>  
+        Randomness and surprise (emotion dice, unexpected AI stickers) invite children to explore even “difficult” emotions.
+        Curiosity becomes the on-ramp to reflection. 
+      </li>
+
+      <li class="mt-4"><strong>Ownership</strong>  
+        Children rewrote rules, rewrote sticker text, and reshaped the tone. Emotional tools should be editable and negotiable,
+        not prescriptive. 
+      </li>
+
+      <li class="mt-4"><strong>Enjoyment</strong>  
+        Fun, humor, and even “getting it wrong” together turned vulnerability into connection. Enjoyment isn’t extra;
+        it’s the mechanism that makes empathy safe. 
+      </li>
     </ul>
-    <p class="mt-6">
-      Together, these principles frame <strong>Playful Learning for Emotional UX</strong> — where emotional design is not about teaching 
-      correct feelings, but about cultivating environments that make emotions visible, social, and fun to explore.
+
+    <p class="text-neutral-700 mt-6">
+      For my teaching: I use this project to mentor students through ethical AI design, participatory research with vulnerable users,
+      and prototyping for social impact. The work demonstrates how design thinking can be rigorous, research-driven, and emotionally responsible.
+    </p>
+
+    <!-- conclusion image row -->
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+        [Insert final sticker gallery / printed outputs]
+      </div>
+      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+        [Insert “campfire model” diagram]
+      </div>
+      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
+        [Insert slide: Curiosity · Ownership · Enjoyment]
+      </div>
+    </div>
+
+    <p class="text-sm text-neutral-600 mt-8 italic">
+      Outcome: This work is submitted to CHI 2026 as “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
     </p>
   </section>
 
+
   <!-- FOOTER -->
-  <footer class="max-w-6xl mx-auto px-6 py-12 border-t border-neutral-200 text-sm text-neutral-600">
+  <footer class="max-w-6xl mx-auto px-6 pb-16 pt-4 text-neutral-500 text-xs leading-relaxed border-t border-neutral-200">
     <p><strong>Role:</strong> UX Research Lead · Product Designer · Educator</p>
     <p><strong>Methods:</strong> Participatory Design (PD1–PD4), Interaction Prototyping, AI Interface Design, Child-Centered UX</p>
     <p><strong>Outcome:</strong> Full Paper Submission to CHI 2026</p>
