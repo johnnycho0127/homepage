@@ -1,124 +1,347 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeonhee (Johnny) Cho - PhD Candidate</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* tsParticles container for the neural network */
-        #tsparticles-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        /* Custom styles for the active navigation link on dark background */
-        .nav-link.active {
-            color: #f8fafc; /* text-slate-50 */
-            font-weight: 700;
-        }
-        .nav-link.active .nav-indicator {
-            width: 2.5rem; /* w-10 */
-            height: 2px;
-            background-color: #f8fafc; /* bg-slate-50 */
-        }
-        /* Smooth transition for nav links and indicators */
-        .nav-link, .nav-indicator {
-            transition: all 0.2s ease-in-out;
-        }
-        /* Group hover effect for cards */
-        .card-hover:hover {
-            border-color: #2dd4bf; /* border-teal-400 */
-            box-shadow: 0 4px 14px 0 rgb(13 148 136 / 10%);
-        }
-        .card-hover:hover .card-title {
-            color: #2dd4bf; /* text-teal-400 */
-        }
-        /* Styles for filter tags */
-        .filter-tag {
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-        .filter-tag.active {
-            background-color: #1e293b; /* bg-slate-800 */
-            color: #f1f5f9; /* text-slate-100 */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study · Emotions at Play</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 text-slate-700">
+<body class="bg-neutral-50 text-neutral-900 antialiased leading-relaxed">
 
-    <!-- Main container for two-column layout -->
-    <div class="max-w-screen-xl mx-auto md:flex">
+  <!-- HEADER / HERO -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <p class="text-xs tracking-wide uppercase text-neutral-500 font-medium">UX Case Study</p>
+    <h1 class="text-3xl font-semibold text-neutral-900 mt-2">
+      Emotions at Play: Designing Child-Centered AI for Emotional Support
+    </h1>
 
-        <!-- Left-side Fixed Panel -->
-        <header class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
-            <!-- tsParticles container for the neural network effect -->
-            <div id="tsparticles-header"></div>
-            <div class="relative z-10 flex flex-col justify-between h-full">
-                <div>
-                    <!-- Top Navigation -->
-                    <div class="mb-8">
-                        <a href="https://johnnycho.info" target="self" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md">Home</a>
-                        <a href="https://johnnycho.info/project.html" target="self" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md ml-2">Projects</a>
-                    </div>
+    <p class="text-lg text-neutral-700 mt-4 max-w-3xl">
+      I led the end-to-end design of a playful emotional support tool for children (ages 6–12).
+      The product combines physical play, peer empathy, and an AI-powered “feel-better sticker” generator.
+      This case study shows my UX process: how I scoped the problem, co-designed with real users,
+      built and tested prototypes in Figma and code, and iterated on interaction patterns for emotional safety.
+    </p>
 
-                    <!-- Profile Info -->
-                    <div class="text-center">
-                        <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
-                         <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Yeonhee Cho</h1>
-                        <p class="text-2xl text-slate-300 mt-4">'<b>Johnny</b>'</p>
-                        <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
-                        <p class="text-slate-400 mt-4">He/His/Him</p>
-                        <p class="text-slate-400">yhcho@uw.edu</p>
-                        
-                    </div>
+    <div class="grid md:grid-cols-3 gap-4 text-sm text-neutral-700 mt-8">
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-neutral-500 font-medium text-xs uppercase tracking-wide">My Role</div>
+        <div class="mt-1 font-semibold text-neutral-900">UX Research Lead &amp; Product Designer</div>
+        <div class="mt-1">Participatory research, interaction design, facilitation, synthesis</div>
+      </div>
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-neutral-500 font-medium text-xs uppercase tracking-wide">Timeline</div>
+        <div class="mt-1 font-semibold text-neutral-900">2024–2025</div>
+        <div class="mt-1">4 iterative design sprints with users</div>
+      </div>
+      <div class="bg-white border border-neutral-200 rounded-xl p-4">
+        <div class="text-neutral-500 font-medium text-xs uppercase tracking-wide">Core Skills</div>
+        <div class="mt-1 font-semibold text-neutral-900">Participatory UX · Child-centered AI · Prototyping</div>
+        <div class="mt-1">Figma wireframes, physical prototyping, low-code AI interface</div>
+      </div>
+    </div>
+  </section>
 
-<!-- Area for Research -->
-<div class="mt-10 text-left bg-slate-700/30 rounded-xl p-5 border border-slate-600">
-  <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3">Area for Research</h3>
-  <ul class="text-slate-300 text-sm space-y-2">
-    <li>Human-Computer Interaction (HCI)</li>
-    <li>Educational Technology</li>
-    <li>Game-based Learning</li>
-    <li>Augmented/Virtual Reality</li>
-    <li>Media Literacy (Misinformation)</li>
-    <li>AI Literacy</li>
-    <li>Social Emotional Learning</li>
-    <li>Participatory Design</li>
-  </ul>
-</div>
- </div>
-        <div class="mt-8 md:mt-0 text-center">
-                     <div class="flex justify-center space-x-4 mb-6">
-                        <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
-                        <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
-                        </a>
-                         <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-  <!-- LEFT: Project Content -->
-       <!-- Right-side Main Content -->
-        <main class="md:w-3/4 p-6 md:p-8 lg:p-12 relative">
-             <div class="absolute top-6 right-6 md:top-8 md:right-8 z-10">
-                <a href="https://johnnycho.info/project.html" class="text-sm font-semibold text-slate-600 hover:text-teal-500 transition-colors">← Back to Portfolio</a>
-            </div>
-            <!-- Project Intro -->
-            <section id="intro" class="mb-12 md:mb-16 scroll-mt-24">
+  <!-- 1. DISCOVERY / PROBLEM DEFINITION -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">1. Discovery · Why this product needs to exist</h2>
+
+    <p class="text-neutral-700">
+      Children are experiencing more stress, anxiety, and loneliness, but they’re getting fewer natural opportunities
+      to practice empathy, negotiate conflict, or talk about feelings with peers. A lot of what’s called “emotional learning”
+      today is adult-scripted (“tell me how you feel”) or compliance-based (“use the correct emotion word”). That model
+      doesn’t reflect how kids actually express emotion in their lives. 
+    </p>
+
+    <p class="text-neutral-700 mt-4">
+      My design question was:
+    </p>
+    <p class="bg-white border border-neutral-300 rounded-lg p-4 text-neutral-900 font-medium text-lg leading-relaxed">
+      How might we create an experience where kids can safely express hard feelings,
+      see they’re not alone, and feel supported — without making it feel like therapy or school?
+    </p>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">What I did in this phase</p>
+      <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li>Background scan of child emotional development and play-based learning.</li>
+        <li>Identified a gap: almost no tools let kids co-create emotional meaning with each other using both physical and digital media. </li>
+        <li>Defined initial concept: a “play first, feelings second” journey instead of “label your feelings.”</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">Why this matters for UX</p>
+      <p class="text-neutral-700 text-sm leading-relaxed">
+        This is where pedagogy meets product. I’m not only studying kids; I’m modeling an experience architecture for
+        emotionally sensitive users. This is the same mindset I would teach in a UX classroom: problem framing before solution making.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 2. USER RESEARCH / PARTICIPATORY SESSIONS -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">2. Generative Research with Users</h2>
+
+    <p class="text-neutral-700">
+      I ran four participatory design sessions (“PD1–PD4”) with 27 children (ages 6–12). Each session was both
+      a research probe and a design sprint. Instead of treating kids as “testers,” I treated them as co-designers.
+      This gave me authentic behavioral data and immediate design direction. 
+    </p>
+
+    <div class="mt-6 bg-white border border-neutral-200 rounded-xl p-5">
+      <p class="text-neutral-500 font-medium text-xs uppercase tracking-wide">Participants and Methods</p>
+      <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li>27 children (6–12 years old), mixed backgrounds, gender-balanced. Sessions held in small groups to support peer comfort. </li>
+        <li>Data sources: video recordings, facilitator notes, artifacts made by the kids (drawings, stickers, game prototypes). </li>
+        <li>Analysis: iterative coding in Atlas.ti; I led synthesis and theme development across sessions. </li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">What I learned in this phase</p>
+      <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li>Kids don’t start with “I’m sad.” They start with humor, exaggeration, performance. This tells us how the UI tone should sound.</li>
+        <li>They feel safer when emotions are made into a shared activity, not an interview.</li>
+        <li>They prefer tangible, modifiable objects (dice, cards, stickers) over static screens. That led me toward hybrid physical-digital design. </li>
+      </ul>
+    </div>
+
+    <p class="text-neutral-700 text-sm leading-relaxed mt-6">
+      These insights drove the next step: instead of jumping straight into a slick high-fidelity app, I intentionally prototyped
+      <strong>experiences</strong> first (storytelling games, empathy games) before prototyping <strong>interfaces</strong>.
+      That sequencing was strategic and user-driven.
+    </p>
+  </section>
+
+
+  <!-- 3. EXPERIENCE PROTOTYPE 1 · EMOTION STORYTELLING -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">3. Prototype Sprint 1 · Emotional Storytelling with Dice (PD1)</h2>
+
+    <p class="text-neutral-700">
+      I created giant “Inside Out”–style emotion dice and story cards. Kids rolled an emotion (anger, disgust, fear, etc.),
+      told a story from their life that matched it, and drew it on large sticker sheets. 
+    </p>
+
+    <ul class="list-disc ml-6 mt-3 text-neutral-700 text-sm leading-relaxed">
+      <li>Goal: Test whether play can get kids to surface authentic emotions voluntarily.</li>
+      <li>Observation: Many kids said they <em>prefer</em> “negative” emotions because they’re more dramatic and funny (“My favorite emotion is disgust”). </li>
+      <li>Unexpected behavior: They modified the rules mid-activity to make it sillier (“inconvenience equals funny”), which increased sharing. </li>
+    </ul>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">Design decision coming out of this sprint</p>
+      <p class="text-neutral-700 text-sm leading-relaxed">
+        Because humor made space for vulnerability, I realized the interface later cannot be clinical or overly “supportive teacher.”
+        It has to sound like a playful collaborator. This insight shaped copy tone in my later Figma flows.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 4. EXPERIENCE PROTOTYPE 2 · EMPATHY GAME DESIGN -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">4. Prototype Sprint 2 · Empathy Game Co-Design (PD2)</h2>
+
+    <p class="text-neutral-700">
+      Next, I facilitated “You Are Not Alone,” where children designed their own empathy games using cards, spinners, Jenga blocks,
+      and challenges. They shared a real stress moment (ex: “I was nervous before public speaking”), and other players who had felt
+      the same had to perform an action. 
+    </p>
+
+    <ul class="list-disc ml-6 mt-3 text-neutral-700 text-sm leading-relaxed">
+      <li>Goal: See how kids build empathy with each other.</li>
+      <li>Finding: Empathy was not “I imagine how you feel.” It was “Oh, me too.” That’s a totally different UX model.</li>
+      <li>Social dynamic: Kids were motivated by recognition and belonging, not moral instruction.</li>
+    </ul>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">Design decision coming out of this sprint</p>
+      <p class="text-neutral-700 text-sm leading-relaxed">
+        The product shouldn’t only reflect <em>your</em> feeling back to you. It should also show: “Other kids have felt this, too.”
+        That directly inspired the next phase: designing a tool that can generate visual, sharable comfort objects.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 5. DIGITAL PRODUCT CONCEPT · AI FEEL-BETTER STICKER -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">5. Product Concept · AI ‘Feel-Better Sticker’ Generator (PD3)</h2>
+
+    <p class="text-neutral-700">
+      At this point I moved from physical/social prototyping into an actual digital product concept.
+      I designed the first version of the AI Sticker Tool in Figma
+      (<a href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f"
+         target="_blank"
+         class="text-blue-600 underline">Figma: Education AI Sticker Prototype</a>).
+    </p>
+
+    <div class="bg-white border border-neutral-200 rounded-xl p-5 mt-6">
+      <p class="text-neutral-500 font-medium text-xs uppercase tracking-wide">Core Flow (v1 wireframe)</p>
+      <ol class="list-decimal ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li><strong>Tell Your Story:</strong> Child uploads a quick drawing of “what happened” and picks how they feel (sad / angry / scared / worried / lonely).</li>
+        <li><strong>Generate Support:</strong> The tool generates a sticker illustration + a short “feel-better” message + a simple reflection (“It’s okay to feel angry when…”).</li>
+        <li><strong>Print & Keep:</strong> The child can print the stickers, decorate them, trade them, or keep them in personal spaces. </li>
+      </ol>
+    </div>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">What I was testing in this prototype</p>
+      <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li>Does the language feel safe / supportive / non-patronizing?</li>
+        <li>Do kids understand what the AI is doing with their input (transparency)?</li>
+        <li>Do they care about accuracy, or do they care about cuteness / ownership?</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">What I learned from user testing</p>
+      <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+        <li>Kids <em>loved</em> getting a physical artifact that represented their feeling. They wanted to take it home, decorate it, and show it. </li>
+        <li>They immediately mocked generic AI messages (“AI didn’t listen to me”, “That sounds corny”). This critique was social and funny, not hostile. </li>
+        <li>They wanted control: “Can I change the words?” “Can you make it cuter?” That told me this tool must be <strong>editable, not prescriptive</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">Design decision for next iteration</p>
+      <p class="text-neutral-700 text-sm leading-relaxed">
+        I updated the interaction model to treat AI output as a draft to personalize — not “the answer.”
+        In other words: AI as a co-creator the child can push back on.
+        Pedagogically, that gives the child agency.
+        UX-wise, that prevents the tool from sounding like a fake therapist.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 6. COLLABORATIVE INTERPRETATION · PEER-GENERATED STICKERS -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">6. Peer Interpretation Layer (PD4)</h2>
+
+    <p class="text-neutral-700">
+      In the next sprint, I extended the concept: instead of making a sticker for yourself, you make one for a friend.
+      Each child listened to another child’s story, then used the tool to generate a sticker meant to comfort that peer.
+      Finally, they compared: “How I see me” vs “How you see me.”
+    </p>
+
+    <ul class="list-disc ml-6 mt-3 text-neutral-700 text-sm leading-relaxed">
+      <li>Goal: Can this product help children practice empathy?</li>
+      <li>Result: Kids started talking about emotional accuracy (“That’s not how I felt”) and emotional misreading (“You thought I was mad, but I was scared”).</li>
+      <li>Bonus: Disagreement itself became learning. They laughed together when AI or a peer “got it wrong,” which actually opened space to clarify feelings. </li>
+    </ul>
+
+    <div class="mt-6">
+      <p class="font-semibold text-neutral-900">Why this matters for UX</p>
+      <p class="text-neutral-700 text-sm leading-relaxed">
+        The product is no longer just self-soothing. It’s now mediating a social interaction and helping children articulate
+        differences in interpretation. That’s a core collaborative UX pattern: shared artifact → shared reflection.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 7. TECH / INTERFACE DESIGN DETAIL -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">7. Interface & Technical Design</h2>
+
+    <p class="text-neutral-700">
+      I designed the AI Sticker Tool as a lightweight web app. The interaction model visible in Figma includes three core screens:
+    </p>
+
+    <div class="bg-white border border-neutral-200 rounded-xl p-5 mt-6">
+      <ol class="list-decimal ml-6 text-neutral-700 text-sm leading-relaxed">
+        <li><strong>Story Input Screen</strong><br/>
+          Upload drawing → Select feeling → Type “what happened.”  
+          <span class="text-neutral-500 text-xs block mt-1">Design focus: gentle prompting, not interrogation.</span>
+        </li>
+
+        <li class="mt-4"><strong>AI Preview Screen</strong><br/>
+          Displays generated sticker art + supportive message + short emotional reflection.  
+          <span class="text-neutral-500 text-xs block mt-1">Design focus: give the child OPTIONS (“Regenerate,” “Make it cuter,” “Change message”).</span>
+        </li>
+
+        <li class="mt-4"><strong>Print & Personalize Screen</strong><br/>
+          Outputs a printable sticker sheet the child can physically cut, keep, or gift.  
+          <span class="text-neutral-500 text-xs block mt-1">Design focus: ownership, portability, and pride of creation.</span>
+        </li>
+      </ol>
+    </div>
+
+    <p class="text-neutral-700 text-sm leading-relaxed mt-6">
+      From a technical mentorship perspective (what I’d teach students):  
+      we are not just “using AI.” We are shaping:
+    </p>
+
+    <ul class="list-disc ml-6 mt-2 text-neutral-700 text-sm leading-relaxed">
+      <li><strong>Prompt framing</strong> so the model reflects feelings without judgmental tone.</li>
+      <li><strong>Child-safe language and guardrails</strong> (“It’s okay to feel angry when…” vs “You should calm down”).</li>
+      <li><strong>Editable output</strong> so the child stays in control and the AI is positioned as a creative assistant, not an authority.</li>
+    </ul>
+
+    <p class="text-neutral-700 text-sm leading-relaxed mt-6">
+      That human/AI relationship design is crucial in youth-facing products, and it’s an area I specialize in and can bring into curriculum.
+    </p>
+  </section>
+
+
+  <!-- 8. FINAL DESIGN PRINCIPLES / WHAT I TEACH -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">8. Final Design Principles</h2>
+
+    <p class="text-neutral-700">
+      By the end of this iterative process, three principles consistently guided my design decisions:
+    </p>
+
+    <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
+      <li><strong>1. Curiosity before compliance.</strong><br/>
+        Kids leaned into emotions when they were framed as playful, not evaluative. Surprise and randomness (dice, AI variations)
+        invite exploration. 
+      </li>
+
+      <li class="mt-4"><strong>2. Ownership over prescription.</strong><br/>
+        Children wanted to control the message, the visuals, and even the rules. Tools should offer editable, personalizable outputs,
+        not “final answers.” 
+      </li>
+
+      <li class="mt-4"><strong>3. Social reflection, not solo self-regulation.</strong><br/>
+        The emotional value came from peer recognition (“me too”), shared laughter, and even disagreement.
+        UX for kids should create moments of co-experience, not isolate them. 
+      </li>
+    </ul>
+
+    <p class="text-neutral-700 text-sm leading-relaxed mt-6">
+      These principles became my rubric for evaluating new features. They’re also the lenses I bring when I mentor students:
+      usability and accessibility are necessary, but in emotionally sensitive work, <strong>relational experience design</strong> is just as critical.
+    </p>
+  </section>
+
+
+  <!-- 9. RESULTS / IMPACT -->
+  <section class="max-w-5xl mx-auto px-6 py-10 border-t border-neutral-200">
+    <h2 class="text-2xl font-semibold text-neutral-900 mb-3">9. Impact</h2>
+
+    <ul class="list-disc ml-6 text-neutral-700 text-sm leading-relaxed">
+      <li>27 children co-created emotional artifacts (stickers, rules, games) they felt proud of and took home, extending reflection beyond the session. </li>
+      <li>The iterative process revealed how AI can act as a “third object” that kids can safely critique together, rather than as an authority. </li>
+      <li>The work produced a design framework (curiosity · ownership · enjoyment) that I now use to guide emotionally aware interaction design.</li>
+    </ul>
+
+    <p class="text-neutral-700 text-sm leading-relaxed mt-6">
+      Practically: this work has informed how I teach user research, prototyping with vulnerable populations, and responsible AI for youth.
+      It also demonstrates my ability to lead research-driven UX projects from discovery to functional prototypes with real users.
+    </p>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="max-w-5xl mx-auto px-6 py-12 border-t border-neutral-200 text-neutral-600 text-xs leading-relaxed">
+    <p><strong>Role:</strong> UX Research Lead, Interaction Designer, Facilitator, Analyst.</p>
+    <p class="mt-2 italic">This case study is part of an in-review manuscript. Please do not distribute without permission.</p>
+  </footer>
+
+</body>
+</html>
