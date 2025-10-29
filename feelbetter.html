@@ -409,7 +409,6 @@
       Fig 5. Kids openly shared fear, anger, and embarrassment while creating storytelling dice game.
     </p>
   </div>
-</div>
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
              <div class="overflow-hidden">
     <img src="E_PD2.png"
@@ -629,72 +628,75 @@
 
 
 
-    <!-- 6. TEST -->
-    <section id="test" class="section-block bg-white">
-      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
-        <span class="phase-pill phase-build">6 · Test</span>
-        <span>Iterating with children</span>
-      </h2>
+ <!-- 6. TEST -->
+<section id="test" class="section-block bg-white">
+  <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+    <span class="phase-pill phase-build">6 · Test</span>
+    <span>Iterating with children</span>
+  </h2>
 
-      <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed">
-        <div>
-          <p>
-            We tested two modes: “self-sticker” (for me) and “peer-sticker” (I make one for you).
-            Children compared “how I described my feeling” vs “how you described my feeling.”
-          </p>
+  <!-- Make everything one grid so the impact box can span both columns -->
+  <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed items-start">
 
-          <p class="mt-4">
-            This created safe emotional correction:
-            <span class="italic text-slate-800">“I wasn’t mad, I was scared.”</span>
-            because they were critiquing the sticker — not each other.
-          </p>
+    <!-- Left column: narrative -->
+    <div>
+      <p>
+        We tested two modes: “self-sticker” (for me) and “peer-sticker” (I make one for you).
+        Children compared “how I described my feeling” vs “how you described my feeling.”
+      </p>
 
-          <p class="mt-4">
-            Kids also critiqued the AI itself:
-            <span class="italic text-slate-800">“The AI’s message is weird.”</span>
-            <span class="italic text-slate-800">“Message needs to be improved.”</span>
-            <span class="italic text-slate-800">“I want it to be slow.”</span> 
-          </p>
+      <p class="mt-4">
+        This created safe emotional correction:
+        <span class="italic text-slate-800">“I wasn’t mad, I was scared.”</span>
+        because they were critiquing the sticker — not each other.
+      </p>
 
-          <p class="mt-4">
-            They loved the physical result (“It makes me feel happy,” one said), especially when it was cute
-            or animal-themed. Tangibility = ownership. 
-          </p>
+      <p class="mt-4">
+        Kids also critiqued the AI itself:
+        <span class="italic text-slate-800">“The AI’s message is weird.”</span>
+        <span class="italic text-slate-800">“Message needs to be improved.”</span>
+        <span class="italic text-slate-800">“I want it to be slow.”</span>
+      </p>
 
-          <p class="mt-4 text-slate-800 italic">
-            Design lesson: Children don’t necessarily want perfect empathy from AI.
-            They want editable empathy.
-          </p>
+      <p class="mt-4">
+        They loved the physical result (“It makes me feel happy,” one said), especially when it was cute
+        or animal-themed. Tangibility = ownership.
+      </p>
+
+      <p class="mt-4 text-slate-800 italic">
+        Design lesson: Children don’t necessarily want perfect empathy from AI.
+        They want editable empathy.
+      </p>
+    </div>
+
+    <!-- Right column: images (normalized frames) -->
+    <div class="space-y-8">
+      <figure class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <div class="w-full rounded-xl overflow-hidden">
+          <img src="E_test.png"
+               alt="Children explore the AI Emotional Sticker tool together"
+               class="w-full h-64 md:h-72 object-cover">
         </div>
+        <figcaption class="caption mt-2 text-slate-600 text-sm">
+          Fig 11. Kids used AI output as a safe third party they could critique together.
+        </figcaption>
+      </figure>
 
-        <div class="space-y-8">
-
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_test.png"
-         alt="Children play around with AI emotional sticker tool"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
-            <p class="caption mt-2">
-              Fig 11. Kids used AI output as a safe third party they could critique together. 
-            </p>
-          </div>
-
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-       <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_stickers.png"
-         alt="AI stickers"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
-            <p class="caption mt-2">
-              Fig 12. Stickers became emotional keepsakes and gifts.
-            </p>
-          </div>
+      <figure class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm">
+        <div class="w-full rounded-xl overflow-hidden">
+          <img src="E_stickers.png"
+               alt="Printed AI stickers"
+               class="w-full h-64 md:h-72 object-cover">
         </div>
-      </div>
+        <figcaption class="caption mt-2 text-slate-600 text-sm">
+          Fig 12. Stickers became emotional keepsakes and gifts.
+        </figcaption>
+      </figure>
+    </div>
 
-      <div class="border rounded-xl p-6 mt-10 accent-rose border-rose-200 bg-rose-50/60">
+    <!-- Full-width impact box -->
+    <div class="md:col-span-2">
+      <div class="border rounded-xl p-6 mt-2 accent-rose border-rose-200 bg-rose-50/60">
         <h4 class="text-slate-900 font-semibold text-base">Impact in testing</h4>
         <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
           <li>Kids openly discussed fear, anger, and embarrassment — without shutting down.</li>
@@ -702,7 +704,11 @@
           <li>The AI became a social tool, not a judge. They laughed at it, fixed it, improved it together.</li>
         </ul>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
+
     
 <!-- CONCLUSION -->
 <section id="conclusion" class="rounded-2xl overflow-hidden surface shadow-2xl">
