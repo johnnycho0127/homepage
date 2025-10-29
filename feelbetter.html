@@ -563,42 +563,38 @@
     <li><span class="font-semibold text-slate-900">Customize:</span> Children can rewrite the message, regenerate the art, and add playful elements (“make it cuter”).</li>
   </ul>
 
-  <!-- 2 columns only; removed the Print & Share frame -->
-  <div class="grid md:grid-cols-2 gap-6 mt-10">
-    <div>
-      <p class="text-slate-900 font-semibold text-sm mb-2">Wireframe · Story Input</p>
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_wireframe.png"
-         alt="low-fidelity"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
+  <!-- Unified 2x2 Grid for Prototype Images -->
+  <div class="grid md:grid-cols-2 gap-8 mt-10">
+    <!-- Image 1 -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
+      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Wireframe · Story Input</p>
+      <img src="E_wireframe.png"
+           alt="Low-fidelity wireframe"
+           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
     </div>
 
-    <div>
-      <p class="text-slate-900 font-semibold text-sm mb-2">Prototype · AI Output</p>
-       <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_feelbetter.png"
-         alt="AI prototype"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
-    <p class="text-slate-900 font-semibold text-sm mb-2">Prototype · AI Output</p>
-       <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_Feelbetterprocess.png"
-         alt="AI prototype"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
+    <!-- Image 2 -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
+      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Prototype · AI Output (Feel-Better Sticker)</p>
+      <img src="E_feelbetter.png"
+           alt="AI-generated sticker prototype"
+           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
+    </div>
 
-             <p class="text-slate-900 font-semibold text-sm mb-2">Prototype · AI Output</p>
-       <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-             <div class="overflow-hidden">
-    <img src="E_tech.png"
-         alt="AI prototype"
-         class="w-full h-auto rounded-lg object-contain">
-  </div>
-         
+    <!-- Image 3 -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
+      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Process Flow · Feel-Better Generation</p>
+      <img src="E_Feelbetterprocess.png"
+           alt="AI sticker generation process"
+           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
+    </div>
+
+    <!-- Image 4 -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center">
+      <p class="text-slate-900 font-semibold text-sm mb-3 self-start">Technical Architecture · AI Sticker System</p>
+      <img src="E_tech.png"
+           alt="Technical architecture diagram"
+           class="w-full h-64 object-contain rounded-lg bg-white shadow-sm">
     </div>
   </div>
 
@@ -618,6 +614,7 @@
     </p>
   </div>
 </section>
+
 
     <!-- 6. TEST -->
     <section id="test" class="section-block bg-white">
