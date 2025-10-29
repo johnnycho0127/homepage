@@ -1,888 +1,718 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>You Are Tilted! · UX Case Study</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>You Are Tilted! · UX Case Study · Yeonhee (Johnny) Cho</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-  :root {
-    --bg-page: #f9fafb;
-    --bg-section-light: #ffffff;
-    --bg-section-dark: #0f172a;
-    --text-main: #0f172a;
-    --text-dim: #4b5563;
-    --text-light: #e2e8f0;
-    --border-card: #e5e7eb;
-    --radius-xl: 1.25rem;
-    --radius-lg: .75rem;
-    --radius-md: .5rem;
-
-    --phase-discover: #4f46e5;
-    --phase-define:   #d97706;
-    --phase-develop:  #2563eb;
-    --phase-deliver:  #e11d48;
-  }
-
-  /* Layout + typography */
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-    background-color: var(--bg-page);
-    color: var(--text-main);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-  }
-
-  .wrap {
-    max-width: 72rem; /* 1152px */
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-  }
-
-  h1, h2, h3, h4 {
-    line-height: 1.2;
-    color: var(--text-main);
-    font-weight: 600;
-    margin: 0;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 1vw + 1.6rem, 3rem);
-    letter-spacing: -0.03em;
-    font-weight: 600;
-  }
-
-  h2.section-head {
-    font-size: clamp(1.5rem, .3vw + 1.2rem, 2rem);
-    margin-bottom: .5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: .5rem;
-    font-weight: 600;
-  }
-
-  .phase-tag {
-    font-size: .7rem;
-    line-height: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    border-radius: 999px;
-    padding: .4rem .6rem;
-    flex-shrink: 0;
-    color: #fff;
-  }
-
-  .phase-discover { background-color: var(--phase-discover); }
-  .phase-define   { background-color: var(--phase-define); }
-  .phase-develop  { background-color: var(--phase-develop); }
-  .phase-deliver  { background-color: var(--phase-deliver); }
-
-  p,
-  li {
-    font-size: 1rem;
-    color: var(--text-dim);
-    margin: .5rem 0 0 0;
-  }
-
-  .lede {
-    font-size: 1.125rem;
-    color: var(--text-dim);
-    max-width: 48rem;
-  }
-
-  .subhead {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-top: 2rem;
-  }
-
-  h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-top: 0;
-    margin-bottom: .5rem;
-  }
-
-  h4 {
-    font-size: .95rem;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-bottom: .5rem;
-  }
-
-  small {
-    font-size: .75rem;
-    line-height: 1.4;
-    color: var(--text-dim);
-  }
-
-  /* Grids */
-  .grid-2 {
-    display: grid;
-    gap: 2rem;
-  }
-  @media (min-width: 768px) {
-    .grid-2 {
-      grid-template-columns: 1fr 1fr;
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif; }
+    /* subtle soft shadow card */
+    .surface {
+      box-shadow: 0 24px 64px -12px rgb(15 23 42 / .08);
     }
-  }
-
-  .grid-3 {
-    display: grid;
-    gap: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
+    .surface-soft {
+      box-shadow: 0 24px 64px -12px rgb(15 23 42 / .05);
     }
-  }
+    /* image placeholder box */
+    .img-slot {
+      @apply flex items-center justify-center text-slate-500 text-xs text-center;
+      background-color: #e5e7eb;
+      border: 1px solid #e5e7eb;
+      border-radius: .75rem;
+      padding: 1rem;
+      width: 100%;
+    }
+    .ratio-hero { aspect-ratio: 16 / 9; }
+    .ratio-43   { aspect-ratio: 4 / 3; }
+    .ratio-169  { aspect-ratio: 16 / 9; }
+    .ratio-wide { aspect-ratio: 16 / 5; }
 
-  /* Cards / surfaces */
-  .card {
-    background-color: var(--bg-section-light);
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 24px 64px -12px rgb(15 23 42 / .08);
-    padding: 1.5rem;
-  }
+    /* colored phase pill */
+    .phase-pill {
+      @apply text-[0.7rem] leading-4 font-semibold uppercase tracking-wider text-white rounded-full px-2 py-1;
+      letter-spacing: .08em;
+    }
+    .phase-discover { background-color: #4f46e5; } /* indigo-600 */
+    .phase-define   { background-color: #d97706; } /* amber-600  */
+    .phase-develop  { background-color: #2563eb; } /* blue-600   */
+    .phase-deliver  { background-color: #e11d48; } /* rose-600   */
 
-  .card-soft {
-    background-color: #f8fafc;
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem;
-  }
-
-  .accent-block {
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem 1.25rem;
-    border: 1px solid var(--border-card);
-    background-color: #fff;
-  }
-
-  .accent-block-colored {
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem 1.25rem;
-    border: 1px solid var(--border-card);
-  }
-
-  .accent-indigo {
-    background-color: rgba(79,70,229,.06);
-    border-color: rgba(79,70,229,.2);
-  }
-  .accent-amber {
-    background-color: rgba(217,119,6,.07);
-    border-color: rgba(217,119,6,.2);
-  }
-  .accent-blue {
-    background-color: rgba(37,99,235,.07);
-    border-color: rgba(37,99,235,.2);
-  }
-  .accent-rose {
-    background-color: rgba(225,29,72,.07);
-    border-color: rgba(225,29,72,.2);
-  }
-
-  /* Image slots */
-  .img-frame {
-    background-color: #e5e7eb;
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #6b7280;
-    text-align: center;
-    font-size: .8rem;
-    line-height: 1.3;
-    padding: 1rem;
-  }
-
-  .img-hero {
-    aspect-ratio: 16 / 9;
-  }
-  .img-43 {
-    aspect-ratio: 4 / 3;
-  }
-  .img-169 {
-    aspect-ratio: 16 / 9;
-  }
-  .img-banner {
-    aspect-ratio: 16 / 5;
-  }
-
-  .img-caption {
-    font-size: .7rem;
-    color: #6b7280;
-    line-height: 1.4;
-    margin-top: .5rem;
-  }
-
-  /* Divider between big sections */
-  .section-block {
-    background-color: var(--bg-section-light);
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 24px 64px -12px rgb(15 23 42 / .05);
-    padding: 3rem 1.5rem 2.5rem;
-    margin-bottom: 3rem;
-  }
-  @media (min-width: 768px) {
+    /* section block style */
     .section-block {
-      padding: 3rem 3rem 2.5rem;
+      @apply bg-white border border-slate-200 rounded-2xl surface-soft;
+      padding: 2.5rem 1.5rem 2rem;
     }
-  }
-
-  /* Footer dark */
-  footer.footer-dark {
-    background-color: var(--bg-section-dark);
-    color: var(--text-light);
-    padding: 4rem 1.5rem 6rem;
-    margin-top: 4rem;
-  }
-  footer .inner {
-    max-width: 72rem;
-    margin: 0 auto;
-  }
-  footer h2, footer h3 {
-    color: #fff;
-  }
-  footer p, footer li, footer small {
-    color: var(--text-light);
-  }
-  footer .callout-quote {
-    color: #fff;
-    font-weight: 600;
-  }
-
-  /* Lists */
-  ul.clean-list {
-    padding-left: 1rem;
-    margin: 1rem 0 0 0;
-  }
-  ul.clean-list li {
-    list-style: disc;
-    margin-bottom: .5rem;
-  }
-
-  /* Tiny metadata rows */
-  .meta-grid {
-    display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  @media (min-width: 768px) {
-    .meta-grid {
-      grid-template-columns: repeat(3, 1fr);
+    @media (min-width:768px){
+      .section-block { padding: 3rem 3rem 2.5rem; }
     }
-  }
-  .meta-block h4 {
-    margin-bottom: .25rem;
-    font-size: .8rem;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    color: var(--text-main);
-  }
-  .meta-block p {
-    margin-top: 0;
-    font-size: .9rem;
-    color: var(--text-dim);
-    line-height: 1.4;
-  }
 
-  hr.line {
-    border: none;
-    border-top: 1px solid var(--border-card);
-    margin: 3rem 0;
-  }
+    /* accent callouts */
+    .accent-indigo {
+      background-color: rgb(79 70 229 / .06);
+      border-color: rgb(79 70 229 / .2);
+    }
+    .accent-amber {
+      background-color: rgb(217 119 6 / .07);
+      border-color: rgb(217 119 6 / .2);
+    }
+    .accent-blue {
+      background-color: rgb(37 99 235 / .07);
+      border-color: rgb(37 99 235 / .2);
+    }
+    .accent-rose {
+      background-color: rgb(225 29 72 / .07);
+      border-color: rgb(225 29 72 / .2);
+    }
 
-</style>
+    /* dark footer */
+    .footer-dark-gradient {
+      background-color: #0f172a;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-700 antialiased">
 
-<!-- =========================
-      HERO / INTRO
-========================= -->
-<section class="wrap">
-  <div class="section-block" style="background-color:#fff;">
-    <p style="font-size:.75rem;font-weight:600;color:var(--phase-discover);letter-spacing:.08em;text-transform:uppercase;margin-top:0;">
-      UX Case Study · Double Diamond Process
-    </p>
+<!-- SPRITE ICONS (copied from your snippet) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+  <symbol id="icon-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </symbol>
+  <symbol id="icon-demo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+    <line x1="2" y1="20" x2="22" y2="20"></line>
+  </symbol>
+  <symbol id="icon-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 12h12M12 6v12"></path>
+    <path d="M18 10v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>
+    <path d="M10 12h.01"></path>
+  </symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+  </symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+  </symbol>
+</svg>
 
-    <h1>You Are Tilted!</h1>
+<!-- PAGE WRAPPER -->
+<div class="max-w-screen-xl mx-auto md:flex">
 
-    <p class="lede" style="margin-top:1rem;">
-      A team-based tabletop game co-designed with youth esports players to help teams
-      recognize, talk about, and manage <strong style="color:var(--text-main);font-weight:600;">tilt</strong> —
-      intense frustration that spreads through a team and damages trust, performance,
-      and mental well-being.
-    </p>
-
-    <div class="meta-grid">
-      <div class="meta-block">
-        <h4>My Role</h4>
-        <p>Lead Researcher · UX Designer · Facilitator</p>
-      </div>
-      <div class="meta-block">
-        <h4>Timeline</h4>
-        <p>8 months co-design + 4 months user testing</p>
-      </div>
-      <div class="meta-block">
-        <h4>Team</h4>
-        <p>15 youth players · 7 collegiate coaches · librarians · coordinators · 5 researchers</p>
-      </div>
-    </div>
-
-    <!-- HERO IMAGE -->
-    <div class="card" style="margin-top:2rem;">
-      <div class="img-frame img-hero">
-        <span>Hero image: Physical card deck on table / Screenshot of digital prototype / Players laughing</span>
-      </div>
-      <p class="img-caption">
-        Fig 0. Early “You Are Tilted!” play session. Players discuss how they calm down after a tense match.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- =========================
-      PROBLEM STATEMENT
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-
-    <h2 class="section-head">
-      Problem Statement
-    </h2>
-
-    <div class="grid-2" style="margin-top:2rem;">
+  <!-- ========= LEFT SIDEBAR / NAV ========= -->
+  <aside class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
+    <div class="relative z-10 flex flex-col justify-between h-full">
       <div>
-        <h3>Background</h3>
-        <p>
-          Competitive esports teams experience <strong style="color:var(--text-main);font-weight:600;">tilt</strong> —
-          fast spikes of frustration and blame that ripple across the team. Tilt harms
-          communication, erodes empathy, and can break team cohesion mid-match.
-        </p>
-        <p>
-          Existing “solutions” (mute, block, report) treat tilt like an individual
-          behavioral problem instead of a shared emotional event that the team could
-          navigate together.
-        </p>
+        <!-- links row -->
+        <div class="flex justify-center space-x-4 mb-6">
+          <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
 
-        <h3 class="subhead" style="margin-top:1.5rem;">Design Challenge</h3>
-        <p>
-          How might we design a playful, psychologically safe activity that helps
-          teammates surface frustration, reset together, and build empathy — without
-          shaming anyone for being emotional?
-        </p>
-      </div>
+          <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+          </a>
 
-      <div>
-        <div class="card" style="padding:1rem 1.25rem;">
-          <h3>Research Questions</h3>
-          <ul class="clean-list" style="margin-top:1rem;">
-            <li>
-              How does open communication, facilitated by a team-based game,
-              enhance team cohesion?
-            </li>
-            <li>
-              Which tilt-management strategies can players actually practice
-              together (not just be told to do)?
-            </li>
-            <li>
-              What design opportunities and constraints appear when we build
-              an emotional support tool specifically for teams?
-            </li>
+          <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+
+          <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          </a>
+        </div>
+
+        <!-- profile -->
+        <div class="text-center">
+          <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover ring-2 ring-slate-500 ring-offset-2 ring-offset-zinc-800"
+               src="test.png"
+               alt="Profile picture of Yeonhee (Johnny) Cho"
+               onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50 leading-tight">Johnny Cho</h1>
+          <p class="text-lg text-slate-300 mt-3 leading-snug">
+            Ph.D. Candidate @ UW iSchool<br/>Human-Centered Tech + Learning Sciences
+          </p>
+        </div>
+
+        <!-- research area pills -->
+        <div class="space-y-2 mt-10 text-left">
+          <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3">Areas of Work</h3>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Educational Technology</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Game-based / Esports Well-being</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI Literacy for Youth</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design with Teens</span>
+        </div>
+
+        <!-- internal nav to scroll right column -->
+        <nav class="mt-12 text-left">
+          <h3 class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-3">Case Study Sections</h3>
+          <ul class="space-y-2 text-sm font-semibold">
+            <li><a href="#problem" class="block text-slate-300 hover:text-teal-400">Problem & Research Questions</a></li>
+            <li><a href="#process" class="block text-slate-300 hover:text-teal-400">Double Diamond Process</a></li>
+            <li><a href="#discover" class="block text-slate-300 hover:text-teal-400">Phase 1 — Discover</a></li>
+            <li><a href="#define" class="block text-slate-300 hover:text-teal-400">Phase 2 — Define</a></li>
+            <li><a href="#develop" class="block text-slate-300 hover:text-teal-400">Phase 3 — Develop</a></li>
+            <li><a href="#deliver" class="block text-slate-300 hover:text-teal-400">Phase 4 — Deliver</a></li>
+            <li><a href="#reflection" class="block text-slate-300 hover:text-teal-400">Reflection & Next Steps</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-43">
-            <span>Image: storyboard of a “tilt moment” from early player sketches</span>
-          </div>
-          <p class="img-caption">
-            Fig 1. Youth players visualized moments of blame, silence, and self-blame
-            during high-pressure matches.
-          </p>
+        <!-- top nav links -->
+        <div class="mt-12 flex flex-col items-start text-left text-sm font-bold space-y-2 text-slate-300">
+          <a href="https://johnnycho.info" class="hover:text-teal-400 transition-colors">← Back to Home</a>
+          <a href="https://johnnycho.info/project.html" class="hover:text-teal-400 transition-colors">More Projects / Publications</a>
         </div>
 
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- =========================
-      PROCESS OVERVIEW
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-    <h2 class="section-head">Process: Double Diamond</h2>
-    <p class="lede">
-      I organized the work using the Double Diamond UX framework. Each phase below shows:
-      (1) what we did with players/coaches, (2) what we learned, and (3) how that moved the design.
-    </p>
-
-    <div class="card-soft" style="margin-top:2rem;">
-      <div class="img-frame img-banner">
-        <span>Visual timeline: Discover → Define → Develop → Deliver (with session ranges)</span>
-      </div>
-      <p class="img-caption">
-        Fig 2. Mapping 21 participatory design and playtest sessions into the Double Diamond.
-      </p>
-    </div>
-  </div>
-</section>
-
-<hr class="line" />
-
-<!-- =========================
-      DISCOVER
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-
-    <h2 class="section-head">
-      <span class="phase-tag phase-discover">Phase 1 · Discover</span>
-      <span>Understand the emotional problem space</span>
-    </h2>
-
-    <p class="lede">
-      Goal: Learn how players actually experience tilt, stress, and conflict. We weren’t just asking
-      “what features do you want?” — we were asking “what does it feel like to be you in that moment?”
-    </p>
-
-    <div class="grid-2" style="margin-top:2rem;">
-      <div>
-        <h3>Participatory Sessions (1.1–1.8)</h3>
+      <div class="mt-12 text-left text-[10px] text-slate-500 leading-relaxed">
         <p>
-          We ran 8 remote workshops with youth esports players (14–15), collegiate players,
-          coaches, librarians, and program coordinators.
-        </p>
-
-        <ul class="clean-list">
-          <li>Players drew comics of their “worst moments” in matches.</li>
-          <li>We mapped sources of frustration and blame inside teams.</li>
-          <li>We compared “healthy teammate” vs “unhealthy teammate.”</li>
-        </ul>
-
-        <p class="subhead">What we heard</p>
-        <p>
-          Tilt wasn’t “I got mad.” It was: <em>shame, anger, fear of letting down the team,
-          and expecting to be blamed.</em>
-        </p>
-
-        <p class="subhead">Key insight</p>
-        <p>
-          <strong style="color:var(--text-main);font-weight:600;">Tilt is contagious.</strong> One player’s
-          frustration spreads emotionally to everyone. Teams had no safe, structured way to talk
-          about tilt without it sounding like accusation.
-        </p>
-      </div>
-
-      <div>
-        <div class="card-soft">
-          <div class="img-frame img-43">
-            <span>Miro board / sticky notes: “When do we tilt? What happens next?”</span>
-          </div>
-          <p class="img-caption">
-            Fig 3. Players collaboratively mapped “what triggers tilt in our team.”
-          </p>
-        </div>
-
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-43">
-            <span>Comic panel about toxic voice chat escalation</span>
-          </div>
-          <p class="img-caption">
-            Fig 4. A player illustrated how one mistake turns into spiral blame and silence.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="accent-block-colored accent-indigo" style="margin-top:2rem;">
-      <h4>Discover · Takeaways</h4>
-      <ul class="clean-list" style="margin-top:.5rem;">
-        <li>Players want empathy from teammates but don’t know how to ask for it without looking “weak.”</li>
-        <li>Everyone agreed they needed a safe, structured way to say “I’m tilted and here’s how to help me.”</li>
-        <li>This reframed tilt from a personal flaw to a <strong style="color:var(--text-main);font-weight:600;">team communication problem</strong>.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="line" />
-
-<!-- =========================
-      DEFINE
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-
-    <h2 class="section-head">
-      <span class="phase-tag phase-define">Phase 2 · Define</span>
-      <span>Frame the design challenge</span>
-    </h2>
-
-    <p class="lede">
-      Goal: Move from “there’s a problem” to “this is the specific thing we’re designing, and for whom.”
-    </p>
-
-    <div class="grid-2" style="margin-top:2rem;">
-      <div>
-        <h3>Tilt Scenario & Coping Workshops (2.1–2.2)</h3>
-        <p>
-          Players walked us through real “tilt moments,” minute by minute:
-          the trigger, what they felt in their body, what they said out loud,
-          how teammates reacted, and what happened after.
-        </p>
-
-        <ul class="clean-list">
-          <li>We collected real coping moves (“I crack a dumb joke so we all laugh,” “I ask for a reset,” “I need 30 seconds alone”).</li>
-          <li>We also surfaced harmful defaults (“I shut down,” “I blame first so I’m not blamed”).</li>
-        </ul>
-
-        <p class="subhead">Insight</p>
-        <p>
-          Players <em>already have</em> regulation strategies — but the team doesn’t know them.  
-          The problem is disclosure and safety, not “teaching coping skills from scratch.”
-        </p>
-
-        <p class="subhead">Design Goal</p>
-        <p>
-          Build a social space where teammates can safely say:
-          <strong style="color:var(--text-main);font-weight:600;">“Here’s how I want you to support me when I’m tilted.”</strong>
-        </p>
-      </div>
-
-      <div>
-        <div class="card-soft">
-          <div class="img-frame img-43">
-            <span>Affinity clusters of coping strategies: Reset · Step Away · Humor · Ask Support</span>
-          </div>
-          <p class="img-caption">
-            Fig 5. “Reset,” “Humor,” “Step away,” and “Ask for backup” emerged as shared themes.
-          </p>
-        </div>
-
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-169">
-            <span>Screenshot: “Good teammate vs bad teammate” traits from player labeling</span>
-          </div>
-          <p class="img-caption">
-            Fig 6. Players defined a “good teammate” as someone who can calm others, not just carry.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="accent-block-colored accent-amber" style="margin-top:2rem;">
-      <h4>Defined Problem Statement</h4>
-      <p style="margin-top:.5rem;">
-        We will design a cooperative, low-stakes game that helps esports teams practice
-        talking about frustration, resetting together, and supporting each other —
-        so tilt becomes a shared challenge instead of a personal failure.
-      </p>
-
-      <h4 style="margin-top:1.5rem;">Co-Created Design Principles</h4>
-      <ul class="clean-list" style="margin-top:.5rem;">
-        <li>Make it playful, not preachy.</li>
-        <li>Use humor to lower defensiveness.</li>
-        <li>Make emotional safety part of the rules.</li>
-        <li>Focus on “how can we help each other next time?”</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<hr class="line" />
-
-<!-- =========================
-      DEVELOP
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-
-    <h2 class="section-head">
-      <span class="phase-tag phase-develop">Phase 3 · Develop</span>
-      <span>Co-design, prototype, iterate</span>
-    </h2>
-
-    <p class="lede">
-      Goal: Build a playable thing. Test tone, rules, pacing, safety, and usefulness.
-    </p>
-
-    <div class="grid-2" style="margin-top:2rem;">
-      <div>
-        <h3>Prototype Creation (2.3–2.8)</h3>
-        <p>
-          Together with players, we created a physical + digital tabletop card game
-          called <strong style="color:var(--text-main);font-weight:600;">You Are Tilted!</strong>
-        </p>
-
-        <ul class="clean-list">
-          <li><strong style="color:var(--text-main);">Situation Cards:</strong> real tilt triggers (“teammate flames you in voice chat”).</li>
-          <li><strong style="color:var(--text-main);">Heal Cards:</strong> “what helps me reset” (breathe, joke, music, quick break).</li>
-          <li><strong style="color:var(--text-main);">Provoke Cards:</strong> raise the stakes (“you’re on tournament point now…”).</li>
-        </ul>
-
-        <p class="subhead">Why cards?</p>
-        <p>
-          Cards create emotional distance. Players can talk about “the card”
-          instead of accusing a real teammate directly.
-        </p>
-      </div>
-
-      <div>
-        <div class="card-soft">
-          <div class="img-frame img-43">
-            <span>Photo: early physical card prototypes (Situation / Heal / Provoke)</span>
-          </div>
-          <p class="img-caption">Fig 7. Draft card set exploring tone and readability.</p>
-        </div>
-
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-169">
-            <span>Screenshot: Tabletop Simulator digital board</span>
-          </div>
-          <p class="img-caption">
-            Fig 8. Remote playtesting during COVID using Tabletop Simulator.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top:3rem;">
-      <div>
-        <h3>Iteration & Refinement (3.1–3.5)</h3>
-        <p>
-          We refined with esports coaches, librarians, and a pro designer. Focus:
-          clarity, pacing, accessibility, and social safety.
-        </p>
-
-        <ul class="clean-list">
-          <li>Simplified rules so teams could start playing in minutes.</li>
-          <li>Added end-of-game reflection prompts (“What did you learn about each other?”).</li>
-          <li>Introduced collaborative win conditions (“we got through this together”).</li>
-          <li>Improved typography / contrast for readability.</li>
-        </ul>
-
-        <p class="subhead">Key UX move</p>
-        <p>
-          We shifted the tone from “fix yourself” to
-          <strong style="color:var(--text-main);font-weight:600;">“support each other.”</strong>
-        </p>
-      </div>
-
-      <div>
-        <div class="card-soft">
-          <div class="img-frame img-43">
-            <span>Rule sheet v1 vs v2 (before/after simplification)</span>
-          </div>
-          <p class="img-caption">
-            Fig 9. We cut cognitive load so teams could focus on feelings, not rule arbitration.
-          </p>
-        </div>
-
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-169">
-            <span>Reflection / Debrief prompt cards (“How can we help you when you tilt?”)</span>
-          </div>
-          <p class="img-caption">
-            Fig 10. Structured debrief connects in-game talk to real team habits.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="accent-block-colored accent-blue" style="margin-top:2rem;">
-      <h4>Develop · Takeaways</h4>
-      <ul class="clean-list" style="margin-top:.5rem;">
-        <li>The game acted as a “translator.” Players could finally say “Here’s how to support me when I’m tilted.”</li>
-        <li>Humor (“roasting the card,” not each other) lowered defensiveness and built trust fast.</li>
-        <li>Teams asked for customizable blank cards to add their own coping strategies / inside jokes.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<hr class="line" />
-
-<!-- =========================
-      DELIVER
-========================= -->
-<section class="wrap">
-  <div class="section-block">
-
-    <h2 class="section-head">
-      <span class="phase-tag phase-deliver">Phase 4 · Deliver</span>
-      <span>Test with real teams · Measure impact</span>
-    </h2>
-
-    <p class="lede">
-      Goal: See how competitive teams actually use the game. What changes in communication?
-      What sticks afterward?
-    </p>
-
-    <div class="grid-2" style="margin-top:2rem;">
-      <div>
-        <h3>User Testing (4 Rounds)</h3>
-        <p>
-          We ran 4 sessions with collegiate esports teams (17 players, ages 19–29):
-          50 minutes gameplay → survey → 15-minute guided team debrief.
-        </p>
-
-        <ul class="clean-list">
-          <li><strong style="color:var(--text-main);">“Ah-Ha” Moments:</strong> “I didn’t know you calm down by petting your cat.”</li>
-          <li><strong style="color:var(--text-main);">Shared Humor:</strong> Jokes around “Provoke” cards defused tension instead of escalating it.</li>
-          <li><strong style="color:var(--text-main);">Reset Strategy:</strong> Teams practiced saying “let’s reset” as a group move, not silent blame.</li>
-          <li><strong style="color:var(--text-main);">Empathy:</strong> Players reframed tilt as “our situation,” not “your problem.”</li>
-        </ul>
-
-        <p class="subhead">Player quote</p>
-        <p>
-          “It’s helpful just knowing how you want to be helped. I didn’t know that before.”
-        </p>
-      </div>
-
-      <div>
-        <div class="card-soft">
-          <div class="img-frame img-43">
-            <span>Photo: collegiate team around the table laughing at a Provoke card</span>
-          </div>
-          <p class="img-caption">
-            Fig 11. Laughter became a pressure-release valve instead of flaming.
-          </p>
-        </div>
-
-        <div class="card-soft" style="margin-top:1.5rem;">
-          <div class="img-frame img-169">
-            <span>Screenshot: typed debrief notes and direct quotes from players</span>
-          </div>
-          <p class="img-caption">
-            Fig 12. Teams started using shared “reset” language we later saw them reuse.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top:3rem;">
-      <div class="accent-block-colored accent-rose">
-        <h4>Impact</h4>
-        <ul class="clean-list" style="margin-top:.5rem;">
-          <li>The game functioned as an emotional safety tool, not just “team bonding.”</li>
-          <li>Players felt more comfortable naming stress out loud in front of each other.</li>
-          <li>Teams adopted phrases like “zero-zero mindset” (treat the next round as fresh).</li>
-        </ul>
-      </div>
-
-      <div class="accent-block">
-        <h4>Next Iterations</h4>
-        <ul class="clean-list" style="margin-top:.5rem;">
-          <li>Add blank cards so each team can add their own coping strategies and inside language.</li>
-          <li>Shift away from competitive scoring toward “did we regulate together.”</li>
-          <li>Lightweight digital companion to capture “team reset rules” they agree on.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="grid-3" style="margin-top:3rem;">
-      <div class="card-soft">
-        <div class="img-frame img-43">
-          <span>Final physical card deck spread</span>
-        </div>
-        <p class="img-caption">
-          Final physical deck used in in-person testing.
-        </p>
-      </div>
-
-      <div class="card-soft">
-        <div class="img-frame img-43">
-          <span>Tabletop Simulator game board layout (remote play)</span>
-        </div>
-        <p class="img-caption">
-          Remote-friendly version for online collegiate teams.
-        </p>
-      </div>
-
-      <div class="card-soft">
-        <div class="img-frame img-43">
-          <span>Quote wall / sticky-note wall of “What helps me reset”</span>
-        </div>
-        <p class="img-caption">
-          Aggregated team language: “It’s not just you. We all tilt.”
-        </p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:3rem;">
-      <h3>Publication</h3>
-      <p>
-        Cho, Y., Newman, M., Pitt, C., Yip, J., &amp; Lee, J. H. (2024).
-        “You Are Tilted!: Leveraging Tabletop Gaming to Manage Tilt and
-        Strengthen Team Dynamics in Esports.”
-        <em>Proceedings of the ACM on Human-Computer Interaction (CHI PLAY 2024)</em>.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- =========================
-      REFLECTION / CONCLUSION
-========================= -->
-<footer class="footer-dark">
-  <div class="inner">
-
-    <h2 class="section-head" style="color:#fff;">
-      Reflection &amp; Next Steps
-    </h2>
-
-    <div class="grid-2" style="margin-top:2rem;">
-      <div>
-        <h3>What I Learned as a Designer</h3>
-        <ul class="clean-list" style="color:var(--text-light);margin-top:1rem;">
-          <li>
-            Emotional safety is not a bonus feature. It’s a design requirement,
-            and it has to be designed on purpose.
-          </li>
-          <li>
-            Humor is serious work. Jokes became a social pressure valve and built trust.
-          </li>
-          <li>
-            Teams don’t want generic “wellness tips.” They want tools that feel like
-            <em>us</em>. That’s why customization mattered so much.
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Why This Matters</h3>
-        <p>
-          This project shows that UX for emotional well-being doesn’t have to be an
-          app or dashboard. It can be a shared activity that builds empathy,
-          shared language, and a recovery ritual the team can carry forward under stress.
-        </p>
-
-        <p style="margin-top:1rem;">
-          <span class="callout-quote">
-            “I’m tilted — here’s how to help me — and I’ll do the same for you.”
+          This work appears in:<br/>
+          <span class="text-slate-300 font-semibold">
+            Cho, Y., Newman, M., Pitt, C., Yip, J., &amp; Lee, J. H. (2024).
+            "You Are Tilted!: Leveraging Tabletop Gaming to Manage Tilt and Strengthen Team Dynamics in Esports."
+            Proceedings of the ACM on Human-Computer Interaction (CHI PLAY 2024)
           </span>
         </p>
       </div>
     </div>
+  </aside>
 
-  </div>
-</footer>
+  <!-- ========= RIGHT CONTENT / CASE STUDY ========= -->
+  <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50 space-y-12">
+
+    <!-- HERO / INTRO -->
+    <section class="section-block surface bg-white">
+      <p class="text-[.7rem] font-semibold tracking-wider text-indigo-600 uppercase">UX Case Study · Double Diamond Process</p>
+
+      <h1 class="text-slate-900 text-3xl md:text-5xl font-semibold leading-tight mt-2">
+        You Are Tilted!
+      </h1>
+
+      <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mt-4">
+        A team-based tabletop game co-designed with youth esports players to help teams
+        recognize, talk about, and manage <span class="font-semibold text-slate-900">tilt</span> —
+        intense frustration that spreads through a team and damages trust,
+        performance, and mental well-being.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-700 mt-10">
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">My Role</p>
+          <p>Lead Researcher · UX Designer · Facilitator</p>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">Timeline</p>
+          <p>8 months co-design + 4 months user testing</p>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">Team</p>
+          <p>15 youth players · 7 collegiate coaches · librarians · coordinators · 5 researchers</p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl surface p-4 mt-10">
+        <div class="img-slot ratio-hero text-slate-500">
+          Hero image: card deck in play / screenshot of digital prototype / players laughing
+        </div>
+        <p class="text-[11px] text-slate-500 mt-3 leading-snug">
+          Fig 0. Early “You Are Tilted!” play session. Players discuss how they calm down after a tense match.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section id="problem" class="section-block bg-white">
+      <h2 class="flex flex-wrap items-baseline gap-2 text-slate-900 text-2xl md:text-3xl font-semibold mb-2">
+        <span>Problem Statement</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-8">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">Background</h3>
+          <p class="text-slate-600 leading-relaxed mt-2">
+            Competitive esports teams experience <span class="font-semibold text-slate-900">tilt</span> —
+            spikes of frustration and blame that ripple across the team.
+            Tilt harms communication and can shatter cohesion mid-match.
+          </p>
+          <p class="text-slate-600 leading-relaxed mt-4">
+            Most “solutions” (mute, block, report) assume tilt is an individual
+            behavior problem. Players described it instead as a <span class="font-semibold text-slate-900">shared emotional event</span>
+            the team should navigate together.
+          </p>
+
+          <h3 class="text-slate-900 text-lg font-semibold mt-6">Design Challenge</h3>
+          <p class="text-slate-600 leading-relaxed mt-2">
+            How might we design a playful, psychologically safe activity
+            that helps teammates surface frustration, reset together,
+            and build empathy — without shaming anyone for being emotional?
+          </p>
+        </div>
+
+        <div>
+          <div class="bg-white border border-slate-200 rounded-xl surface p-4">
+            <h3 class="text-slate-900 text-lg font-semibold">Research Questions</h3>
+            <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-3">
+              <li>How does open communication, facilitated by a team-based game, enhance team cohesion?</li>
+              <li>Which tilt-management strategies can players actually practice together (not just be told to do)?</li>
+              <li>What design opportunities — and constraints — appear when we build an emotional support tool specifically for teams?</li>
+            </ul>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-6">
+            <div class="img-slot ratio-43">
+              Image: storyboard of a “tilt moment” from early player sketches
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 1. Youth players visualized moments of blame, silence, and self-blame during high-pressure matches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS OVERVIEW -->
+    <section id="process" class="section-block bg-white">
+      <h2 class="text-slate-900 text-2xl md:text-3xl font-semibold mb-3 flex flex-wrap items-baseline gap-2">
+        <span>Process: Double Diamond</span>
+      </h2>
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        I organized the work using the Double Diamond UX framework.
+        Each phase shows: (1) what we did with players/coaches,
+        (2) what we learned, and (3) how that moved the design.
+      </p>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-8">
+        <div class="img-slot ratio-wide">
+          Process timeline: Discover → Define → Develop → Deliver (with session ranges)
+        </div>
+        <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+          Fig 2. Mapping 21 participatory design + playtest sessions into the Double Diamond.
+        </p>
+      </div>
+    </section>
+
+    <!-- DISCOVER -->
+    <section id="discover" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-discover">Phase 1 · Discover</span>
+        <span>Understand the emotional problem space</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        Goal: Learn how players actually experience tilt, stress, and conflict.
+        We weren’t just asking “what features do you want?” — we were asking
+        “what does it feel like to be you in that moment?”
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-10">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">Participatory Sessions (1.1–1.8)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">
+            We ran 8 remote workshops with youth esports players (14–15),
+            collegiate players, coaches, librarians, and coordinators.
+          </p>
+
+          <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+            <li>Players drew comics of “worst moments” in matches.</li>
+            <li>We mapped sources of frustration and blame inside teams.</li>
+            <li>We compared “healthy teammate” vs “unhealthy teammate.”</li>
+          </ul>
+
+          <p class="text-slate-900 font-semibold text-sm mt-6">What we heard</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Tilt = shame + anger + fear of letting down the team + expecting to be blamed.
+          </p>
+
+          <p class="text-slate-900 font-semibold text-sm mt-4">Key insight</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            <span class="font-semibold text-slate-900">Tilt is contagious.</span>
+            One person’s frustration spreads emotionally to everyone. Teams had no
+            safe format to talk about tilt without it sounding like accusation.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Miro board / sticky notes: “When do we tilt? What happens next?”
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 3. Players collaboratively mapped “what triggers tilt in our team.”
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Comic panel about toxic voice chat escalation
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 4. One player illustrated how a single mistake spirals into blame and silence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border rounded-xl p-6 mt-12 accent-indigo border-indigo-200 bg-indigo-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Discover · Takeaways</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+          <li>Players wanted empathy, but didn’t know how to ask without looking “weak.”</li>
+          <li>Everyone agreed they needed a structured way to say “I’m tilted and here’s how to help me.”</li>
+          <li>This reframed tilt from a personal flaw → a <span class="font-semibold text-slate-900">team communication problem.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEFINE -->
+    <section id="define" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-define">Phase 2 · Define</span>
+        <span>Frame the design challenge</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        Goal: Move from “there’s a problem” to “this is the specific thing we’re designing, and for whom.”
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-10">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">
+            Tilt Scenario &amp; Coping Workshops (2.1–2.2)
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">
+            Players walked us through real “tilt moments,” minute by minute:
+            the trigger, body reaction, what they said, how teammates reacted,
+            and what happened after.
+          </p>
+
+          <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+            <li>We collected real coping moves (“I crack a dumb joke,” “I ask for a reset,” “I need 30 seconds alone”).</li>
+            <li>We also surfaced harmful defaults (“I shut down,” “I blame first so I don’t get blamed”).</li>
+          </ul>
+
+          <p class="text-slate-900 font-semibold text-sm mt-6">Insight</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Players already have regulation strategies — but teammates don’t know them.
+            The core issue is disclosure and safety, not “teaching coping skills from zero.”
+          </p>
+
+          <p class="text-slate-900 font-semibold text-sm mt-4">Design Goal</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Build a social space where teammates can safely say:
+            <span class="font-semibold text-slate-900">“Here’s how I want you to support me when I’m tilted.”</span>
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Affinity clusters of coping strategies: Reset · Step Away · Humor · Ask Support
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 5. “Reset,” “Humor,” “Step Away,” and “Ask Support” emerged as shared patterns.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-169">
+              Screenshot: “Good teammate vs Bad teammate” traits
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 6. Players defined a “good teammate” as someone who can calm others, not just carry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border rounded-xl p-6 mt-12 accent-amber border-amber-200 bg-amber-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Defined Problem Statement</h4>
+        <p class="text-slate-700 text-sm leading-relaxed mt-3">
+          We will design a cooperative, low-stakes game that helps esports teams practice
+          talking about frustration, resetting together, and supporting each other — so tilt
+          becomes a shared challenge instead of a personal failure.
+        </p>
+
+        <h4 class="text-slate-900 font-semibold text-base mt-6">Co-Created Design Principles</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-3 space-y-2">
+          <li>Make it playful, not preachy.</li>
+          <li>Use humor to lower defensiveness.</li>
+          <li>Make emotional safety part of the rules.</li>
+          <li>Focus on “how can we help each other next time?”</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEVELOP -->
+    <section id="develop" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-develop">Phase 3 · Develop</span>
+        <span>Co-design, prototype, iterate</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        Goal: Build a playable thing. Test tone, rules, pacing, safety, and usefulness.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-10">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">Prototype Creation (2.3–2.8)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">
+            Together with players, we created a physical + digital tabletop card game
+            called <span class="font-semibold text-slate-900">You Are Tilted!</span>
+          </p>
+
+          <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+            <li><span class="font-semibold text-slate-900">Situation Cards</span>: real tilt triggers (teammate flames you in voice chat).</li>
+            <li><span class="font-semibold text-slate-900">Heal Cards</span>: “what helps me reset” (breathe, joke, music, short break).</li>
+            <li><span class="font-semibold text-slate-900">Provoke Cards</span>: raise the stakes (“you’re on tournament point now…”).</li>
+          </ul>
+
+          <p class="text-slate-900 font-semibold text-sm mt-6">Why cards?</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Cards create emotional distance. You can react to “the card”
+            instead of accusing a real teammate.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Early physical card prototypes (Situation / Heal / Provoke)
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 7. Draft card set exploring tone and readability.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-169">
+              Tabletop Simulator board for remote playtesting
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 8. Remote playtesting during COVID using Tabletop Simulator.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-16">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">Iteration &amp; Refinement (3.1–3.5)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">
+            We refined the game with esports coaches, librarians, and a pro designer.
+            Focus: clarity, pacing, access, and social safety.
+          </p>
+
+          <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+            <li>Simplified rules so teams could start playing in minutes.</li>
+            <li>Added end-of-game reflection prompts (“What did you learn about each other?”).</li>
+            <li>Introduced collaborative win conditions (“we got through this together”).</li>
+            <li>Improved typography / contrast for readability.</li>
+          </ul>
+
+          <p class="text-slate-900 font-semibold text-sm mt-6">Key UX move</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            We shifted the tone from “fix yourself” to
+            <span class="font-semibold text-slate-900">“support each other.”</span>
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Rule sheet v1 vs v2 (simplified onboarding)
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 9. We cut cognitive load so teams could focus on feelings, not rule arbitration.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-169">
+              Reflection / Debrief prompt cards (“How can we help you when you tilt?”)
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 10. Structured debrief connects in-game talk to real team habits.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border rounded-xl p-6 mt-12 accent-blue border-blue-200 bg-blue-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Develop · Takeaways</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+          <li>The game acted like a translator. Players could finally say “Here’s how to support me when I’m tilted.”</li>
+          <li>Humor (“roasting the card,” not each other) lowered defensiveness and built trust fast.</li>
+          <li>Teams asked for customizable blank cards to add their own coping strategies / inside jokes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DELIVER -->
+    <section id="deliver" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-deliver">Phase 4 · Deliver</span>
+        <span>Test with real teams · Measure impact</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        Goal: See how competitive teams actually use the game.
+        What changes in communication? What sticks afterward?
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-10">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">User Testing (4 Rounds)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-2">
+            We ran 4 sessions with collegiate esports teams (17 players, ages 19–29):
+            50 minutes gameplay → survey → 15-minute team debrief.
+          </p>
+
+          <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+            <li><span class="font-semibold text-slate-900">“Ah-Ha” Moments:</span> “I didn’t know you calm down by petting your cat.”</li>
+            <li><span class="font-semibold text-slate-900">Shared Humor:</span> Jokes around “Provoke” cards defused tension instead of escalating it.</li>
+            <li><span class="font-semibold text-slate-900">Reset Strategy:</span> Teams practiced saying “let’s reset” as a group move, not silent blame.</li>
+            <li><span class="font-semibold text-slate-900">Empathy:</span> Players reframed tilt as “our situation,” not “your problem.”</li>
+          </ul>
+
+          <p class="text-slate-900 font-semibold text-sm mt-6">Player quote</p>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            “It’s helpful just knowing how you want to be helped. I didn’t know that before.”
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              Photo: collegiate team around the table laughing at a Provoke card
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 11. Laughter became a pressure-release valve instead of flaming.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-169">
+              Screenshot: typed debrief notes and quotes
+            </div>
+            <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+              Fig 12. Teams started using shared “reset” language we later saw them reuse.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-16">
+        <div class="border rounded-xl p-6 accent-rose border-rose-200 bg-rose-50/60">
+          <h4 class="text-slate-900 font-semibold text-base">Impact</h4>
+          <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+            <li>The game acted as an emotional safety tool, not just “team bonding.”</li>
+            <li>Players felt more comfortable naming stress out loud in front of each other.</li>
+            <li>Teams adopted phrases like “zero-zero mindset” (treat the next round as fresh).</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-xl p-6 surface-soft">
+          <h4 class="text-slate-900 font-semibold text-base">Next Iterations</h4>
+          <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+            <li>Add blank cards so each team can add their own coping strategies / inside language.</li>
+            <li>Shift scoring away from “who won” toward “did we regulate together.”</li>
+            <li>Consider a lightweight digital companion to capture team-defined “reset rules.”</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-16">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="img-slot ratio-43">
+            Final physical card deck spread
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+            Final physical deck used in in-person testing.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="img-slot ratio-43">
+            Tabletop Simulator game board (remote play)
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+            Remote-friendly playtesting setup for online collegiate teams.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <div class="img-slot ratio-43">
+            Quote wall / sticky-note wall of “What helps me reset”
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 leading-snug">
+            Aggregated team language: “It’s not just you. We all tilt.”
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 surface mt-16">
+        <h3 class="text-slate-900 text-lg font-semibold">Publication</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mt-2">
+          Cho, Y., Newman, M., Pitt, C., Yip, J., &amp; Lee, J. H. (2024). “You Are Tilted!:
+          Leveraging Tabletop Gaming to Manage Tilt and Strengthen Team Dynamics in Esports.”
+          <span class="italic">Proceedings of the ACM on Human-Computer Interaction (CHI PLAY 2024)</span>.
+        </p>
+      </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section id="reflection" class="rounded-2xl overflow-hidden surface shadow-2xl">
+      <footer class="footer-dark-gradient text-slate-100">
+        <div class="max-w-5xl mx-auto p-8 md:p-12 space-y-10">
+
+          <h2 class="text-white text-2xl md:text-3xl font-semibold flex flex-wrap items-baseline gap-2">
+            <span>Reflection &amp; Next Steps</span>
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div>
+              <h3 class="text-white text-lg font-semibold">What I Learned as a Designer</h3>
+              <ul class="list-disc list-inside text-slate-300 text-sm leading-relaxed mt-4 space-y-2">
+                <li>Emotional safety is not a bonus feature. It’s a design requirement you have to build intentionally.</li>
+                <li>Humor is serious work. Jokes acted like a pressure valve and built trust.</li>
+                <li>Teams don’t want generic “wellness tips.” They want tools that feel like <em>us</em> — which is why customization mattered.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white text-lg font-semibold">Why This Matters</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                This project shows that UX for emotional well-being doesn’t have to be an app or dashboard.
+                It can be a shared activity that builds empathy, shared language, and a recovery ritual teams
+                can actually use under stress.
+              </p>
+
+              <p class="text-white text-sm leading-relaxed font-semibold mt-4">
+                “I’m tilted — here’s how to help me — and I’ll do the same for you.”
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+    </section>
+
+  </main>
+</div>
 
 </body>
 </html>
