@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeonhee (Johnny) Cho - PhD Candidate</title>
+    <title>Yeonhee (Johnny) Cho - Projects & Publications</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,290 +12,451 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* tsParticles container for the neural network */
+        /* tsParticles container */
         #tsparticles-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
         }
-        /* Custom styles for the active navigation link on dark background */
-        .nav-link.active {
-            color: #f8fafc; /* text-slate-50 */
-            font-weight: 700;
+        /* Icon Link Styles (Now Icon + Text) */
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem; /* Re-added gap (Tailwind gap-2 equivalent) */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* semibold */
+            color: #475569; /* text-slate-600 */
+            transition: color 0.2s ease-in-out;
+            padding: 0.25rem 0.5rem; /* Added some padding for better hover */
+            border-radius: 0.375rem; /* rounded-md */
         }
-        .nav-link.active .nav-indicator {
-            width: 2.5rem; /* w-10 */
-            height: 2px;
-            background-color: #f8fafc; /* bg-slate-50 */
+        .icon-link:hover {
+            color: #14b8a6; /* text-teal-500 */
+            background-color: #f1f5f9; /* bg-slate-100 on hover */
         }
-        /* Smooth transition for nav links and indicators */
-        .nav-link, .nav-indicator {
-            transition: all 0.2s ease-in-out;
+        /* Size of the SVG icon */
+        .icon-link svg {
+            width: 1.5rem; /* w-6 */
+            height: 1.5rem; /* h-6 */
+            stroke-width: 2;
+            flex-shrink: 0;
+            /* Icon color will inherit from the link's text color */
         }
-        /* Group hover effect for cards */
-        .card-hover:hover {
-            border-color: #2dd4bf; /* border-teal-400 */
-            box-shadow: 0 4px 14px 0 rgb(13 148 136 / 10%);
+        /* Style for Year Headings */
+        .year-heading {
+             font-size: 1.5rem; /* text-2xl */
+             font-weight: 700; /* font-bold */
+             color: #334155; /* text-slate-700 */
+             margin-bottom: 1rem; /* mb-4 */
+             padding-bottom: 0.5rem; /* pb-2 */
+             border-bottom: 2px solid #e2e8f0; /* border-b-2 border-slate-200 */
         }
-        .card-hover:hover .card-title {
-            color: #2dd4bf; /* text-teal-400 */
-        }
-        /* Styles for filter tags */
-        .filter-tag {
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-        .filter-tag.active {
-            background-color: #1e293b; /* bg-slate-800 */
-            color: #f1f5f9; /* text-slate-100 */
+         /* Float Clearfix Helper (Good practice when using float) */
+        .cf:after {
+          content: "";
+          display: table;
+          clear: both;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700">
 
-    <!-- Main container for two-column layout -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path> <polyline points="14 2 14 8 20 8"></polyline> <line x1="16" y1="13" x2="8" y2="13"></line> <line x1="16" y1="17" x2="8" y2="17"></line> <polyline points="10 9 9 9 8 9"></polyline> </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </symbol>
+        <symbol id="icon-demo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect> <line x1="2" y1="20" x2="22" y2="20"></line> </symbol>
+        <symbol id="icon-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M6 12h12M12 6v12"></path> <path d="M18 10v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path> <path d="M10 12h.01"></path> </symbol>
+        <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"> <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path> </symbol>
+        <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/> </symbol>
+    </svg>
+
     <div class="max-w-screen-xl mx-auto md:flex">
 
-        <!-- Left-side Fixed Panel -->
         <header class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
-            <!-- tsParticles container for the neural network effect -->
-            <div id="tsparticles-header"></div>
+             <div id="tsparticles-header"></div>
             <div class="relative z-10 flex flex-col justify-between h-full">
                 <div>
-                    <!-- Top Navigation -->
-                    <div class="mb-8">
-                        <a href="https://johnnycho.info" target="self" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md">Home</a>
-                        <a href="https://johnnycho.info/project.html" target="self" class="inline-block bg-white text-zinc-800 font-bold text-sm py-2 px-4 rounded-lg hover:bg-teal-400 hover:text-white transition-all shadow-md ml-2">Projects</a>
-                    </div>
+                    <div class="mt-8 md:mt-0 text-center">
+                           <div class="flex justify-center space-x-4 mb-6">
+                                <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
+                                <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+                                </a>
+                                 <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                                <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                </a>
+                            </div>
 
-                    <!-- Profile Info -->
-                    <div class="text-center">
-                        <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
-                         <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Yeonhee Cho</h1>
-                        <p class="text-2xl text-slate-300 mt-4">'<b>Johnny</b>'</p>
-                        <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
-                        <p class="text-slate-400 mt-4">He/His/Him</p>
-                        <p class="text-slate-400">yhcho@uw.edu</p>
-                        
-                    </div>
+                            <div class="text-center">
+                                <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover" src="test.png" alt="Profile picture of Yeonhee (Johnny) Cho" onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+                                 <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Johnny Cho</h1>
+                                <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, University of Washington</p>
+                            </div>
 
-<!-- Area for Research -->
-<div class="mt-10 text-left bg-slate-700/30 rounded-xl p-5 border border-slate-600">
-  <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3">Area for Research</h3>
-  <ul class="text-slate-300 text-sm space-y-2">
-    <li>Human-Computer Interaction (HCI)</li>
-    <li>Educational Technology</li>
-    <li>Game-based Learning</li>
-    <li>Augmented/Virtual Reality</li>
-    <li>Media Literacy (Misinformation)</li>
-    <li>AI Literacy</li>
-    <li>Social Emotional Learning</li>
-    <li>Participatory Design</li>
-  </ul>
-</div>
-
-
-                </div>
-                
-                                <div class="mt-8 md:mt-0 text-center">
-                     <div class="flex justify-center space-x-4 mb-6">
-                        <a href="CV_Yeonhee(Johnny)_Cho.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Download CV">CV</a>
-                        <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&authuser=1&gmla=AH8HC4wPWuhWJ3ylG4ZPv_-YKHepx709apDBKQ2b8b-PZ2oP8eMWLlwhs0t9dkcsm2E3ZFZIS3J7lHvuqlfYQQ&user=7aUGgO4AAAAJ&inst=3314740922994165868" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="Google Scholar">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
-                        </a>
-                         <a href="https://www.linkedin.com/in/johnny-cho-553592a3/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a href="https://ischool.uw.edu/people/phd/profile/yhcho" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors" aria-label="UW Website">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                        </a>
+                            <div class="space-y-2 mt-10">
+                                <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3 text-left">Area for Research</h3>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Human-Computer Interaction (HCI)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Educational Technology</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Game-based Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Augmented/Virtual Reality</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Media Literacy (Misinformation)</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI Literacy</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social Emotional Learning</span>
+                                <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design</span>
+                            </div>
                     </div>
                 </div>
             </div>
         </header>
 
-  <!-- LEFT: Project Content -->
-       <!-- Right-side Main Content -->
-        <main class="md:w-3/4 p-6 md:p-8 lg:p-12 relative">
-             <div class="absolute top-6 right-6 md:top-8 md:right-8 z-10">
-                <a href="https://johnnycho.info/project.html" class="text-sm font-semibold text-slate-600 hover:text-teal-500 transition-colors">← Back to Portfolio</a>
+        <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50">
+
+            <nav class="flex justify-end space-x-6 mb-8">
+                <a href="https://johnnycho.info" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Home</a>
+                <a href="https://johnnycho.info/project.html" class="font-bold text-slate-700 hover:text-teal-500 transition-colors">Publications</a>
+            </nav>
+            
+  <!-- HEADER / HERO -->
+  <section class="bg-white border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-2 items-start">
+      <div>
+        <h1 class="text-3xl font-semibold text-neutral-900 leading-tight">
+          Emotions at Play: Designing AI & Tangible Tools for Children’s Emotional Learning
+        </h1>
+        <p class="mt-4 text-lg text-neutral-600 leading-relaxed">
+          A playful emotional learning toolkit co-designed with 27 children (ages 6–12), combining tangible tools
+          (storytelling dice, empathy games, stickers) and an AI-powered “feel-better sticker” generator.
+        </p>
+
+        <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-800">Role</div>
+            <div class="text-neutral-600">
+              Lead Researcher &amp; Designer
             </div>
-            <!-- Project Intro -->
-            <section id="intro" class="mb-12 md:mb-16 scroll-mt-24">
-
-    <section id="intro" class="mb-12 md:mb-16">
-      <div class="grid md:grid-cols-5 gap-8 items-center">
-        <div class="md:col-span-3">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">The Feel-Better Sticker</h2>
-          <p class="text-lg leading-relaxed text-slate-700 mb-6">
-            This project explores how AI can support children’s emotional reflection and empathy through playful, creative tools. Children ages 6–12 designed digital “feel-better” stickers using their own stories and emotions, blending AI image generation and tangible making.
-          </p>
-          <!-- SAME TAB: no target="_blank" -->
-          <a href="https://feel-better-sticker.replit.app/"
-             class="inline-block bg-teal-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-600 transition-all shadow-md">
-            View Live Demo
-          </a>
-        </div>
-        <div class="md:col-span-2">
-          <img src="https://placehold.co/600x400/14b8a6/white?text=Project+Image"
-               alt="AI Emotional Sticker Project Mockup"
-               class="rounded-lg shadow-xl w-full h-auto">
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Goals -->
-    <section id="goals" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">1. Research Goal</h3>
-      <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
-        <li>To explore how AI tools can facilitate children’s emotional self-expression and peer empathy.</li>
-        <li>To investigate how playful, tangible creation (stickers, drawings) supports emotional understanding.</li>
-        <li>To give children agency in co-creating with AI and reflecting on how technology interprets feelings.</li>
-      </ul>
-    </section>
-
-    <!-- Design Process -->
-    <section id="process" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">2. Design Process</h3>
-      <div class="space-y-8">
-        <div>
-          <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Self)</h4>
-          <p class="text-lg text-slate-700 mb-4">Children created stickers about their own emotional experiences through a guided workflow:</p>
-          <ol class="list-decimal list-outside space-y-3 pl-5 text-lg text-slate-700 bg-slate-100 p-6 rounded-lg">
-            <li><strong>Draw a feeling story:</strong> Illustrate a real emotional moment (sad, angry, scared, worried, lonely).</li>
-            <li><strong>Share with AI:</strong> Upload the drawing and emotion description into a web-based AI tool.</li>
-            <li><strong>Generate sticker & message:</strong> AI produced a visual sticker and a short supportive message.</li>
-            <li><strong>Regenerate & refine (optional):</strong> Children could adjust the image or message.</li>
-            <li><strong>Print & personalize:</strong> Final stickers were printed and decorated for sharing or keeping.</li>
-          </ol>
-        </div>
-        <div>
-          <h4 class="text-xl font-semibold text-slate-800 mb-3">Feel-Better Sticker (Peer)</h4>
-          <p class="text-lg text-slate-700">
-            To foster empathy, children also created stickers for each other. Each child listened to a peer’s story and generated a sticker and message for that friend. They then compared their designs (self vs. peer) and discussed differences, sparking reflection on empathy and perspective-taking.
-          </p>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-800">Methods</div>
+            <div class="text-neutral-600">
+              Participatory Design, Child-Centered Co-Design, Qualitative Research
+            </div>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-800">Timeline</div>
+            <div class="text-neutral-600">
+              2024–2025
+            </div>
+          </div>
+          <div class="bg-neutral-100 rounded-xl p-4">
+            <div class="font-semibold text-neutral-800">Tools</div>
+            <div class="text-neutral-600">
+              Figma, Custom Web App (AI Sticker Tool), Tangible Dice &amp; Game Materials
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Technical Overview -->
-    <section id="tech" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">3. Technical Overview</h3>
-      <div class="bg-gray-800 text-slate-200 p-6 rounded-lg shadow-lg">
-        <p class="text-lg mb-4">The AI sticker tool was a web-based prototype built on Replit using React/Node.js. It interacted with several AI models via APIs.</p>
-        <ol class="list-decimal list-outside space-y-4 pl-5 text-base">
-          <li><strong>Input Upload:</strong> Child uploads activity-sheet photo, selects emotion, adds a brief description.</li>
-          <li><strong>Initial Content Generation:</strong>
-            <ul class="list-disc list-outside pl-5 mt-2 space-y-2">
-              <li><strong>LLM:</strong> Generates a supportive message, emotion description, and an image prompt.</li>
-              <li><strong>Image model:</strong> Produces the sticker from the prompt.</li>
-              <li><strong>Safety checks:</strong> Automated moderation at multiple steps.</li>
-            </ul>
+      <!-- PLACEHOLDER FOR HERO IMAGE -->
+      <div class="flex flex-col gap-4">
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-500 text-sm font-medium">
+          <span>Session photos: storytelling, empathy game, AI sticker</span>
+        </div>
+        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-500 text-sm font-medium">
+          <span>Printed “Feel-Better” Stickers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROBLEM / CONTEXT -->
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <h2 class="text-xl font-semibold text-neutral-900">Problem Space</h2>
+    <p class="mt-4 text-neutral-700 leading-relaxed">
+      Children today have fewer chances to practice empathy, peer negotiation, and emotional regulation in everyday
+      settings. Social interaction is increasingly digital, and many emotional “lessons” are adult-scripted instead of
+      child-driven. Our goal: design playful tools that let kids comfortably express feelings, find connection, and build
+      empathy together — without making it feel like therapy or school. 
+    </p>
+  </section>
+
+
+  <!-- USER RESEARCH -->
+  <section class="bg-white border-y border-neutral-200">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-semibold text-neutral-900">User Research</h2>
+        <p class="mt-4 text-neutral-700 leading-relaxed">
+          We ran four 90-minute participatory design sessions with 27 children (ages 6–12). Each session mixed storytelling,
+          game design, and lightweight technology use. We collected video, facilitator notes, and children’s physical
+          artifacts (drawings, stickers, game prototypes). 
+        </p>
+
+        <ul class="mt-6 space-y-4 text-neutral-700 text-sm leading-relaxed">
+          <li>
+            <span class="font-semibold text-neutral-900">Emotional Storytelling (PD1):</span>
+            Kids used giant “Inside Out” emotion dice to recall real feelings and tell stories. Many chose “negative”
+            emotions like anger or disgust because they felt “more fun.”  
           </li>
-          <li><strong>Display:</strong> Shows sticker, message, and emotion description.</li>
-          <li><strong>Regeneration (Optional):</strong> Child can add instructions to refine the output.</li>
-          <li><strong>Display Regenerated Content:</strong> Page updates with the new sticker/message.</li>
-        </ol>
+          <li>
+            <span class="font-semibold text-neutral-900">Empathy Game Design (PD2):</span>
+            Small groups co-created games (“You Are Not Alone”) where players share when they felt scared, embarrassed,
+            etc., and discover they’re not alone. 
+          </li>
+          <li>
+            <span class="font-semibold text-neutral-900">AI Feel-Better Stickers (PD3):</span>
+            Each child told a personal story, picked a feeling (sad / angry / scared / worried / lonely), and generated a
+            comforting sticker + message using our AI tool. 
+          </li>
+          <li>
+            <span class="font-semibold text-neutral-900">Peer Stickers (PD4):</span>
+            Children made stickers for each other’s stories, then compared “how I see my feeling” vs “how my friend sees it,”
+            which sparked perspective-taking and empathy. 
+          </li>
+        </ul>
       </div>
-    </section>
 
-    <!-- Findings -->
-    <section id="findings" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">4. Findings</h3>
-      <div class="grid md:grid-cols-3 gap-6 text-center">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="text-xl font-bold text-teal-600 mb-2">Ownership & Joy</h4>
-          <p class="text-slate-700">Children expressed pride in making something uniquely theirs, often asking, “Can we make another one!?”</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="text-xl font-bold text-teal-600 mb-2">Creativity as Coping</h4>
-          <p class="text-slate-700">Humor and playful AI mistakes helped reframe emotional discomfort into a fun, creative activity.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h4 class="text-xl font-bold text-teal-600 mb-2">Agency Through Design</h4>
-          <p class="text-slate-700">Kids customized stickers with favorite elements, showing AI as a partner in creativity.</p>
-        </div>
+      <div class="bg-neutral-100 rounded-xl p-6">
+        <h3 class="text-base font-semibold text-neutral-900">Key Research Insights</h3>
+        <ul class="mt-4 space-y-4 text-neutral-700 text-sm leading-relaxed">
+          <li>
+            <span class="font-semibold text-neutral-900">Negative feelings were not scary — they were entertaining.</span>
+            Kids said things like “My favorite emotion is disgust” and “Negatives are fun,” then turned anger, guilt, and fear
+            into jokes, stories, and rules in their games. 
+          </li>
+          <li>
+            <span class="font-semibold text-neutral-900">Empathy looked like ‘we’ve been there too,’ not ‘I imagine you.’</span>
+            Children bonded over shared experience (“I’ve had situations like that”) instead of abstract perspective-taking.
+            
+          </li>
+          <li>
+            <span class="font-semibold text-neutral-900">Tangible > screen.</span>
+            Kids strongly preferred physical objects (dice, wheels, printed stickers) over purely on-screen prompts. 
+          </li>
+          <li>
+            <span class="font-semibold text-neutral-900">Humor lowered the barrier to vulnerability.</span>
+            They laughed together at “embarrassing” stories and even at AI mistakes, which made sharing feel safe instead of
+            stressful. 
+          </li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Research Insights -->
-    <section id="insights" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">5. Research Insights</h3>
-      <ul class="list-disc list-outside space-y-3 pl-5 text-lg text-slate-700">
-        <li><strong>Playful Emotional Learning:</strong> AI can act as a mirror and mediator of feelings.</li>
-        <li><strong>Empathy through Co-creation:</strong> Making for peers deepened understanding.</li>
-        <li><strong>The Campfire Effect:</strong> Group sharing fostered emotional safety and curiosity.</li>
-      </ul>
-    </section>
 
-    <!-- Reflection -->
-    <section id="reflection" class="mb-12 md:mb-16">
-      <h3 class="text-2xl font-bold text-slate-900 mb-6 section-title">6. My Role & Reflection</h3>
-      <div class="bg-slate-100 border-l-4 border-teal-500 p-6 rounded-r-lg">
-        <p class="text-lg italic text-slate-800 leading-relaxed">
-          "As the lead researcher, I co-designed the AI tool and study activities, facilitated children’s sessions, and analyzed how technology mediates emotional meaning-making. This work informs my ongoing research on AI-supported emotional learning and child-centered digital well-being."
+  <!-- DESIGN PROCESS -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-xl font-semibold text-neutral-900">Design Process</h2>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-sm">
+      <!-- Step 1 -->
+      <div class="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
+        <div class="text-neutral-500 font-mono text-xs tracking-tight">STEP 1</div>
+        <div class="mt-2 font-semibold text-neutral-900">Explore Feelings Through Play</div>
+        <p class="mt-2 text-neutral-700 leading-relaxed">
+          Emotional dice + storytelling let kids surface real experiences (fear, shame, anger) in a low-pressure way.
+          They quickly hacked the rules and made it sillier → safer. 
         </p>
       </div>
-    </section>
 
-    <!-- Footer (kept inside left for clarity) -->
-    <footer class="text-slate-500 text-sm py-8">
-      &copy; 2025 Yeonhee (Johnny) Cho.
-    </footer>
-  </main>
+      <!-- Step 2 -->
+      <div class="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
+        <div class="text-neutral-500 font-mono text-xs tracking-tight">STEP 2</div>
+        <div class="mt-2 font-semibold text-neutral-900">Co-Design Empathy Games</div>
+        <p class="mt-2 text-neutral-700 leading-relaxed">
+          Small groups built “You Are Not Alone” games using cards, spinners, dice, and Jenga.
+          Rules rewarded honesty, listening, and cheering for each other.
+        </p>
+      </div>
 
+      <!-- Step 3 -->
+      <div class="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
+        <div class="text-neutral-500 font-mono text-xs tracking-tight">STEP 3</div>
+        <div class="mt-2 font-semibold text-neutral-900">Prototype AI Sticker Tool</div>
+        <p class="mt-2 text-neutral-700 leading-relaxed">
+          We built a web app that turns a child’s story + chosen feeling into a “feel-better” sticker, an encouraging message,
+          and an explanation of the emotion.
+        </p>
+      </div>
 
-
-<!-- Particles + scroll spy scripts (optional) -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script>
-  // Sticky panel particles (optional, same as your main site)
-  window.addEventListener('load', () => {
-    if (window.tsParticles) {
-      tsParticles.load("tsparticles-header", {
-        fpsLimit: 60,
-        fullScreen: { enable: false },
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: "#94a3b8" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5, random: true },
-          size: { value: 2, random: { enable: true, minimumValue: 1 } },
-          links: { enable: true, distance: 150, color: "#94a3b8", opacity: 0.4, width: 1 },
-          move: { enable: true, speed: 0.5, direction: "none", out_mode: "out" }
-        },
-        interactivity: {
-          events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-          modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
-        },
-        retina_detect: true
-      });
-    }
-  });
-
-  // Scroll-spy to highlight right-side nav
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
-  window.addEventListener('scroll', () => {
-    let current = 'intro';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      if (window.pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').substring(1) === current) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
-</body>
+      <!-- Step 4 -->
+      <div class="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm">
+        <div class="text-neutral-500 font-mono text-xs tracking-tight">STEP 4</div>
+        <div class="mt-2 font-semibold text-neutral-900">Iterate With Peer Feedback</div>
+        <p class="mt-2 text-neutral-700 leading-relaxed">
+          Kids said: some AI responses felt “corny,” “not listening,” or “doesn’t get me.” We iterated toward more
+          editable language and more visual control before printing. 
+        </p>
+      </div>
     </div>
+  </section>
+
+
+  <!-- FIGMA / WIREFRAMES SECTION -->
+  <section class="bg-neutral-900 text-neutral-100">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+
+        <div class="lg:w-1/2">
+          <h2 class="text-xl font-semibold text-white">Wireframes &amp; Interaction Flow</h2>
+          <p class="mt-4 text-neutral-300 leading-relaxed text-sm">
+            I created low- and mid-fidelity wireframes in Figma to define the AI sticker creation flow:
+          </p>
+
+          <ul class="mt-6 space-y-4 text-neutral-200 text-sm leading-relaxed">
+            <li>
+              <span class="font-semibold text-white">1. Story Input Screen</span><br />
+              Child uploads a photo of their drawing, selects how they feel (sad / angry / scared / worried / lonely),
+              and writes a short description of “what happened.”
+            </li>
+            <li>
+              <span class="font-semibold text-white">2. AI Sticker Preview Screen</span><br />
+              The app shows: (a) generated sticker art, (b) “feel-better” message, and (c) emotional reflection text.
+              Children can request changes (“make it cuter,” “try again,” “add dog,” etc.).
+            </li>
+            <li>
+              <span class="font-semibold text-white">3. Print Layout Screen</span><br />
+              Final stickers are arranged in a printable sheet so kids can cut, trade, and keep them —
+              turning digital reflection into something tangible they own.
+            </li>
+          </ul>
+
+          <p class="mt-6 text-neutral-300 text-sm leading-relaxed">
+            These wireframes helped us quickly test tone (supportive vs. “too adult”), visual style (cute / playful / kid-owned),
+            and control (how much can they edit?). I will include annotated screenshots in the final portfolio using
+            frames exported from Figma:
+          </p>
+
+          <ul class="mt-4 text-sm text-neutral-200 space-y-2">
+            <li class="flex items-start gap-2">
+              <span class="inline-block rounded-md bg-neutral-800 px-2 py-1 text-[10px] font-mono text-neutral-300">WF-01</span>
+              <span>Story Input (Upload Drawing + Pick Emotion)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block rounded-md bg-neutral-800 px-2 py-1 text-[10px] font-mono text-neutral-300">WF-02</span>
+              <span>AI Output &amp; Editable Message</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="inline-block rounded-md bg-neutral-800 px-2 py-1 text-[10px] font-mono text-neutral-300">WF-03</span>
+              <span>Print/Sticker Sheet View</span>
+            </li>
+          </ul>
+
+          <p class="mt-6 text-neutral-300 text-xs leading-relaxed italic">
+            Link to working file (internal): Education AI Sticker Prototype (Figma).
+            <br/>
+            My contribution: full flow design, information hierarchy, child-facing language, and iteration based on testing feedback.
+          </p>
+        </div>
+
+        <!-- Figma frame placeholder / thumbnails -->
+        <div class="lg:w-1/2 grid gap-6 sm:grid-cols-2">
+          <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-4 flex flex-col">
+            <div class="bg-neutral-700/60 rounded-md aspect-[3/4] flex items-center justify-center text-neutral-400 text-xs font-medium">
+              Figma Frame: Story Input
+            </div>
+            <div class="mt-3 text-xs text-neutral-300 leading-relaxed">
+              Kids choose an emotion, describe the moment, and upload their drawing to “teach the AI what happened.”
+            </div>
+          </div>
+
+          <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-4 flex flex-col">
+            <div class="bg-neutral-700/60 rounded-md aspect-[3/4] flex items-center justify-center text-neutral-400 text-xs font-medium">
+              Figma Frame: AI Sticker Preview
+            </div>
+            <div class="mt-3 text-xs text-neutral-300 leading-relaxed">
+              Shows sticker art + a comforting message.
+              Child can regenerate or tweak tone.
+            </div>
+          </div>
+
+          <div class="bg-neutral-800 border border-neutral-700 rounded-xl p-4 flex flex-col sm:col-span-2">
+            <div class="bg-neutral-700/60 rounded-md aspect-[5/3] flex items-center justify-center text-neutral-400 text-xs font-medium">
+              Figma Frame: Print Sheet Layout
+            </div>
+            <div class="mt-3 text-xs text-neutral-300 leading-relaxed">
+              Final “feel-better” stickers arranged for printing and decorating. Kids took these home and displayed them in
+              personal spaces, extending emotional reflection beyond the session. 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OUTCOMES / IMPACT -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-xl font-semibold text-neutral-900">Outcomes &amp; Impact</h2>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-3">
+      <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+        <div class="text-sm font-semibold text-neutral-900">Behavioral Outcome</div>
+        <p class="mt-2 text-neutral-700 text-sm leading-relaxed">
+          Children openly discussed difficult feelings (anger, embarrassment, guilt) and even competed to share them,
+          because the context felt like play, not therapy. 
+        </p>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+        <div class="text-sm font-semibold text-neutral-900">Social Outcome</div>
+        <p class="mt-2 text-neutral-700 text-sm leading-relaxed">
+          Empathy showed up as “we’re in this together.” They validated each other through shared stories, jokes, and co-created rules
+          — not just by saying “I understand you.” 
+        </p>
+      </div>
+
+      <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+        <div class="text-sm font-semibold text-neutral-900">Design Outcome</div>
+        <p class="mt-2 text-neutral-700 text-sm leading-relaxed">
+          We arrived at a hybrid toolkit: physical prompts (dice, cards, stickers) + a supportive AI interface that kids could
+          edit, joke with, critique, and ultimately make their own.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PERSONAL CONTRIBUTION -->
+  <section class="bg-white border-t border-neutral-200">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <h2 class="text-xl font-semibold text-neutral-900">My Contribution</h2>
+      <ul class="mt-6 space-y-4 text-neutral-700 leading-relaxed text-sm">
+        <li>
+          <span class="font-semibold text-neutral-900">Research Lead:</span>
+          Designed four-session study structure; secured assent/consent; facilitated co-design with 27 children. 
+        </li>
+        <li>
+          <span class="font-semibold text-neutral-900">Interaction Designer:</span>
+          Built the AI sticker creation flow in Figma (story input → AI preview → print sheet) and defined kid-facing microcopy.
+        </li>
+        <li>
+          <span class="font-semibold text-neutral-900">Prototype &amp; Iteration:</span>
+          Worked with collaborators to develop the web app and refine it based on child feedback around tone
+          (“don’t sound fake,” “don’t be corny,” “listen to me”). 
+        </li>
+        <li>
+          <span class="font-semibold text-neutral-900">Qualitative Analysis:</span>
+          Led thematic coding of video/field notes/artifacts using Atlas.ti; produced insights on curiosity, ownership,
+          and enjoyment as critical drivers of emotional learning in play. 
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- CLOSE -->
+  <footer class="max-w-4xl mx-auto px-6 pb-16 pt-4 text-neutral-500 text-xs leading-relaxed">
+    <p>
+      This work shows how children can co-design emotional tools — not just use them — and how playful UX
+      can turn “hard feelings” into curiosity, agency, and connection.
+    </p>
+    <p class="mt-4 italic">
+      Manuscript currently under review. Please do not circulate or cite without permission.
+    </p>
+  </footer>
+
 </body>
 </html>
