@@ -1,464 +1,769 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emotions at Play | UX Design Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Emotions at Play: AI Emotional Sticker Project · UX Case Study</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Arial, sans-serif; }
+    /* soft card shadows */
+    .surface {
+      box-shadow: 0 24px 64px -12px rgb(15 23 42 / .08);
+    }
+    .surface-soft {
+      box-shadow: 0 24px 64px -12px rgb(15 23 42 / .05);
+    }
+
+    /* image placeholder box */
+    .img-slot {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:.7rem;
+      line-height:1rem;
+      color:#64748b; /* slate-500 */
+      background-color:#e2e8f0; /* slate-200 */
+      border:1px solid #e2e8f0;
+      border-radius:.75rem;
+      padding:1rem;
+      width:100%;
+    }
+
+    .ratio-hero  { aspect-ratio: 16 / 9; }
+    .ratio-43    { aspect-ratio: 4 / 3; }
+    .ratio-169   { aspect-ratio: 16 / 9; }
+    .ratio-wide  { aspect-ratio: 16 / 5; }
+    .ratio-34    { aspect-ratio: 3 / 4; }
+
+    /* colored phase pills */
+    .phase-pill {
+      font-size:.7rem;
+      line-height:1rem;
+      font-weight:600;
+      text-transform:uppercase;
+      border-radius:9999px;
+      padding:.25rem .5rem;
+      letter-spacing:.08em;
+      color:#fff;
+    }
+    .phase-understand { background-color:#4f46e5; } /* indigo-600 */
+    .phase-observe    { background-color:#d97706; } /* amber-600  */
+    .phase-define     { background-color:#2563eb; } /* blue-600   */
+    .phase-build      { background-color:#e11d48; } /* rose-600   */
+    .phase-reflect    { background-color:#0ea5e9; } /* sky-500    */
+
+    /* section block style */
+    .section-block {
+      background-color:#fff;
+      border:1px solid #e2e8f0; /* slate-200 */
+      border-radius:1rem;
+      padding:2.5rem 1.5rem 2rem;
+      box-shadow:0 24px 64px -12px rgb(15 23 42 / .05);
+    }
+    @media (min-width:768px){
+      .section-block { padding:3rem 3rem 2.5rem; border-radius:1.5rem; }
+    }
+
+    /* accent callouts */
+    .accent-indigo {
+      background-color: rgb(79 70 229 / .06);
+      border-color: rgb(79 70 229 / .2);
+    }
+    .accent-amber {
+      background-color: rgb(217 119 6 / .07);
+      border-color: rgb(217 119 6 / .2);
+    }
+    .accent-blue {
+      background-color: rgb(37 99 235 / .07);
+      border-color: rgb(37 99 235 / .2);
+    }
+    .accent-rose {
+      background-color: rgb(225 29 72 / .07);
+      border-color: rgb(225 29 72 / .2);
+    }
+    .accent-sky {
+      background-color: rgb(14 165 233 / .07);
+      border-color: rgb(14 165 233 / .2);
+    }
+
+    /* dark footer */
+    .footer-dark-gradient {
+      background-color:#0f172a;
+    }
+
+    /* tiny caption text */
+    .caption {
+      font-size:.7rem;
+      line-height:1rem;
+      color:#64748b;
+    }
+
+    /* tiny label header */
+    .mini-label {
+      font-size:.7rem;
+      line-height:1rem;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+  </style>
 </head>
 
-<body class="bg-neutral-50 text-neutral-900 antialiased leading-relaxed">
+<body class="bg-slate-50 text-slate-700 antialiased">
 
-  <!-- OVERVIEW / HERO -->
-  <section class="bg-white border-b border-neutral-200">
-    <div class="max-w-6xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-2 items-start">
-      <!-- Left column -->
+<!-- ICON SPRITES (for small inline icons if needed) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+  <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </symbol>
+  <symbol id="icon-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+    <polyline points="14 2 14 8 20 8"></polyline>
+    <line x1="16" y1="13" x2="8" y2="13"></line>
+    <line x1="16" y1="17" x2="8" y2="17"></line>
+    <polyline points="10 9 9 9 8 9"></polyline>
+  </symbol>
+</svg>
+
+<!-- PAGE WRAPPER -->
+<div class="max-w-screen-xl mx-auto md:flex">
+
+  <!-- ========= LEFT SIDEBAR / NAV ========= -->
+  <aside class="bg-zinc-800 md:w-1/3 lg:w-1/4 md:h-screen md:sticky top-0 p-8 lg:p-12 flex flex-col justify-between text-center relative overflow-hidden">
+    <div class="relative z-10 flex flex-col justify-between h-full">
       <div>
-        <h1 class="text-3xl font-semibold text-neutral-900 leading-tight">
-          Emotions at Play: Designing AI &amp; Tangible Tools for Children’s Emotional Learning
-        </h1>
+        <!-- top links row -->
+        <div class="flex justify-center space-x-4 mb-6">
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-indigo-500 hover:text-white transition-colors" aria-label="Download CV">
+            CV
+          </a>
 
-        <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
-          A participatory UX research and design project exploring how AI and playful physical tools can support
-          children’s emotional learning. I led the full design cycle with 27 children (ages 6–12), from co-design
-          sessions to Figma prototyping and iterative testing.
+          <a href="#" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-indigo-500 hover:text-white transition-colors" aria-label="Scholar">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5L12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5 0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
+          </a>
+
+          <a href="#" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-indigo-500 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+
+          <a href="#" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-indigo-500 hover:text-white transition-colors" aria-label="Website">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+          </a>
+        </div>
+
+        <!-- profile -->
+        <div class="text-center">
+          <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover ring-2 ring-slate-500 ring-offset-2 ring-offset-zinc-800"
+               src="your-headshot.png"
+               alt="Profile headshot"
+               onerror="this.onerror=null;this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
+          <h1 class="text-3xl lg:text-4xl font-extrabold text-slate-50 leading-tight">Emotions at Play:<br/>AI Emotional Sticker Project</h1>
+          <p class="text-base text-slate-300 mt-4 leading-snug">
+            UX Research Lead · Product Designer · Educator<br/>
+            Child-Centered AI · Social Emotional Learning
+          </p>
+        </div>
+
+        <!-- research area pills -->
+        <div class="space-y-2 mt-10 text-left">
+          <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3">Areas of Work</h3>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Child-Centered UX</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Participatory Design (PD)</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">AI &amp; Emotion Interfaces</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Playful Learning</span>
+          <span class="block w-full text-center text-sm bg-slate-700 text-slate-200 font-semibold px-3 py-1 rounded-full">Social-Emotional Well-being</span>
+        </div>
+
+        <!-- internal nav -->
+        <nav class="mt-12 text-left">
+          <h3 class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-3">Case Study Sections</h3>
+          <ul class="space-y-2 text-sm font-semibold">
+            <li><a href="#problem" class="block text-slate-300 hover:text-indigo-400">Problem Statement</a></li>
+            <li><a href="#process" class="block text-slate-300 hover:text-indigo-400">Design Process</a></li>
+            <li><a href="#understand" class="block text-slate-300 hover:text-indigo-400">1 · Understand</a></li>
+            <li><a href="#observe" class="block text-slate-300 hover:text-indigo-400">2 · Observe</a></li>
+            <li><a href="#define" class="block text-slate-300 hover:text-indigo-400">3 · Define</a></li>
+            <li><a href="#ideate" class="block text-slate-300 hover:text-indigo-400">4 · Ideate</a></li>
+            <li><a href="#prototype" class="block text-slate-300 hover:text-indigo-400">5 · Prototype</a></li>
+            <li><a href="#test" class="block text-slate-300 hover:text-indigo-400">6 · Test</a></li>
+            <li><a href="#conclusion" class="block text-slate-300 hover:text-indigo-400">Conclusion</a></li>
+          </ul>
+        </nav>
+
+        <!-- site nav -->
+        <div class="mt-12 flex flex-col items-start text-left text-sm font-bold space-y-2 text-slate-300">
+          <a href="#" class="hover:text-indigo-400 transition-colors">← Back to Home</a>
+          <a href="#" class="hover:text-indigo-400 transition-colors">More Projects / Publications</a>
+        </div>
+      </div>
+
+      <div class="mt-12 text-left text-[10px] text-slate-500 leading-relaxed">
+        <p class="text-slate-300 font-semibold">
+          Outcome: Full Paper Submission to CHI 2026<br/>
+          “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
         </p>
+      </div>
+    </div>
+  </aside>
 
-        <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
-          <div class="bg-neutral-100 rounded-xl p-4">
-            <div class="font-semibold text-neutral-900 text-sm">Role</div>
-            <div class="text-neutral-700">
-              UX Research Lead<br/>Product Designer<br/>Educator
-            </div>
+  <!-- ========= RIGHT CONTENT / CASE STUDY ========= -->
+  <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50 space-y-12">
+
+    <!-- HERO / INTRO -->
+    <section class="section-block surface bg-white">
+      <p class="mini-label text-indigo-600">Child-Centered AI · UX Case Study</p>
+
+      <h1 class="text-slate-900 text-3xl md:text-4xl font-semibold leading-tight mt-2">
+        Designing Playful AI for Emotional Expression in Children
+      </h1>
+
+      <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mt-4">
+        A participatory UX and interaction design project with 27 children (ages 6–12).
+        We explored how AI and physical play can help children express difficult emotions,
+        feel understood by peers, and create “emotional artifacts” they can keep, trade,
+        and talk about together.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-700 mt-10">
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">My Role</p>
+          <p>UX Research Lead · Product Designer · Educator</p>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">Methods</p>
+          <p>Participatory Design (PD1–PD4), Child Co-Design, Prototyping, Iterative Testing</p>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-900 text-xs uppercase tracking-wide mb-1">Timeline</p>
+          <p>2024–2025 (school and after-school settings)</p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl surface p-4 mt-10">
+        <div class="img-slot ratio-hero">
+          [Photos: kids rolling “emotion dice,” empathy game sketches, AI-generated feel-better stickers on paper]
+        </div>
+        <p class="caption mt-3">
+          Fig 0. Co-design and prototype testing sessions. Children created stories, designed “empathy games,” and generated stickers to support each other.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section id="problem" class="section-block bg-white">
+      <h2 class="text-slate-900 text-2xl md:text-3xl font-semibold mb-2 flex flex-wrap items-baseline gap-2">
+        <span>Problem Statement</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-8 text-slate-600 leading-relaxed">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">Context &amp; Challenge</h3>
+          <p class="mt-2">
+            Children are under emotional stress (anxiety, isolation, peer conflict) but have fewer safe,
+            kid-controlled spaces to process those feelings together. Research shows play — storytelling,
+            pretending, co-inventing rules — helps kids rehearse and regulate emotions socially. 
+          </p>
+
+          <h3 class="text-slate-900 text-lg font-semibold mt-6">Gap in Existing Approaches</h3>
+          <p class="mt-2">
+            Most “emotional learning” tools are adult-led and individual (“tell me how you feel”).
+            But children actually process emotion in groups: by joking about it, acting it out,
+            and discovering “you felt that too.” Current tech and AI rarely support that peer-to-peer process. 
+          </p>
+
+          <h3 class="text-slate-900 text-lg font-semibold mt-6">Our Response &amp; Research Aim</h3>
+          <p class="mt-2">
+            We built and tested playful tools — physical and AI-powered — that let kids turn feelings
+            into shareable stickers and artifacts they can discuss together.
+            Our guiding question: <span class="font-semibold text-slate-900">Can we design technology that functions like a campfire —
+            something kids gather around to tell real stories?</span> 
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white border border-slate-200 rounded-xl surface p-4">
+            <h3 class="text-slate-900 text-lg font-semibold">Research Goal</h3>
+            <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed mt-4 space-y-2">
+              <li>Understand how children naturally express difficult feelings with peers.</li>
+              <li>Translate those authentic behaviors into design requirements.</li>
+              <li>Prototype an AI-assisted tool that supports <span class="font-semibold text-slate-900">empathy between children</span> — not just self-calming. </li>
+            </ul>
           </div>
-          <div class="bg-neutral-100 rounded-xl p-4">
-            <div class="font-semibold text-neutral-900 text-sm">Methods</div>
-            <div class="text-neutral-700">
-              Participatory Design (PD1–PD4),<br/>Child-Centered Co-Design,<br/>Qualitative Analysis
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert early research board: quotes, emotion cards, story prompts]
             </div>
-          </div>
-          <div class="bg-neutral-100 rounded-xl p-4">
-            <div class="font-semibold text-neutral-900 text-sm">Timeline</div>
-            <div class="text-neutral-700">
-              2024–2025
-            </div>
-          </div>
-          <div class="bg-neutral-100 rounded-xl p-4">
-            <div class="font-semibold text-neutral-900 text-sm">Tools</div>
-            <div class="text-neutral-700">
-              Figma, Custom Web App<br/>(AI Sticker Tool),<br/>Tangible Dice &amp; Game Materials
-            </div>
+            <p class="caption mt-2">
+              Fig 1. Early framing of the emotional landscape children described.
+            </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="mt-6 text-sm text-neutral-600 leading-relaxed">
-          <div><span class="font-semibold text-neutral-900">Outcome:</span> Full Paper Submission to CHI 2026.</div>
-          <div><span class="font-semibold text-neutral-900">Focus:</span> Interaction Prototyping, AI Interface Design, Ethical UX for Children.</div>
+    <!-- PROCESS OVERVIEW -->
+    <section id="process" class="section-block bg-white">
+      <h2 class="text-slate-900 text-2xl md:text-3xl font-semibold mb-3 flex flex-wrap items-baseline gap-2">
+        <span>Design Process</span>
+      </h2>
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        We followed a child-centered design thinking flow:
+        <span class="font-semibold text-slate-900">Understand → Observe → Define → Ideate → Prototype → Test.</span>
+        Each phase shows what we did with children, what we learned, and how that moved the design.
+      </p>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-8">
+        <div class="img-slot ratio-wide">
+          Process timeline: Understand → Observe (PD1 / PD2) → Define (requirements) → Ideate (campfire model) → Prototype (AI sticker tool) → Test (peer feedback)
+        </div>
+        <p class="caption mt-2">
+          Fig 2. Mapping four participatory design sessions (PD1–PD4) into a staged design process.
+        </p>
+      </div>
+    </section>
+
+    <!-- 1. UNDERSTAND -->
+    <section id="understand" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-understand">1 · Understand</span>
+        <span>Mapping children's emotional reality</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed">
+        <div>
+          <p>
+            I started by reviewing HCI / learning sciences work and interviewing educators to map where
+            kids feel emotional strain: embarrassment in front of peers, conflict, fear of “getting in trouble”
+            for reacting. I also examined existing SEL-style tools.
+          </p>
+
+          <p class="mt-4">
+            We saw a pattern: most products ask children to report and regulate individually.
+            But children tend to regulate socially — through role-play, teasing, co-inventing rules,
+            and rewriting what happened together. 
+          </p>
+
+          <p class="mt-4 text-slate-800 italic">
+            Design direction: Don’t just design for emotional control.  
+            Design for emotional connection.
+          </p>
+        </div>
+
+        <div>
+          <div class="img-slot ratio-43">
+            [Insert “State of the World” slide: stressors kids named + why play matters]
+          </div>
+          <p class="caption mt-2">
+            Fig 3. Framing deck for school partners: kids need social, low-stakes emotional spaces. 
+          </p>
         </div>
       </div>
 
-      <!-- Right column: image placeholders -->
-      <div class="flex flex-col gap-4">
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert session photos: storytelling dice game, empathy game design, AI sticker activity]
-        </div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert printed “feel-better” stickers / physical artifacts]
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PROBLEM STATEMENT -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
- <h2 class="text-2xl font-semibold mb-4 text-neutral-900">Problem Statement</h2>
-
-<ol class="list-decimal ml-6 space-y-6 text-neutral-700">
-  <li>
-    <strong>Context &amp; Challenge:</strong><br/>
-    Children are under emotional stress (anxiety, isolation, peer tension) but have fewer safe spaces to work through it together.
-    Research shows that play — storytelling, pretending, co-inventing rules — helps kids rehearse and regulate emotions socially.
-  </li>
-
-  <li>
-    <strong>Gap in Existing Approaches:</strong><br/>
-    Most “emotional learning” tools are adult-led and individual (“tell me how you feel”). They miss how kids actually process
-    feelings: joking about them, acting them out, and realizing “you felt that too.” Tech and AI tools rarely support that
-    peer-to-peer emotional work.
-  </li>
-
-  <li>
-    <strong>Our Response &amp; Research Aim:</strong><br/>
-    We built and tested playful tools — physical and AI-powered — that help kids express emotions, see shared experiences,
-    and create emotional artifacts they can discuss together.
-    Our guiding question: <em>Can we design technology that functions like a campfire — something kids gather around to tell real stories?</em>
-  </li>
-</ol>
-
-
-    <div class="mt-8 bg-neutral-100 border border-neutral-200 rounded-xl p-4 text-sm text-neutral-700 leading-relaxed">
-      <div class="font-semibold text-neutral-900 text-sm mb-1">Research Goal</div>
-      Understand how children naturally express difficult feelings with peers, translate those behaviors into design requirements,
-      and prototype an AI-assisted tool that supports empathy — not just self-calming. 
-    </div>
-  </section>
-
-
-  <!-- DESIGN THINKING PROCESS OVERVIEW -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-2xl font-semibold mb-8 text-neutral-900">Design Thinking Process</h2>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">1 · Understand</div>
-        <div class="font-semibold text-neutral-900 mt-1">Kids' emotional reality</div>
-        <div class="text-neutral-700 mt-1">Stress, shame, belonging.</div>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">2 · Observe</div>
-        <div class="font-semibold text-neutral-900 mt-1">PD1 &amp; PD2</div>
-        <div class="text-neutral-700 mt-1">How they express and share feelings in play.</div>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">3 · Define</div>
-        <div class="font-semibold text-neutral-900 mt-1">Design requirements</div>
-        <div class="text-neutral-700 mt-1">Emotions must become artifacts.</div>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">4 · Ideate</div>
-        <div class="font-semibold text-neutral-900 mt-1">Interaction model</div>
-        <div class="text-neutral-700 mt-1">Campfire: shared emotional object.</div>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">5 · Prototype</div>
-        <div class="font-semibold text-neutral-900 mt-1">AI Sticker Tool</div>
-        <div class="text-neutral-700 mt-1">Wireframes &amp; flows in Figma.</div>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-xl p-4">
-        <div class="text-xs font-medium uppercase tracking-wide text-neutral-500">6 · Test</div>
-        <div class="font-semibold text-neutral-900 mt-1">Iterate with kids</div>
-        <div class="text-neutral-700 mt-1">“Make it cuter.” “Let me fix the message.”</div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 1. UNDERSTAND -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">1 · Understand</h2>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="text-neutral-700 leading-relaxed">
-        <p>
-          I mapped common emotional “pressure points” for kids: embarrassment in public, conflict with friends,
-          fear of being seen as “overreacting.” I also surveyed existing SEL-style tools.
-        </p>
-
-        <p class="mt-4">
-          The pattern: most tools try to correct behavior (“calm down, use the right feeling word”).
-          But prior work shows kids process emotions together — by joking, acting it out, remixing the story —
-          not by quietly self-reporting. 
-        </p>
-
-        <p class="mt-4 italic text-neutral-800">
-          Design direction: We shouldn't just design for the individual child.  
-          We should design for the space between children.
-        </p>
-      </div>
-
-      <div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert slide: “State of the World” — stress, isolation, less unstructured play, more digital mediation]
-        </div>
-        <p class="text-sm text-neutral-500 mt-2">
-          Why emotional UX for kids must be social, not only individual. 
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 2. OBSERVE (PD1 + PD2) -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">2 · Observe (Participatory Design with Children)</h2>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="text-neutral-700 leading-relaxed">
-        <h3 class="font-medium text-neutral-900 mb-2">PD1 · Storytelling Dice</h3>
-        <p>
-          We used oversized “emotion dice.” Kids rolled anger / fear / disgust / sadness and told real stories
-          from their own lives. They illustrated and acted them out.
-        </p>
-        <p class="mt-3">
-          They loved the “negative” emotions. One participant declared that disgust was their favorite emotion.
-          This showed us that difficult feelings can be playful and performable — not just “problems.”
-        </p>
-
-        <h3 class="font-medium text-neutral-900 mt-8 mb-2">PD2 · Empathy Game (“You Are Not Alone”)</h3>
-        <p>
-          Small groups made games where you admit a stressful moment (“I was nervous before speaking”)
-          and others signal “me too.” Empathy sounded like “same, you’re not weird,” not “I’m sorry.”
-          
-        </p>
-
-        <p class="mt-4 italic text-neutral-800">
-          Core insight:<br/>
-          Kids naturally created emotional tokens — drawings, cards, stickers — and treated them like badges of experience.
-          They wanted something physical to point to and say, “This is how I felt.”
-        </p>
-
-        <p class="mt-4">
-          That behavior became the seed of the product direction.
-        </p>
-      </div>
-
-      <div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert PD1 / PD2 photos: dice game, empathy game boards, early handmade “feeling stickers”]
-        </div>
-        <p class="text-sm text-neutral-500 mt-2">
-          We learned kids want emotions to become <em>artifacts</em> they can keep, trade, and talk about.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- 3. DEFINE -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">3 · Define</h2>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="text-neutral-700 leading-relaxed">
-        <p>
-          We defined a core requirement:
-        </p>
-
-        <div class="bg-neutral-100 border border-neutral-200 rounded-lg p-4 text-neutral-800 text-sm mt-4">
-          <strong>Design requirement:</strong><br/>
-          Give kids a playful, ownable emotional artifact — something they can edit, laugh about,
-          gift to a friend, or keep for themselves. Not advice. A thing.
-        </div>
-
-        <p class="mt-6">
-          We turned our findings into three design pillars:
-        </p>
-
-        <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
-          <li><strong>Curiosity</strong> – “What happens if I roll this?” “What happens if I regenerate?” </li>
-          <li class="mt-2"><strong>Ownership</strong> – “That’s not how I felt. I’ll change it.” </li>
-          <li class="mt-2"><strong>Enjoyment</strong> – Humor made honesty feel safe. </li>
+      <div class="border rounded-xl p-6 mt-10 accent-indigo border-indigo-200 bg-indigo-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Understand · Takeaways</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+          <li>Kids don’t just want to “calm down.” They want to feel seen and not alone.</li>
+          <li>Emotional work often happens in groups, not in isolation.</li>
+          <li>Any tool we build should support <span class="font-semibold text-slate-900">shared storytelling</span>, not only self-reflection.</li>
         </ul>
-
-        <p class="mt-6 italic text-neutral-800">
-          I then used Curiosity · Ownership · Enjoyment as a rubric for every UX decision.
-        </p>
       </div>
+    </section>
 
-      <div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert affinity map / sticky notes labeled: Curiosity · Ownership · Enjoyment]
+    <!-- 2. OBSERVE -->
+    <section id="observe" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-observe">2 · Observe</span>
+        <span>Participatory Design with Children (PD1 &amp; PD2)</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        Goal: Watch how children already express, negotiate, and support emotions with each other.
+        We ran two co-design sessions.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-10 text-slate-600 leading-relaxed">
+        <div>
+          <h3 class="text-slate-900 text-lg font-semibold">PD1 · Storytelling Dice</h3>
+          <p class="mt-2">
+            We made oversized “emotion dice” (anger, fear, disgust, sadness, embarrassment). Kids rolled a feeling,
+            then told a real story from their life, acting it out and drawing it.
+          </p>
+          <p class="mt-3">
+            They loved “negative” emotions. One child said disgust was their favorite because it was “dramatic.”
+            This showed us that kids are comfortable exploring hard feelings when it’s playful and performative.
+          </p>
+
+          <h3 class="text-slate-900 text-lg font-semibold mt-8">PD2 · Empathy Game (“You Are Not Alone”)</h3>
+          <p class="mt-2">
+            In small groups, kids designed empathy games. A player shared a stressful moment
+            (“I was nervous before presenting”), and others signaled if they felt the same.
+            Empathy sounded like “same, you’re not weird,” not “I’m sorry.” 
+          </p>
+
+          <p class="mt-4 text-slate-800 italic">
+            Insight: Children kept creating tangible emotional tokens — drawings, cards, stickers.
+            They treated these like badges that say “this is how I felt.”
+          </p>
+
+          <p class="mt-4">
+            That behavior is what led us toward the concept of emotional stickers.
+          </p>
         </div>
-        <p class="text-sm text-neutral-500 mt-2">
-          These three pillars became our “playful learning” criteria. 
-        </p>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert photos: kids with dice, empathy board game sketches, sticky notes of “I felt...” statements]
+            </div>
+            <p class="caption mt-2">
+              Fig 4. Kids openly shared fear, anger, and embarrassment when the format felt like a game, not a counseling session.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert early handmade “feeling sticker” sketches from kids]
+            </div>
+            <p class="caption mt-2">
+              Fig 5. Children naturally externalized emotions into collectible visual objects.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- 4. IDEATE -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">4 · Ideate</h2>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="text-neutral-700 leading-relaxed">
-        <p>
-          We proposed the <strong>AI Emotional Sticker Tool</strong>.
-        </p>
-
-        <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
-          <li>Child briefly describes a real emotional moment.</li>
-          <li>Tool generates a “feel-better” sticker (image + message).</li>
-          <li>Child edits the sticker or makes one <em>for a friend</em>.</li>
+      <div class="border rounded-xl p-6 mt-12 accent-amber border-amber-200 bg-amber-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Observe · Takeaways</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+          <li>Kids want to show emotion, not just name it.</li>
+          <li>They want to compare experiences and hear “me too.”</li>
+          <li>They love keeping physical reminders of being supported.</li>
         </ul>
-
-        <p class="mt-6">
-          This supports the <strong>campfire model</strong>: the sticker becomes the shared object in the middle.
-          Kids can look at it together, react to it, laugh at it, correct it — without putting any one kid on the spot.
-          
-        </p>
-
-        <p class="mt-6 italic text-neutral-800">
-          Design shift: AI is not “the expert.”  
-          AI is a creative partner that starts conversations.
-        </p>
       </div>
+    </section>
 
-      <div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert user flow sketch: Story → AI draft → Edit → Print/Gift → Talk]
+    <!-- 3. DEFINE -->
+    <section id="define" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-define">3 · Define</span>
+        <span>Translating insight into design requirements</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed">
+        <div>
+          <p>
+            After PD1 and PD2, we defined a core requirement:
+          </p>
+
+          <div class="bg-white border border-slate-200 rounded-lg p-4 text-sm mt-4 surface-soft">
+            <span class="font-semibold text-slate-900">Design requirement:</span><br/>
+            Give kids a playful, ownable emotional artifact — something they can edit, laugh about, gift to a peer,
+            or keep for themselves. Not a score. Not a “diagnosis.” A thing they control.
+          </div>
+
+          <p class="mt-6">
+            We then synthesized our findings into three design pillars:
+          </p>
+
+          <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+            <li><span class="font-semibold text-slate-900">Curiosity</span> – “What happens if I roll this?” “Can I regenerate it?” </li>
+            <li><span class="font-semibold text-slate-900">Ownership</span> – “That’s not how I felt. I’ll change it.” </li>
+            <li><span class="font-semibold text-slate-900">Enjoyment</span> – Humor and cuteness lower defensiveness and make honesty feel safe. </li>
+          </ul>
+
+          <p class="mt-6 text-slate-800 italic">
+            These three became our rubric. Every UI choice had to support curiosity, ownership, and enjoyment.
+          </p>
         </div>
-        <p class="text-sm text-neutral-500 mt-2">
-          The tool acts like a campfire: a focal point for shared emotional storytelling.
-        </p>
-      </div>
-    </div>
-  </section>
 
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert affinity map / sticky notes: “Curiosity · Ownership · Enjoyment”]
+            </div>
+            <p class="caption mt-2">
+              Fig 6. Synthesis wall: emotional safety emerges when kids feel agency and delight. 
+            </p>
+          </div>
 
-  <!-- 5. PROTOTYPE -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">5 · Prototype (AI Emotional Sticker Tool)</h2>
-
-    <p class="text-neutral-700 leading-relaxed">
-      I built mid- and hi-fidelity Figma prototypes. The core flow:
-    </p>
-
-    <ul class="list-disc ml-6 mt-4 text-neutral-700 text-sm leading-relaxed">
-      <li><strong>Story Input:</strong> “Tell us what happened” + choose an emotion (sad / angry / scared / worried / lonely).</li>
-      <li><strong>AI Output Preview:</strong> Sticker art + short supportive message + plain-language reflection.</li>
-      <li><strong>Customize:</strong> Kids can rewrite the message, regenerate visuals, add fun elements (“make it cuter”).</li>
-      <li><strong>Print &amp; Share:</strong> Stickers export to print so kids can keep them, trade them, show them at home. </li>
-    </ul>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-8">
-      <div>
-        <h3 class="font-medium text-neutral-900 mb-2">Wireframe · Story Input</h3>
-        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-          [Drop Figma screen: story / feeling input]
-        </div>
-      </div>
-
-      <div>
-        <h3 class="font-medium text-neutral-900 mb-2">Prototype · AI Output</h3>
-        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-          [Drop Figma screen: sticker preview + editable message]
-        </div>
-      </div>
-
-      <div>
-        <h3 class="font-medium text-neutral-900 mb-2">Prototype · Print &amp; Share</h3>
-        <div class="bg-neutral-200 rounded-xl aspect-[3/4] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-          [Drop Figma screen: printable sticker sheet / cut lines]
+          <div class="border rounded-xl p-4 accent-blue border-blue-200 bg-blue-50/60">
+            <h4 class="text-slate-900 font-semibold text-base">Design Principle</h4>
+            <p class="text-slate-700 text-sm leading-relaxed mt-2">
+              The tool should not tell kids how to feel.<br/>
+              It should give them something to talk about together.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <p class="text-sm text-neutral-700 mt-4 italic">
-      Figma link:
-      <a href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f"
-         target="_blank" class="text-blue-600 underline">
-        AI Emotional Sticker Prototype
-      </a>
-    </p>
+    <!-- 4. IDEATE -->
+    <section id="ideate" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-define">4 · Ideate</span>
+        <span>Concept: The AI Emotional Sticker Tool</span>
+      </h2>
 
-    <p class="text-neutral-700 leading-relaxed mt-6">
-      I deliberately avoided “teacher voice.” Kids distrusted prescriptive tone (“Calm down.”).
-      They preferred messages that sounded like a caring peer or a mascot, which became a content design rule.
-    </p>
-  </section>
+      <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed">
+        <div>
+          <p>
+            I designed an interaction model where a child:
+          </p>
 
+          <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+            <li>Tells a short story about when they felt something intense (angry, scared, embarrassed).</li>
+            <li>Gets a “feel-better” sticker: an image + message generated by AI.</li>
+            <li>Edits that sticker or creates one <span class="font-semibold text-slate-900">for a friend</span>.</li>
+          </ul>
 
-  <!-- 6. TEST -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-b border-neutral-200">
-    <h2 class="text-xl font-semibold mb-4 text-neutral-900">6 · Test</h2>
+          <p class="mt-6">
+            This supports what we call the <span class="font-semibold text-slate-900">Campfire Model</span>:
+            the sticker is the shared object in the middle. Kids gather around it, react to it, correct it,
+            and laugh about it — instead of putting one child “on the spot.” 
+          </p>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="text-neutral-700 leading-relaxed">
-        <p>
-          We tested two modes: “self-sticker” (for me) and “peer-sticker” (for you). Kids compared
-          “how I described my feeling” vs “how you described my feeling.”
-        </p>
-
-        <p class="mt-4">
-          This led to safe emotional correction, like:
-          <span class="italic">“I wasn’t mad, I was scared.”</span>
-          They talked about the sticker, not about “what’s wrong with you.”
-        </p>
-
-        <p class="mt-4">
-          They also critiqued AI freely:
-          <span class="italic">“The AI’s message is weird.”</span>
-          <span class="italic">“Message needs to be improved.”</span>
-          <span class="italic">“I want it to be slow.”</span> 
-        </p>
-
-        <p class="mt-4">
-          And they loved the physical sticker. One said it “makes me feel happy,” especially if it had cute characters. 
-        </p>
-
-        <p class="mt-4 italic text-neutral-800">
-          Design lesson: Kids don’t want perfect empathy from AI.  
-          They want editable empathy.
-        </p>
-      </div>
-
-      <div>
-        <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-sm font-medium text-center p-4">
-          [Insert testing photos: kids comparing “my sticker” vs “your sticker of me,” laughing at AI, cutting printed stickers]
+          <p class="mt-6 text-slate-800 italic">
+            Design shift: AI is not “the authority.”  
+            AI is a creative partner that sparks conversation.
+          </p>
         </div>
-        <p class="text-sm text-neutral-500 mt-2">
-          The AI became a safe “third party” they could critique together. 
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert early flow sketch: Child → Tell story → AI drafts sticker → Edit → Print / Share → Group talk]
+            </div>
+            <p class="caption mt-2">
+              Fig 7. “Campfire” flow: the artifact sits in the center, not the child.
+            </p>
+          </div>
+
+          <div class="border rounded-xl p-4 accent-blue border-blue-200 bg-blue-50/60">
+            <h4 class="text-slate-900 font-semibold text-base">Why stickers?</h4>
+            <p class="text-slate-700 text-sm leading-relaxed mt-2">
+              Kids in PD sessions already treated hand-drawn stickers like emotional badges.
+              We amplified that behavior instead of forcing a new behavior.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROTOTYPE -->
+    <section id="prototype" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-build">5 · Prototype</span>
+        <span>Figma flows &amp; AI interaction design</span>
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed text-lg max-w-3xl">
+        I built mid- and hi-fidelity prototypes in Figma. The flow was intentionally simple and child-led:
+      </p>
+
+      <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-6 space-y-2">
+        <li><span class="font-semibold text-slate-900">Story Input:</span> “Tell us what happened” + pick how you felt (sad / angry / scared / worried / lonely).</li>
+        <li><span class="font-semibold text-slate-900">AI Output Preview:</span> Generated sticker art + a short supportive message in kid-friendly tone.</li>
+        <li><span class="font-semibold text-slate-900">Customize:</span> Children can rewrite the message, regenerate the art, and add playful elements (“make it cuter”).</li>
+        <li><span class="font-semibold text-slate-900">Print &amp; Share:</span> Stickers are laid out for printing so they can be traded, collected, and gifted. </li>
+      </ul>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-10">
+        <div>
+          <p class="text-slate-900 font-semibold text-sm mb-2">Wireframe · Story Input</p>
+          <div class="img-slot ratio-34">
+            [Figma screen: child types story / chooses feeling icon]
+          </div>
+        </div>
+
+        <div>
+          <p class="text-slate-900 font-semibold text-sm mb-2">Prototype · AI Output</p>
+          <div class="img-slot ratio-34">
+            [Figma screen: generated sticker + editable message bubble]
+          </div>
+        </div>
+
+        <div>
+          <p class="text-slate-900 font-semibold text-sm mb-2">Prototype · Print &amp; Share</p>
+          <div class="img-slot ratio-34">
+            [Figma screen: printable sticker sheet with cut lines]
+          </div>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-700 mt-6 italic">
+        Prototype link:
+        <a class="text-indigo-600 font-medium underline" target="_blank"
+           href="https://www.figma.com/design/EpB6TTLzJL5b0cq3SniULK/Education-AI-sticker-prototype?node-id=0-1&p=f">
+          AI Emotional Sticker Prototype
+        </a>
+      </p>
+
+      <div class="border rounded-xl p-6 mt-10 accent-rose border-rose-200 bg-rose-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Tone matters</h4>
+        <p class="text-slate-700 text-sm leading-relaxed mt-2">
+          Kids mistrusted “teacher voice” (“Calm down.”). They preferred playful, caring tone
+          that sounded like a friend or mascot. We treated tone as a core part of interaction design.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- 6. TEST -->
+    <section id="test" class="section-block bg-white">
+      <h2 class="text-slate-900 text-xl md:text-2xl font-semibold flex flex-wrap items-baseline gap-3 mb-2">
+        <span class="phase-pill phase-build">6 · Test</span>
+        <span>Iterating with children</span>
+      </h2>
 
-  <!-- CONCLUSION / IMPACT -->
-  <section class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-semibold mb-4 text-neutral-900">Conclusion · Design Guidance</h2>
+      <div class="grid md:grid-cols-2 gap-10 mt-6 text-slate-600 leading-relaxed">
+        <div>
+          <p>
+            We tested two modes: “self-sticker” (for me) and “peer-sticker” (I make one for you).
+            Children compared “how I described my feeling” vs “how you described my feeling.”
+          </p>
 
-    <p class="text-neutral-700 leading-relaxed">
-      This project proposes a model for emotional UX with children: design tools that act like campfires.
-      The tool creates a shared object (a sticker, a character, a message). Children gather around it,
-      react to it, and talk <em>through</em> it — instead of being put on the spot. 
-    </p>
+          <p class="mt-4">
+            This created safe emotional correction:
+            <span class="italic text-slate-800">“I wasn’t mad, I was scared.”</span>
+            Because they were critiquing the sticker — not each other.
+          </p>
 
-    <ul class="list-disc ml-6 mt-6 text-neutral-700 leading-relaxed">
-      <li><strong>Curiosity</strong> – Surprise and play (“roll the dice,” “regenerate the sticker”) invite honest exploration. </li>
-      <li class="mt-2"><strong>Ownership</strong> – Let kids rewrite, restyle, or reject the AI’s message. Control = safety. </li>
-      <li class="mt-2"><strong>Enjoyment</strong> – Humor turns embarrassment into connection. Fun is the gateway to empathy. </li>
-    </ul>
+          <p class="mt-4">
+            Kids also critiqued the AI itself:
+            <span class="italic text-slate-800">“The AI’s message is weird.”</span>
+            <span class="italic text-slate-800">“Message needs to be improved.”</span>
+            <span class="italic text-slate-800">“I want it to be slow.”</span> 
+          </p>
 
-    <p class="text-neutral-700 leading-relaxed mt-6">
-      As an educator, I now teach AI design for children as:  
-      not “AI that judges you,” but “AI that helps you create something you can talk about together.”
-    </p>
+          <p class="mt-4">
+            They loved the physical result (“It makes me feel happy,” one said), especially when it was cute
+            or animal-themed. Tangibility = ownership. 
+          </p>
 
-    <!-- conclusion image row -->
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-        [Insert final sticker gallery / printed sticker sheets kids took home]
+          <p class="mt-4 text-slate-800 italic">
+            Design lesson: Children don’t necessarily want perfect empathy from AI.
+            They want editable empathy.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert test photos: kids comparing “my sticker” vs “your sticker of me,” laughing at AI output]
+            </div>
+            <p class="caption mt-2">
+              Fig 8. Kids used AI output as a safe third party they could critique together. 
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div class="img-slot ratio-43">
+              [Insert final printed sticker sheets kids took home]
+            </div>
+            <p class="caption mt-2">
+              Fig 9. Stickers became emotional keepsakes and gifts.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-        [Insert campfire model diagram: tool in center, kids around it]
+
+      <div class="border rounded-xl p-6 mt-12 accent-rose border-rose-200 bg-rose-50/60">
+        <h4 class="text-slate-900 font-semibold text-base">Impact in testing</h4>
+        <ul class="list-disc list-inside text-slate-700 text-sm leading-relaxed mt-4 space-y-2">
+          <li>Kids openly discussed fear, anger, embarrassment — without shutting down.</li>
+          <li>They negotiated “this is how I see your feeling” vs “this is how I actually felt.”</li>
+          <li>The AI became a social tool, not a judge. They laughed at it, fixed it, improved it together.</li>
+        </ul>
       </div>
-      <div class="bg-neutral-200 rounded-xl aspect-[4/3] flex items-center justify-center text-neutral-600 text-xs font-medium text-center p-4">
-        [Insert slide: Curiosity · Ownership · Enjoyment → “Playful learning for emotional UX”]
-      </div>
-    </div>
+    </section>
 
-    <p class="text-sm text-neutral-600 mt-8 italic">
-      Outcome: Submitted to CHI 2026 as “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”  
-      Takeaway: Design for the emotional conversation between children, not just for the child alone. 
-    </p>
-  </section>
+    <!-- CONCLUSION -->
+    <section id="conclusion" class="rounded-2xl overflow-hidden surface shadow-2xl">
+      <footer class="footer-dark-gradient text-slate-100">
+        <div class="max-w-5xl mx-auto p-8 md:p-12 space-y-10">
 
+          <h2 class="text-white text-2xl md:text-3xl font-semibold flex flex-wrap items-baseline gap-2">
+            <span>Conclusion &amp; Design Guidance</span>
+            <span class="phase-pill phase-reflect">Reflection</span>
+          </h2>
 
-  <!-- FOOTER -->
-  <footer class="max-w-6xl mx-auto px-6 pb-16 pt-4 text-neutral-500 text-xs leading-relaxed border-t border-neutral-200">
-    <p><strong>Role:</strong> UX Research Lead · Product Designer · Educator</p>
-    <p><strong>Methods:</strong> Participatory Design (PD1–PD4), Interaction Prototyping, AI Interface Design, Child-Centered UX</p>
-    <p><strong>Outcome:</strong> Full Paper Submission to CHI 2026</p>
-  </footer>
+          <div class="grid md:grid-cols-2 gap-10 text-slate-300 text-sm leading-relaxed">
+            <div>
+              <h3 class="text-white text-lg font-semibold">The Campfire Model</h3>
+              <p class="mt-4">
+                Emotional UX for children should not act like a teacher.
+                It should act like a campfire:
+                the tool creates an artifact (a sticker, a character, a caring message),
+                and kids gather around it, react to it, and talk through it — together. 
+              </p>
+
+              <ul class="list-disc list-inside mt-6 space-y-2">
+                <li><span class="font-semibold text-white">Curiosity</span> – Surprise and play (“roll the dice,” “regenerate the sticker”) invite honest exploration. </li>
+                <li><span class="font-semibold text-white">Ownership</span> – Children rewrite, restyle, or reject AI. Control = safety. </li>
+                <li><span class="font-semibold text-white">Enjoyment</span> – Humor turns embarrassment into connection. Fun is the gateway to empathy. </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white text-lg font-semibold">Why this matters (as design &amp; pedagogy)</h3>
+              <p class="mt-4">
+                This work shows how AI can support children’s well-being without diagnosing them.
+                Instead of “tell me your feeling so I can fix you,” the tool says,
+                “Let’s make something together you can share.”
+              </p>
+
+              <p class="mt-4 text-white font-semibold">
+                Outcome: Submitted to CHI 2026 — “Emotions at Play: Children’s Emotional Learning with AI and Tangible Tools.”
+              </p>
+
+              <p class="mt-4">
+                As an educator, I now teach AI design for children as:
+                not “AI that knows you,” but “AI that helps you feel less alone.”
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 pt-8">
+            <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+              <div class="img-slot ratio-43" style="background-color:#1e293b;border-color:#1e293b;color:#94a3b8;">
+                [Final sticker gallery / favorite emotional stickers]
+              </div>
+              <p class="caption text-slate-500 mt-2">
+                Final sticker set representing anger / fear / embarrassment as friendly characters.
+              </p>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+              <div class="img-slot ratio-43" style="background-color:#1e293b;border-color:#1e293b;color:#94a3b8;">
+                [Campfire model diagram: tool in middle, kids around it]
+              </div>
+              <p class="caption text-slate-500 mt-2">
+                The tool acts as a “campfire,” holding the feeling so kids can talk around it.
+              </p>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+              <div class="img-slot ratio-43" style="background-color:#1e293b;border-color:#1e293b;color:#94a3b8;">
+                [Slide: Curiosity · Ownership · Enjoyment]
+              </div>
+              <p class="caption text-slate-500 mt-2">
+                Our design rubric: curiosity, ownership, enjoyment.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+    </section>
+
+  </main>
+</div>
 
 </body>
 </html>
