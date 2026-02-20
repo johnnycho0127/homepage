@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         #tsparticles-header {
@@ -21,6 +21,13 @@
             0% { background-color: rgba(45, 212, 191, 0.2); }
             100% { background-color: transparent; }
         }
+        .reflection-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #2dd4bf;
+            padding: 1.25rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-style: italic;
+        }
     </style>
 </head>
     
@@ -30,139 +37,244 @@
             <div id="tsparticles-header"></div>
             <div class="relative z-10 flex flex-col justify-between h-full">
                 <div>
-                    <div class="mt-8 md:mt-0 text-center">
-                        <div class="flex justify-center space-x-4 mb-6">
-                            <a href="CV__Yeonhee_Cho__Johnny.pdf" download class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors">CV</a>
-                            <a href="https://scholar.google.com" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors shadow-lg">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9 12 9s-5.548 2.249-6.758 4.769zM12 10c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5c1.022 0 1.888-.622 2.296-1.5H12v-1.5h4.496c.004.167.004.334.004.5c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5S9.515 10 12 10z"/></svg>
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" class="w-10 h-10 flex items-center justify-center bg-slate-600 text-slate-300 rounded-full hover:bg-teal-400 hover:text-white transition-colors shadow-lg">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                        </div>
+                    <div class="text-center">
                         <img class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl object-cover border-4 border-slate-700" src="test.png" alt="Profile" onerror="this.src='https://placehold.co/128x128/27272a/e4e4e7?text=YC';">
-                        <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-50">Johnny Cho</h1>
-                        <p class="text-lg text-slate-300 mt-3">Ph.D. Candidate @ iSchool, UW</p>
+                        <h1 class="text-3xl font-extrabold text-slate-50">Johnny Cho</h1>
+                        <p class="text-sm text-slate-400 mt-2 uppercase tracking-widest font-bold">AI Research Tools</p>
                     </div>
-                    <div class="space-y-2 mt-10">
-                        <h3 class="text-sm font-bold tracking-widest text-slate-300 uppercase mb-3 text-left">Navigation</h3>
-                        <a href="https://johnnycho.info" class="block w-full text-center text-xs bg-slate-700 text-slate-200 font-semibold px-3 py-2 rounded-lg hover:bg-teal-500 transition-all mb-2">← Back to Portfolio</a>
+                    <div class="mt-10">
+                        <a href="https://johnnycho0127.github.io/" class="block w-full py-3 bg-slate-700 text-slate-200 rounded-lg hover:bg-teal-500 transition-all font-bold text-sm">← Back to Portfolio</a>
                     </div>
                 </div>
+                <footer class="text-slate-500 text-xs">
+                    &copy; 2026 Johnny Cho
+                </footer>
             </div>
         </header>
 
         <main class="md:w-2/3 lg:w-3/4 p-8 lg:p-12 bg-slate-50">
-            <header class="mb-12">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4">🔖 AI Research Tool Index</h2>
-                <p class="text-lg text-slate-600">A curated collection of AI-powered tools I use for academic research, literature review, and knowledge management.</p>
-            </header>
+            <div class="mb-12">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">🔖 Tool Index</h2>
+                <p class="text-lg text-slate-600">개인적인 연구 워크플로우를 위해 큐레이션된 AI 학술 도구 모음입니다.</p>
+            </div>
 
-            <section class="mb-16">
+            <section class="mb-20">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <a href="#elicit" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Scanning</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Elicit</span>
-                    </a>
-                    <a href="#researchrabbit" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Networking</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">ResearchRabbit</span>
-                    </a>
-                    <a href="#semanticscholar" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Search</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Semantic Scholar</span>
-                    </a>
-                    <a href="#scite" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Citations</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Scite.ai</span>
-                    </a>
-                    <a href="#connectedpapers" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Mapping</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Connected Papers</span>
-                    </a>
-                    <a href="#litmaps" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Evolution</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Litmaps</span>
-                    </a>
-                    <a href="#consensus" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Evidence</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Consensus</span>
-                    </a>
-                    <a href="#perplexity" class="bg-white p-4 hover:bg-slate-50 transition-colors text-center group">
-                        <span class="block text-xs font-bold text-slate-400 uppercase mb-1">Fact-check</span>
-                        <span class="text-sm font-bold text-slate-800 group-hover:text-teal-600">Perplexity</span>
-                    </a>
-                </div>
+                    <a href="#elicit" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Elicit</a>
+                    <a href="#researchrabbit" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">ResearchRabbit</a>
+                    <a href="#semanticscholar" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Semantic Scholar</a>
+                    <a href="#scite" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Scite</a>
+                    <a href="#connectedpapers" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Connected Papers</a>
+                    <a href="#litmaps" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Litmaps</a>
+                    <a href="#openalex" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">OpenAlex</a>
+                    <a href="#consensus" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Consensus</a>
+                    <a href="#perplexity" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Perplexity</a>
+                    <a href="#liner" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Liner</a>
+                    <a href="#scispace" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">SciSpace</a>
+                    <a href="#scholarcy" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Scholarcy</a>
+                    <a href="#explainpaper" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Explainpaper</a>
+                    <a href="#chatpdf" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">ChatPDF</a>
+                    <a href="#askyourpdf" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">AskYourPDF</a>
+                    <a href="#notebooklm" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">NotebookLM</a>
+                    <a href="#keenious" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Keenious</a>
+                    <a href="#rayyan" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Rayyan</a>
+                    <a href="#undermind" class="bg-white p-3 hover:bg-slate-50 text-center text-xs font-bold text-slate-700">Undermind</a>
+                    <div class="bg-slate-100 p-3"></div> </div>
             </section>
 
-            <div class="space-y-24 blog-content">
+            <div class="space-y-20 blog-content">
                 
-                <article id="elicit" class="tool-anchor scroll-mt-20">
-                    <div class="flex items-baseline space-x-4 mb-4">
-                        <h3 class="text-2xl font-bold text-slate-900 underline decoration-teal-400 decoration-4 underline-offset-8">🔎 Elicit</h3>
-                        <a href="https://elicit.com" target="_blank" class="text-sm font-mono text-teal-600 hover:text-teal-400 transition-colors">https://elicit.com</a>
+                <article id="elicit" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🔎 Elicit</h3>
+                        <a href="https://elicit.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://elicit.com</a>
                     </div>
-                    <div class="border-l-4 border-slate-200 pl-8 py-2">
-                        <p>
-                            I use <strong>Elicit</strong> for quick, early-stage literature scanning. It’s remarkably efficient at automating the tedious parts of a literature review, such as extracting key data points from dozens of papers simultaneously.
-                        </p>
-                        <p class="bg-slate-100 p-4 rounded-lg italic text-slate-700">
-                            "My take: It saves a tremendous amount of time with summaries, but I treat it strictly as a mapping tool. It is never a replacement for reading the originals, but it tells me exactly which ones are worth my deep attention."
-                        </p>
+                    <div class="reflection-box">
+                        I use Elicit for quick, early-stage literature scanning. It saves time with summaries, but I treat it as a mapping tool, not a replacement for reading the originals.
                     </div>
                 </article>
 
-                <article id="researchrabbit" class="tool-anchor scroll-mt-20">
-                    <div class="flex items-baseline space-x-4 mb-4">
-                        <h3 class="text-2xl font-bold text-slate-900 underline decoration-teal-400 decoration-4 underline-offset-8">🧭 ResearchRabbit</h3>
-                        <a href="https://www.researchrabbit.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:text-teal-400 transition-colors">https://www.researchrabbit.ai</a>
+                <article id="researchrabbit" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🧭 ResearchRabbit</h3>
+                        <a href="https://www.researchrabbit.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.researchrabbit.ai</a>
                     </div>
-                    <div class="border-l-4 border-slate-200 pl-8 py-2">
-                        <p>
-                            <strong>ResearchRabbit</strong> is often called the "Spotify for Papers." It’s brilliant for visualizing citation networks and exploring how different authors and papers connect in a specific field’s landscape. 
-                        </p>
-                        <p class="bg-slate-100 p-4 rounded-lg italic text-slate-700">
-                            "My take: It works best when you already have a 'seed paper' to start from. Once you drop a relevant paper in, the rabbit hole it creates is incredibly visual and helpful for finding those hidden seminal works."
-                        </p>
+                    <div class="reflection-box">
+                        Great for visualizing citation networks and exploring a field’s landscape, but it works best when you already have a seed paper to start from.
                     </div>
                 </article>
 
-                <article id="scite" class="tool-anchor scroll-mt-20">
-                    <div class="flex items-baseline space-x-4 mb-4">
-                        <h3 class="text-2xl font-bold text-slate-900 underline decoration-teal-400 decoration-4 underline-offset-8">📊 Scite.ai</h3>
-                        <a href="https://scite.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:text-teal-400 transition-colors">https://scite.ai</a>
+                <article id="semanticscholar" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📚 Semantic Scholar</h3>
+                        <a href="https://www.semanticscholar.org" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.semanticscholar.org</a>
                     </div>
-                    <div class="border-l-4 border-slate-200 pl-8 py-2">
-                        <p>
-                            The strength of <strong>Scite</strong> lies in its "Smart Citations." It doesn't just tell you how many people cited a paper, but <em>how</em> they cited it—whether they supported the claims, provided contrasting evidence, or just mentioned it.
-                        </p>
-                        <p class="bg-slate-100 p-4 rounded-lg italic text-slate-700">
-                            "My take: Very useful for seeing the 'reputation' of a paper in real-time. However, I still double-check the context because AI classifications of 'contradicting' or 'supporting' aren’t always perfect."
-                        </p>
+                    <div class="reflection-box">
+                        A solid free academic search engine with helpful AI features, though its coverage feels stronger in STEM than in humanities or social sciences.
                     </div>
                 </article>
 
-                <article id="notebooklm" class="tool-anchor scroll-mt-20">
-                    <div class="flex items-baseline space-x-4 mb-4">
-                        <h3 class="text-2xl font-bold text-slate-900 underline decoration-teal-400 decoration-4 underline-offset-8">📓 NotebookLM</h3>
-                        <a href="https://notebooklm.google.com" target="_blank" class="text-sm font-mono text-teal-600 hover:text-teal-400 transition-colors">https://notebooklm.google.com</a>
+                <article id="scite" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📊 Scite</h3>
+                        <a href="https://scite.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://scite.ai</a>
                     </div>
-                    <div class="border-l-4 border-slate-200 pl-8 py-2">
-                        <p>
-                            Google's <strong>NotebookLM</strong> has recently become a core part of my synthesis workflow. By uploading my own PDFs and notes, I can "chat" with my specific library without worrying about the AI hallucinating from the general web.
-                        </p>
-                        <p class="bg-slate-100 p-4 rounded-lg italic text-slate-700">
-                            "My take: It’s powerful for synthesizing information across multiple complex documents. It still feels experimental, but for grounded Q&A, it’s currently one of the best."
-                        </p>
+                    <div class="reflection-box">
+                        Very useful for seeing whether a paper is supported or criticized by others, but I still double-check because the classifications aren’t always perfect.
                     </div>
                 </article>
 
-                </div>
+                <article id="connectedpapers" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🗺 Connected Papers</h3>
+                        <a href="https://www.connectedpapers.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.connectedpapers.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Excellent for quickly understanding a research area from one key paper, though the free version is quite limited.
+                    </div>
+                </article>
 
-            <footer class="mt-32 pt-12 border-t border-slate-200 text-center text-slate-400 text-sm">
-                <p>&copy; 2026 Johnny Cho. All tool reviews are based on personal academic workflow.</p>
-                <p class="mt-2">Built with Tailwind CSS & Inter.</p>
-            </footer>
+                <article id="litmaps" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🕰 Litmaps</h3>
+                        <a href="https://www.litmaps.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.litmaps.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Helpful for tracking how a field evolves over time, but it takes some effort to learn the interface and set it up well.
+                    </div>
+                </article>
+
+                <article id="openalex" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🌐 OpenAlex</h3>
+                        <a href="https://openalex.org/" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://openalex.org/</a>
+                    </div>
+                    <div class="reflection-box">
+                        Great for open, large-scale academic data exploration, though it’s clearly more for researchers than for casual users.
+                    </div>
+                </article>
+
+                <article id="consensus" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🧠 Consensus</h3>
+                        <a href="https://consensus.app" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://consensus.app</a>
+                    </div>
+                    <div class="reflection-box">
+                        Useful for quick, evidence-based answers to research questions, but complex topics often get oversimplified.
+                    </div>
+                </article>
+
+                <article id="perplexity" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🔍 Perplexity</h3>
+                        <a href="https://www.perplexity.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.perplexity.ai</a>
+                    </div>
+                    <div class="reflection-box">
+                        Good for fast fact-finding with sources, but since it mixes web and academic content, I’m cautious about using it for serious research.
+                    </div>
+                </article>
+
+                <article id="liner" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🌐 Liner</h3>
+                        <a href="https://getliner.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://getliner.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Good for highlighting and source-checking web content, though it’s more for general research than academic literature.
+                    </div>
+                </article>
+
+                <article id="scispace" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📄 SciSpace</h3>
+                        <a href="https://www.scispace.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.scispace.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Very helpful for asking questions directly about a PDF, though I never fully trust it without checking the original text.
+                    </div>
+                </article>
+
+                <article id="scholarcy" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🗂 Scholarcy</h3>
+                        <a href="https://www.scholarcy.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.scholarcy.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Great for rapid screening of many papers, but the summaries can feel too surface-level for deeper understanding.
+                    </div>
+                </article>
+
+                <article id="explainpaper" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🧾 Explainpaper</h3>
+                        <a href="https://www.explainpaper.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.explainpaper.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Nice for simplifying difficult paragraphs, but it works better for small sections than for understanding a whole paper.
+                    </div>
+                </article>
+
+                <article id="chatpdf" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📎 ChatPDF</h3>
+                        <a href="https://www.chatpdf.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.chatpdf.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Useful for quick, interactive reading, but long or complex papers often get oversimplified.
+                    </div>
+                </article>
+
+                <article id="askyourpdf" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📎 AskYourPDF</h3>
+                        <a href="https://askyourpdf.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://askyourpdf.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Good for quick Q&A with PDFs, but it can miss nuances in longer or more technical papers.
+                    </div>
+                </article>
+
+                <article id="notebooklm" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">📓 NotebookLM</h3>
+                        <a href="https://notebooklm.google.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://notebooklm.google.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Interesting for working with multiple documents at once, though it still feels more experimental than research-focused.
+                    </div>
+                </article>
+
+                <article id="keenious" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">✍️ Keenious</h3>
+                        <a href="https://www.keenious.com" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.keenious.com</a>
+                    </div>
+                    <div class="reflection-box">
+                        Nice for getting references while writing, though I’m cautious about uploading drafts and trusting the recommendations too much.
+                    </div>
+                </article>
+
+                <article id="rayyan" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🗂 Rayyan</h3>
+                        <a href="https://www.rayyan.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://www.rayyan.ai</a>
+                    </div>
+                    <div class="reflection-box">
+                        Great for managing systematic review screening, but it’s more about workflow than about AI-driven insight.
+                    </div>
+                </article>
+
+                <article id="undermind" class="tool-anchor scroll-mt-24">
+                    <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">🧠 Undermind</h3>
+                        <a href="https://undermind.ai" target="_blank" class="text-sm font-mono text-teal-600 hover:underline">https://undermind.ai</a>
+                    </div>
+                    <div class="reflection-box">
+                        I like that it explains why papers are related, but it still feels like an emerging tool with limited coverage.
+                    </div>
+                </article>
+
+            </div>
         </main>
     </div>
 
