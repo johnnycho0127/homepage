@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowchart Shapes Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e12;
+    --surface: #16161e;
+    --card: #1e1e2a;
+    --border: #2a2a3a;
+    --accent: #f5c542;
+    --accent2: #5b8cff;
+    --accent3: #ff6b6b;
+    --accent4: #5ddb8f;
+    --accent5: #c97bff;
+    --text: #e8e8f0;
+    --muted: #8888a0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 0 0 80px;
+  }
+
+  header {
+    background: linear-gradient(135deg, #0e0e12 0%, #1a1020 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,66,0.08) 0%, transparent 70%);
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(245,197,66,0.3);
+  }
+
+  header p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 600px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 14px;
+    margin: 48px 0 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--accent));
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-accent, var(--accent));
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .shape-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+
+  .shape-display svg {
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  }
+
+  .card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    color: var(--card-accent, var(--accent));
+    margin-bottom: 6px;
+  }
+
+  .shape-code {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    background: rgba(0,0,0,0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: #b0b0c8;
+    line-height: 1.7;
+  }
+
+  .example-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.78rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--muted);
+  }
+
+  .example-tag strong {
+    color: var(--card-accent, var(--accent));
+    font-weight: 600;
+  }
+
+  /* Demo Flowchart Section */
+  .demo-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-top: 24px;
+  }
+
+  .demo-section h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: var(--accent2);
+    margin-bottom: 24px;
+  }
+
+  .demo-section p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .flow-svg-wrap {
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+
+  /* Arrow legend */
+  .arrow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .arrow-card {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .arrow-card .arrow-label {
+    font-size: 0.85rem;
+    color: #b0b0c8;
+  }
+
+  .arrow-card .arrow-name {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: rgba(245,197,66,0.1);
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(42,42,58,0.6);
+    color: #b0b0c8;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  td:first-child { color: var(--text); font-weight: 600; }
+
+  .tip-box {
+    background: rgba(91,140,255,0.08);
+    border: 1px solid rgba(91,140,255,0.25);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-top: 32px;
+    font-size: 0.88rem;
+    color: #a0b4e8;
+  }
+
+  .tip-box strong { color: var(--accent2); }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">STUDENT REFERENCE GUIDE</div>
+  <h1>Flowchart Shapes</h1>
+  <p>A complete visual reference of every standard flowchart symbol — what each shape means, when to use it, and real examples.</p>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════ CORE SHAPES ═══════════════════════ -->
+  <div class="section-title">Core Flowchart Shapes</div>
+  <div class="grid">
+
+    <!-- Terminator -->
+    <div class="card" style="--card-accent: #f5c542;">
+      <div class="shape-display">
+        <svg width="180" height="60" viewBox="0 0 180 60">
+          <rect x="2" y="5" width="176" height="50" rx="25" ry="25" fill="none" stroke="#f5c542" stroke-width="2.5"/>
+          <text x="90" y="35" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="15" letter-spacing="2">START / END</text>
+        </svg>
+      </div>
+      <h3>Oval / Rounded Rectangle</h3>
+      <span class="shape-code">TERMINATOR</span>
+      <p>Marks the <strong>beginning</strong> or <strong>end</strong> of the entire flowchart. Every flowchart must have exactly one Start and at least one End (also called "Stop" or "Exit").</p>
+      <span class="example-tag"><strong>Examples:</strong> "Start", "Begin", "End", "Stop", "Exit Program"</span>
+    </div>
+
+    <!-- Process -->
+    <div class="card" style="--card-accent: #5b8cff;">
+      <div class="shape-display">
+        <svg width="180" height="60" viewBox="0 0 180 60">
+          <rect x="4" y="8" width="172" height="44" rx="4" ry="4" fill="none" stroke="#5b8cff" stroke-width="2.5"/>
+          <text x="90" y="35" text-anchor="middle" fill="#5b8cff" font-family="Bebas Neue,sans-serif" font-size="15" letter-spacing="2">PROCESS / ACTION</text>
+        </svg>
+      </div>
+      <h3>Rectangle</h3>
+      <span class="shape-code">PROCESS</span>
+      <p>Represents an <strong>action, task, or operation</strong> being performed. This is the most common shape in any flowchart. It does something — calculates, assigns, moves, prints, etc.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Add 1 to counter", "Save file", "Send email", "Calculate total"</span>
+    </div>
+
+    <!-- Decision -->
+    <div class="card" style="--card-accent: #ff6b6b;">
+      <div class="shape-display">
+        <svg width="140" height="80" viewBox="0 0 140 80">
+          <polygon points="70,4 136,40 70,76 4,40" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+          <text x="70" y="36" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="1.5">IS AGE</text>
+          <text x="70" y="52" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="1.5">≥ 18?</text>
+        </svg>
+      </div>
+      <h3>Diamond</h3>
+      <span class="shape-code">DECISION / BRANCH</span>
+      <p>A <strong>question or condition</strong> that creates a fork in the flow. It always has <strong>2 or more exits</strong> — typically labeled <em>Yes/No</em> or <em>True/False</em>. The flow takes different paths based on the answer.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Is x > 10?", "Password correct?", "File found?"</span>
+    </div>
+
+    <!-- Input/Output -->
+    <div class="card" style="--card-accent: #5ddb8f;">
+      <div class="shape-display">
+        <svg width="180" height="60" viewBox="0 0 180 60">
+          <polygon points="22,8 176,8 158,52 4,52" fill="none" stroke="#5ddb8f" stroke-width="2.5"/>
+          <text x="90" y="35" text-anchor="middle" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="2">INPUT / OUTPUT</text>
+        </svg>
+      </div>
+      <h3>Parallelogram</h3>
+      <span class="shape-code">INPUT / OUTPUT (I/O)</span>
+      <p>Represents <strong>data entering or leaving</strong> the system. Input: reading data (keyboard, file, sensor). Output: displaying or printing data (screen, report, file). The same shape is used for both.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Read user name", "Print invoice", "Get temperature", "Display result"</span>
+    </div>
+
+    <!-- Document -->
+    <div class="card" style="--card-accent: #c97bff;">
+      <div class="shape-display">
+        <svg width="150" height="75" viewBox="0 0 150 75">
+          <path d="M4,4 H146 V58 Q112,74 75,58 Q38,42 4,58 Z" fill="none" stroke="#c97bff" stroke-width="2.5"/>
+          <text x="75" y="35" text-anchor="middle" fill="#c97bff" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="2">DOCUMENT</text>
+        </svg>
+      </div>
+      <h3>Document Shape</h3>
+      <span class="shape-code">DOCUMENT</span>
+      <p>Represents a <strong>physical or digital document</strong> being created, read, or referenced. The wavy bottom edge distinguishes it from a plain rectangle. Used in business workflows more than coding flowcharts.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Print report", "Generate PDF invoice", "Read instruction manual"</span>
+    </div>
+
+    <!-- Subroutine -->
+    <div class="card" style="--card-accent: #f5c542;">
+      <div class="shape-display">
+        <svg width="180" height="60" viewBox="0 0 180 60">
+          <rect x="4" y="8" width="172" height="44" rx="3" fill="none" stroke="#f5c542" stroke-width="2.5"/>
+          <line x1="22" y1="8" x2="22" y2="52" stroke="#f5c542" stroke-width="2"/>
+          <line x1="158" y1="8" x2="158" y2="52" stroke="#f5c542" stroke-width="2"/>
+          <text x="90" y="35" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="13" letter-spacing="1.5">CALL FUNCTION</text>
+        </svg>
+      </div>
+      <h3>Rectangle with Double Side Bars</h3>
+      <span class="shape-code">SUBROUTINE / PREDEFINED PROCESS</span>
+      <p>Calls a <strong>separate process, function, or module</strong> that is defined elsewhere. This avoids redrawing complex logic by simply referencing the named procedure. The vertical bars on both sides signal "this step expands into its own flowchart."</p>
+      <span class="example-tag"><strong>Examples:</strong> "validateLogin()", "calculateTax()", "sendEmail()"</span>
+    </div>
+
+    <!-- Database/Storage -->
+    <div class="card" style="--card-accent: #5b8cff;">
+      <div class="shape-display">
+        <svg width="120" height="80" viewBox="0 0 120 80">
+          <ellipse cx="60" cy="18" rx="52" ry="14" fill="none" stroke="#5b8cff" stroke-width="2.5"/>
+          <line x1="8" y1="18" x2="8" y2="62" stroke="#5b8cff" stroke-width="2.5"/>
+          <line x1="112" y1="18" x2="112" y2="62" stroke="#5b8cff" stroke-width="2.5"/>
+          <path d="M8,62 Q60,76 112,62" fill="none" stroke="#5b8cff" stroke-width="2.5"/>
+          <text x="60" y="47" text-anchor="middle" fill="#5b8cff" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1.5">DATABASE</text>
+        </svg>
+      </div>
+      <h3>Cylinder</h3>
+      <span class="shape-code">DATABASE / STORED DATA</span>
+      <p>Represents <strong>data storage</strong> — a database, disk, file system, or any persistent store. Used whenever data is read from or written to a storage system.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Query customer DB", "Write log to disk", "Fetch from cache"</span>
+    </div>
+
+    <!-- Manual Input -->
+    <div class="card" style="--card-accent: #ff6b6b;">
+      <div class="shape-display">
+        <svg width="180" height="65" viewBox="0 0 180 65">
+          <polygon points="4,18 176,4 176,61 4,61" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+          <text x="90" y="38" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1.5">MANUAL INPUT</text>
+        </svg>
+      </div>
+      <h3>Slanted-Top Rectangle</h3>
+      <span class="shape-code">MANUAL INPUT</span>
+      <p>Specifically indicates a <strong>human manually entering data</strong>, such as typing on a keyboard. Distinguished from a plain I/O parallelogram by the slanted top edge.</p>
+      <span class="example-tag"><strong>Examples:</strong> "User types password", "Operator enters quantity"</span>
+    </div>
+
+    <!-- Connector -->
+    <div class="card" style="--card-accent: #5ddb8f;">
+      <div class="shape-display">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="34" fill="none" stroke="#5ddb8f" stroke-width="2.5"/>
+          <text x="40" y="46" text-anchor="middle" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="22">A</text>
+        </svg>
+      </div>
+      <h3>Circle / Small Circle</h3>
+      <span class="shape-code">CONNECTOR / ON-PAGE REFERENCE</span>
+      <p>Used when a flow line needs to <strong>continue somewhere else on the same page</strong> to avoid messy crossing lines. Two circles with the same letter/number are connected — one exits, one enters at a different location.</p>
+      <span class="example-tag"><strong>Examples:</strong> "A" circle leading from one column to another column on the same page</span>
+    </div>
+
+    <!-- Off-page connector -->
+    <div class="card" style="--card-accent: #c97bff;">
+      <div class="shape-display">
+        <svg width="80" height="85" viewBox="0 0 80 85">
+          <polygon points="4,4 76,4 76,58 40,80 4,58" fill="none" stroke="#c97bff" stroke-width="2.5"/>
+          <text x="40" y="38" text-anchor="middle" fill="#c97bff" font-family="Bebas Neue,sans-serif" font-size="20">B</text>
+        </svg>
+      </div>
+      <h3>Pentagon / Home Plate</h3>
+      <span class="shape-code">OFF-PAGE CONNECTOR</span>
+      <p>Connects to a <strong>matching shape on a different page</strong> of a multi-page flowchart. Prevents flow lines from spanning multiple pages. The matching label (letter/number) identifies the pair.</p>
+      <span class="example-tag"><strong>Examples:</strong> Flow continues on "Page 2, Shape B"</span>
+    </div>
+
+    <!-- Delay -->
+    <div class="card" style="--card-accent: #f5c542;">
+      <div class="shape-display">
+        <svg width="170" height="60" viewBox="0 0 170 60">
+          <path d="M4,8 H120 Q166,8 166,30 Q166,52 120,52 H4 Z" fill="none" stroke="#f5c542" stroke-width="2.5"/>
+          <text x="80" y="35" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="2">DELAY / WAIT</text>
+        </svg>
+      </div>
+      <h3>D-Shape / Half-Oval</h3>
+      <span class="shape-code">DELAY</span>
+      <p>Represents a <strong>deliberate pause or wait period</strong> in the process — waiting for a timer, approval, external event, or resource availability. Common in manufacturing and business workflows.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Wait 24 hours", "Await approval", "Sleep 5 seconds"</span>
+    </div>
+
+    <!-- Preparation -->
+    <div class="card" style="--card-accent: #5b8cff;">
+      <div class="shape-display">
+        <svg width="180" height="60" viewBox="0 0 180 60">
+          <polygon points="30,8 150,8 176,30 150,52 30,52 4,30" fill="none" stroke="#5b8cff" stroke-width="2.5"/>
+          <text x="90" y="35" text-anchor="middle" fill="#5b8cff" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="2">INITIALIZATION</text>
+        </svg>
+      </div>
+      <h3>Hexagon</h3>
+      <span class="shape-code">PREPARATION / INITIALIZATION</span>
+      <p>Indicates a <strong>setup step or loop initialization</strong> — setting a variable before a loop begins, configuring environment, or any preparatory step distinct from a regular process.</p>
+      <span class="example-tag"><strong>Examples:</strong> "Set counter = 0", "Initialize array", "Open connection"</span>
+    </div>
+
+  </div><!-- /grid -->
+
+
+  <!-- ═══════════════════════ ARROWS ═══════════════════════ -->
+  <div class="section-title">Arrows &amp; Flow Lines</div>
+  <div class="demo-section">
+    <h3>Types of Connecting Lines</h3>
+    <p>Arrows show the direction of flow between shapes. Never draw a flowchart without clear arrowheads!</p>
+    <div class="arrow-grid">
+
+      <div class="arrow-card">
+        <svg width="70" height="30">
+          <defs><marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f5c542"/></marker></defs>
+          <line x1="4" y1="15" x2="62" y2="15" stroke="#f5c542" stroke-width="2" marker-end="url(#a1)"/>
+        </svg>
+        <div>
+          <div class="arrow-label">Solid Arrow</div>
+          <div class="arrow-name">Normal flow direction</div>
+        </div>
+      </div>
+
+      <div class="arrow-card">
+        <svg width="70" height="30">
+          <defs><marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ff6b6b"/></marker></defs>
+          <line x1="4" y1="15" x2="62" y2="15" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#a2)"/>
+        </svg>
+        <div>
+          <div class="arrow-label">Dashed Arrow</div>
+          <div class="arrow-name">Optional / conditional path</div>
+        </div>
+      </div>
+
+      <div class="arrow-card">
+        <svg width="70" height="30">
+          <defs><marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5ddb8f"/></marker></defs>
+          <path d="M4,15 Q35,2 62,15" fill="none" stroke="#5ddb8f" stroke-width="2" marker-end="url(#a3)"/>
+        </svg>
+        <div>
+          <div class="arrow-label">Curved Arrow</div>
+          <div class="arrow-name">Loop back / return path</div>
+        </div>
+      </div>
+
+      <div class="arrow-card">
+        <svg width="70" height="30">
+          <defs>
+            <marker id="a4s" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c97bff"/></marker>
+            <marker id="a4e" markerWidth="8" markerHeight="8" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#c97bff"/></marker>
+          </defs>
+          <line x1="4" y1="15" x2="62" y2="15" stroke="#c97bff" stroke-width="2" marker-start="url(#a4e)" marker-end="url(#a4s)"/>
+        </svg>
+        <div>
+          <div class="arrow-label">Bidirectional Arrow</div>
+          <div class="arrow-name">Two-way data exchange</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ QUICK REFERENCE TABLE ═══════════════════════ -->
+  <div class="section-title">Quick Reference Table</div>
+  <div class="demo-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Shape</th>
+          <th>Name</th>
+          <th>Used For</th>
+          <th>Tip</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Oval</td><td>Terminator</td><td>Start / End</td><td>Every flowchart needs exactly one Start</td></tr>
+        <tr><td>Rectangle</td><td>Process</td><td>Action / Computation</td><td>Most frequently used shape</td></tr>
+        <tr><td>Diamond</td><td>Decision</td><td>Yes/No question</td><td>Always label both exit paths</td></tr>
+        <tr><td>Parallelogram</td><td>I/O</td><td>Input or Output</td><td>Same shape for both read and write</td></tr>
+        <tr><td>Document</td><td>Document</td><td>Reports, files</td><td>Common in business flowcharts</td></tr>
+        <tr><td>Double-bar rect</td><td>Subroutine</td><td>Call a function</td><td>Defined in a separate flowchart</td></tr>
+        <tr><td>Cylinder</td><td>Database</td><td>Stored data</td><td>Think "hard drive / database"</td></tr>
+        <tr><td>Slanted-top rect</td><td>Manual Input</td><td>Human keyboard entry</td><td>Specifically for human interaction</td></tr>
+        <tr><td>Small Circle</td><td>On-page Connector</td><td>Continue on same page</td><td>Avoids crossing lines</td></tr>
+        <tr><td>Pentagon</td><td>Off-page Connector</td><td>Continue on another page</td><td>Use matching labels (A, B, 1, 2…)</td></tr>
+        <tr><td>D-Shape</td><td>Delay</td><td>Wait / pause</td><td>Common in manufacturing flows</td></tr>
+        <tr><td>Hexagon</td><td>Preparation</td><td>Loop setup / init</td><td>Sets variables before loops</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════ EXAMPLE FLOWCHART ═══════════════════════ -->
+  <div class="section-title">Example: Login Process Flowchart</div>
+  <div class="demo-section">
+    <h3>See How the Shapes Work Together</h3>
+    <p>This diagram shows a typical user login process using the shapes described above.</p>
+    <div class="flow-svg-wrap">
+      <svg width="520" height="780" viewBox="0 0 520 780" style="display:block; margin:0 auto;">
+        <defs>
+          <marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#8888a0"/>
+          </marker>
+          <marker id="arr-y" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#5ddb8f"/>
+          </marker>
+          <marker id="arr-n" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#ff6b6b"/>
+          </marker>
+        </defs>
+
+        <!-- START -->
+        <rect x="160" y="10" width="200" height="44" rx="22" ry="22" fill="none" stroke="#f5c542" stroke-width="2"/>
+        <text x="260" y="37" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="2">START</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="54" x2="260" y2="88" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- Input: Enter credentials -->
+        <polygon points="178,90 342,90 326,134 162,134" fill="none" stroke="#5ddb8f" stroke-width="2"/>
+        <text x="260" y="116" text-anchor="middle" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1">ENTER USERNAME</text>
+        <text x="260" y="130" text-anchor="middle" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1">&amp; PASSWORD</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="134" x2="260" y2="168" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- Subroutine: Validate -->
+        <rect x="148" y="170" width="224" height="44" rx="3" fill="none" stroke="#f5c542" stroke-width="2"/>
+        <line x1="166" y1="170" x2="166" y2="214" stroke="#f5c542" stroke-width="2"/>
+        <line x1="354" y1="170" x2="354" y2="214" stroke="#f5c542" stroke-width="2"/>
+        <text x="260" y="196" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1">validateCredentials()</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="214" x2="260" y2="254" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- Decision: Valid? -->
+        <polygon points="260,256 358,300 260,344 162,300" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+        <text x="260" y="296" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="12">CREDENTIALS</text>
+        <text x="260" y="312" text-anchor="middle" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="12">VALID?</text>
+
+        <!-- YES arrow down -->
+        <line x1="260" y1="344" x2="260" y2="388" stroke="#5ddb8f" stroke-width="1.8" marker-end="url(#arr-y)"/>
+        <text x="270" y="370" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="11">YES</text>
+
+        <!-- NO arrow right -->
+        <line x1="358" y1="300" x2="420" y2="300" stroke="#ff6b6b" stroke-width="1.8"/>
+        <line x1="420" y1="300" x2="420" y2="140" stroke="#ff6b6b" stroke-width="1.8"/>
+        <line x1="420" y1="140" x2="344" y2="140" stroke="#ff6b6b" stroke-width="1.8" marker-end="url(#arr-n)"/>
+        <text x="366" y="292" fill="#ff6b6b" font-family="Bebas Neue,sans-serif" font-size="11">NO</text>
+        <text x="425" y="225" fill="#ff6b6b" font-family="Source Sans 3,sans-serif" font-size="10">retry</text>
+
+        <!-- Process: Load dashboard -->
+        <rect x="170" y="390" width="180" height="44" rx="3" fill="none" stroke="#5b8cff" stroke-width="2"/>
+        <text x="260" y="417" text-anchor="middle" fill="#5b8cff" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1">LOAD DASHBOARD</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="434" x2="260" y2="474" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- DB: Fetch user data -->
+        <ellipse cx="260" cy="490" rx="90" ry="14" fill="none" stroke="#5b8cff" stroke-width="2"/>
+        <line x1="170" y1="490" x2="170" y2="530" stroke="#5b8cff" stroke-width="2"/>
+        <line x1="350" y1="490" x2="350" y2="530" stroke="#5b8cff" stroke-width="2"/>
+        <path d="M170,530 Q260,544 350,530" fill="none" stroke="#5b8cff" stroke-width="2"/>
+        <text x="260" y="515" text-anchor="middle" fill="#5b8cff" font-family="Bebas Neue,sans-serif" font-size="11" letter-spacing="1">FETCH USER DATA</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="544" x2="260" y2="580" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- Output: Display -->
+        <polygon points="178,582 342,582 326,626 162,626" fill="none" stroke="#5ddb8f" stroke-width="2"/>
+        <text x="260" y="610" text-anchor="middle" fill="#5ddb8f" font-family="Bebas Neue,sans-serif" font-size="12" letter-spacing="1">DISPLAY WELCOME</text>
+
+        <!-- Arrow -->
+        <line x1="260" y1="626" x2="260" y2="662" stroke="#8888a0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+        <!-- END -->
+        <rect x="160" y="664" width="200" height="44" rx="22" ry="22" fill="none" stroke="#f5c542" stroke-width="2"/>
+        <text x="260" y="691" text-anchor="middle" fill="#f5c542" font-family="Bebas Neue,sans-serif" font-size="14" letter-spacing="2">END</text>
+
+        <!-- Labels -->
+        <text x="30" y="113" fill="#5ddb8f" font-family="Source Sans 3,sans-serif" font-size="10">← Parallelogram</text>
+        <text x="30" y="197" fill="#f5c542" font-family="Source Sans 3,sans-serif" font-size="10">← Subroutine</text>
+        <text x="30" y="302" fill="#ff6b6b" font-family="Source Sans 3,sans-serif" font-size="10">← Diamond</text>
+        <text x="30" y="415" fill="#5b8cff" font-family="Source Sans 3,sans-serif" font-size="10">← Rectangle</text>
+        <text x="30" y="515" fill="#5b8cff" font-family="Source Sans 3,sans-serif" font-size="10">← Cylinder</text>
+        <text x="30" y="608" fill="#5ddb8f" font-family="Source Sans 3,sans-serif" font-size="10">← Parallelogram</text>
+        <text x="30" y="690" fill="#f5c542" font-family="Source Sans 3,sans-serif" font-size="10">← Oval</text>
+        <text x="30" y="37" fill="#f5c542" font-family="Source Sans 3,sans-serif" font-size="10">← Oval</text>
+      </svg>
+    </div>
+
+    <div class="tip-box" style="margin-top:20px;">
+      <strong>Reading the example:</strong> Start at the oval → Input credentials (parallelogram) → Call validateCredentials() subroutine (double-bar rectangle) → Decision diamond asks if valid → NO loops back to re-enter (red arrow) → YES continues down → Load dashboard (rectangle) → Fetch from database (cylinder) → Display result (parallelogram) → End (oval).
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ TIPS ═══════════════════════ -->
+  <div class="section-title">Golden Rules for Students</div>
+  <div class="demo-section">
+    <table>
+      <thead><tr><th>#</th><th>Rule</th><th>Why it Matters</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Always use an oval for Start and End</td><td>Without terminators, the flow has no defined entry/exit point</td></tr>
+        <tr><td>2</td><td>Label both exits of every diamond</td><td>An unlabeled branch causes confusion about which path to take</td></tr>
+        <tr><td>3</td><td>Flow should generally go top-to-bottom or left-to-right</td><td>Makes the diagram intuitive and easy to follow</td></tr>
+        <tr><td>4</td><td>Use arrowheads on every line</td><td>Without arrows, the direction of flow is ambiguous</td></tr>
+        <tr><td>5</td><td>One shape = one action or one decision</td><td>Crowding too many things into one shape loses clarity</td></tr>
+        <tr><td>6</td><td>Use connectors instead of crossing lines</td><td>Crossed lines are confusing and look unprofessional</td></tr>
+        <tr><td>7</td><td>Keep text inside shapes short and clear</td><td>Long text makes shapes hard to read at a glance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  Flowchart Shapes Reference Guide &nbsp;·&nbsp; Created for classroom use
+</footer>
+
+</body>
+</html>
